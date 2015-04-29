@@ -20,6 +20,7 @@ Installation:
   4. build in wrapper in your template (see index.php in example folder)
   
 Using:
-  wehn you need a login/out menu item, add a menu item named login or my login,
+
+  when you need a login/out menu item, add a menu item named login or my login,
   the name should contains login!!!
   it's necessary to activate the mod_login modul!!!
