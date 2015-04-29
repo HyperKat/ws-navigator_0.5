@@ -165,7 +165,8 @@
         },
         onToggle: function () {
             return false;
-        }
+        },
+		this.options.animStat: false
     };
 
     svgIcon.prototype._initEvents = function () {
@@ -186,8 +187,8 @@
     };
 
     svgIcon.prototype.toggle = function (motion) {
-        var ab=0;
-        if(ab==0)return;
+		// hack until i find the bubbling problem, sometimes the button close effect don't work!
+        if(!this.options.animStat)return;
         var self = this;
         for (var i = 0, len = this.config.animation.length; i < len; ++i) {
             var a = this.config.animation[i],

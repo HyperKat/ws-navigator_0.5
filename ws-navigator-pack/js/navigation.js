@@ -114,9 +114,8 @@
 
 
 
-        var ico = new svgIcon( document.querySelector( '.si-icons-easing .si-icon-hamburger-cross' ), svgIconConfig, { easing : mina.elastic, speed: 600 } );
+        var ico = new svgIcon( document.querySelector( '.si-icons-easing .si-icon-hamburger-cross' ), svgIconConfig, { easing : mina.elastic, speed: 600, animStat: false } );
         new mlPushMenu( document.getElementById( 'st-menu' ), document.getElementById( 'trigger' ), uiBtn, ico);
 
-        //new svgIcon( document.querySelector( '.si-icons-hover .si-icon-hamburger' ), svgIconConfig, { easing : mina.backin, evtoggle : 'mouseover', size : { w : 128, h : 128 } } );
     });
 })();
