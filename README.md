@@ -14,10 +14,11 @@ Next steps
   3. building a complete template for the modules
   
 Installation:
-  1. unzip folder
-  2. install the mod_wsnavigator.zip as joomla extension
-  3. add the scripts, fonts, images and stylesheet to your template root
-  4. build in wrapper in your template (see index.php in example folder)
+  1. save template / joomla
+  2. unzip folder
+  3. install the mod_wsnavigator.zip as joomla extension
+  4. add the scripts, fonts, images and stylesheet to your template root
+  5. build in wrapper in your template (see index.php in example folder)
   
 Using:
 
