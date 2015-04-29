@@ -24,12 +24,12 @@ $class_sfx	= htmlspecialchars($params->get('class_sfx'));
 $doc        = JFactory::getDocument();
 $app        = JFactory::getApplication();
 
-$doc->addScript(JURI::base() . '/templates/' . $app->getTemplate() . '/js/snap.svg-min.js');
-$doc->addScript(JURI::base() . '/templates/' . $app->getTemplate() . '/js/ws-navigator.js');
-$doc->addScript(JURI::base() . '/templates/' . $app->getTemplate() . '/js/navigation.js');
+$doc->addScript('/modules/mod_wsnavigator/js/snap.svg-min.js');
+$doc->addScript('/modules/mod_wsnavigator/js/ws-navigator.js');
+$doc->addScript('/templates/' . $app->getTemplate() . '/js/navigation.js');
 
 // Add Stylesheets
-$doc->addStyleSheet(JURI::base() . '/templates/' . $app->getTemplate() . '/css/navigation.css');
+$doc->addStyleSheet('/modules/mod_wsnavigator/css/navigation.css');
 if (count($list))
 {
     require JModuleHelper::getLayoutPath('mod_wsnavigator', $params->get('layout', 'default'));
