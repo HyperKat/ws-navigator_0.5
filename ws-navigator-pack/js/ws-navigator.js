@@ -166,7 +166,7 @@
         onToggle: function () {
             return false;
         },
-		this.options.animStat: false
+		animStat: false
     };
 
     svgIcon.prototype._initEvents = function () {
@@ -255,7 +255,7 @@
                 backClass: 'mp-back',
 
                 levelBg: {
-                    '1': '22, 22, 22, 0.90)',
+                    '1': '22, 22, 22, 0.90',
                     '2': '18, 38, 58, 1',
                     '3': '42, 84, 126, 1',
                     '4': '109, 124, 140, 1'
@@ -392,7 +392,7 @@
                         this._setTransform('translate3d(' + ((this.level - 1) * 40) + 'px,0,0)', this.levels[0]);
 						
 						// turn of bg transparence when open a sublevel
-						this.levels[0].style.backgroundColor = 'rgba('+this._changeRgbaTranspare(this.defaults.levelBg[depth],'1')+')';
+						this.levels[0].style.backgroundColor = 'rgba('+this._changeRgbaTranspare(this.defaults.levelBg['1'],'1')+')';
                     }
                 }
                 // add class st-menu-open to main wrapper if opening the first time
@@ -485,7 +485,7 @@
             _setTriggerPos: function (translateVal) {
                 this._setTransform('translate3d(' + translateVal + 'px,0,0)', this.trigger);
                 this.trigger.style.zIndex = (translateVal == 3)? 999: 99;
-                this.trigger.style.background = (translateVal != 3)? this.defaults.levelBg["1"]: '';
+                this.trigger.style.background = (translateVal != 3)? 'rgba('+this.defaults.levelBg["1"]+')': '';
             },
             _closeMorpher: function () {
                 if (!this.morphObject) return;
@@ -506,12 +506,12 @@
                 }
             },
 			_changeRgbaTranspare: function (rgbaCode, newOpacity) {
-				if(rgbaCode>=this.defaults.levelBg[rgbaCode].length || !parseFloat(newOpacity)) 
+				if(!rgbaCode && !parseFloat(newOpacity)) 
 					return false;
-				var rgba = this.defaults.levelBg[rgbaCode].split(',');
-				rgba[this.defaults.levelBg[rgbaCode].length-1] = newOpacity;
-				return rgba,join(',');
-			}
+				var rgba = rgbaCode.split(',');
+				rgba[rgba.length-1] = newOpacity;
+				return rgba.join(',');
+			},
             // removes classes mp-level-open from closing levels
             _toggleLevels: function () {
 
@@ -532,7 +532,7 @@
 
                 if (this.level < 2) {
                     this._showMorphButton();
-					this.levels[0].style.backgroundColor = 'rgba('+this._changeRgbaTranspare(this.defaults.levelBg[depth],'0.9')+')';
+					this.levels[0].style.backgroundColor = 'rgba('+this._changeRgbaTranspare(this.defaults.levelBg['1'],'0.9')+')';
 				}
 
             }
