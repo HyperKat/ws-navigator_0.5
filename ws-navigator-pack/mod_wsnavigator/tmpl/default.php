@@ -81,9 +81,10 @@ foreach ($list as $i => &$item)
         $direc[count($direc) -2] = "mod_login";
         $direc[count($direc) -1] = "mod_login.php";
         $newDirec = implode("/",$direc);
-
+		$r = (stripos($item->title,'login') !== false)? array('login', 'Login','LogIn', 'logIn'):array('logout', 'Logout','LogOut', 'logOut');
+		
         echo '<div id="morph-button" class="morph-button morph-button-modal morph-button-modal-2 morph-button-fixed">
-                <a id="morph-starter">' . $logged . '</a>
+                <a id="morph-starter">' . str_replace($r, $logged, $item->title) . '</a>
                 <div class="morph-content">
                     <div>
                         <div class="content-style-form content-style-form-1">
