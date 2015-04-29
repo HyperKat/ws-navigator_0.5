@@ -16,5 +16,5 @@ Next steps
 Installation:
   1. unzip folder
   2. install the mod_wsnavigator.zip as joomla extension
-  3. add the scripts and stylesheet to your template root
+  3. add the scripts, fonts, images and stylesheet to your template root
   4. build in wrapper in your template (see index.php in example folder)
