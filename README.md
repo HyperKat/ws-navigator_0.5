@@ -8,7 +8,8 @@ Don't rename the wrapper classes...
 
 Next steps 
   1. add responsive design to the menu css
-  2. building a complete template for the modules
+  2. add language to empty labels/fields
+  3. building a complete template for the modules
   
 Installation:
   1. unzip folder
