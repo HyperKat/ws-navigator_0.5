@@ -254,10 +254,10 @@
                 backClass: 'mp-back',
 
                 levelBg: {
-                    '1': 'rgba(22, 22, 22, 0.90)',
-                    '2': 'rgba(18, 38, 58, 1)',
-                    '3': 'rgba(42, 84, 126, 1)',
-                    '4': 'rgba(109, 124, 140, 1)'
+                    '1': '22, 22, 22, 0.90)',
+                    '2': '18, 38, 58, 1',
+                    '3': '42, 84, 126, 1',
+                    '4': '109, 124, 140, 1'
                 }
 
             },
@@ -274,7 +274,7 @@
                 var self = this;
                 this.levels.forEach(function (el, i) {
                     var depth = getLevelDepth(el, self.el.id, 'mp-level');
-                    el.style.backgroundColor = self.defaults.levelBg[depth];
+                    el.style.backgroundColor = 'rgba('+self.defaults.levelBg[depth]+')';
                     el.setAttribute('data-level', depth);
                 });
                 // the menu items
@@ -389,6 +389,9 @@
                         this._setTransform('', this.levels[0]);
                         this._setTriggerPos(this.trigOffOpen + ((this.level - 1) * 40));
                         this._setTransform('translate3d(' + ((this.level - 1) * 40) + 'px,0,0)', this.levels[0]);
+						
+						// turn of bg transparence when open a sublevel
+						this.levels[0].style.backgroundColor = 'rgba('+this._changeRgbaTranspare(this.defaults.levelBg[depth],'1')+')';
                     }
                 }
                 // add class st-menu-open to main wrapper if opening the first time
@@ -501,6 +504,13 @@
                     this.morphObject.el.style.display = 'block';
                 }
             },
+			_changeRgbaTranspare: function (rgbaCode, newOpacity) {
+				if(rgbaCode>=this.defaults.levelBg[rgbaCode].length || !parseFloat(newOpacity)) 
+					return false;
+				var rgba = this.defaults.levelBg[rgbaCode].split(',');
+				rgba[this.defaults.levelBg[rgbaCode].length-1] = newOpacity;
+				return rgba,join(',');
+			}
             // removes classes mp-level-open from closing levels
             _toggleLevels: function () {
 
@@ -519,9 +529,10 @@
                     }
                 }
 
-                if (this.level < 2)
+                if (this.level < 2) {
                     this._showMorphButton();
-
+					this.levels[0].style.backgroundColor = 'rgba('+this._changeRgbaTranspare(this.defaults.levelBg[depth],'0.9')+')';
+				}
 
             }
         }
