@@ -81,8 +81,8 @@ foreach ($list as $i => &$item)
         $direc[count($direc) -2] = "mod_login";
         $direc[count($direc) -1] = "mod_login.php";
         $newDirec = implode("/",$direc);
-		$r = (stripos($item->title,'login') !== false)? array('login', 'Login','LogIn', 'logIn'):array('logout', 'Logout','LogOut', 'logOut');
-		
+        $r = (stripos($item->title,'login') !== false)? array('login', 'Login','LogIn', 'logIn'):array('logout', 'Logout','LogOut', 'logOut');
+
         echo '<div id="morph-button" class="morph-button morph-button-modal morph-button-modal-2 morph-button-fixed">
                 <a id="morph-starter">' . str_replace($r, $logged, $item->title) . '</a>
                 <div class="morph-content">
@@ -135,9 +135,18 @@ foreach ($list as $i => &$item)
 }
     ?></div></ul>
     </nav>
-<a href="#" id="trigger" data-effect="st-effect-11" class="si-icons si-icons-easing nav-toggler toggle-slide-left menu-trigger monoton">
-<h2  class="si-icon-text">Men&uuml;</h2>
-<span class="si-icon si-icon-hamburger-cross" data-icon-name="hamburgerCross"></span>
-</a>
+    <?php
+        $trigger = '<a href="#" id="trigger" data-effect="st-effect-11" class="si-icons si-icons-easing nav-toggler toggle-slide-left menu-trigger monoton">
+            <h2  class="si-icon-text">Men&uuml;</h2>
+            <span class="si-icon si-icon-hamburger-cross" data-icon-name="hamburgerCross"></span>
+            </a>';
+        if ($params->get('useowntrigger') != null)
+        {
+            $triggerOn = $params->get('useowntrigger');
+            echo ($triggerOn > 1)? $trigger: '';
+        } else {
+            echo $trigger;
+        }
+    ?>
 </div>
 
