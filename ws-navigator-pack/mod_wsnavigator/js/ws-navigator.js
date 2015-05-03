@@ -145,7 +145,7 @@
             var g = f.select('g');
             self.svg.append(g);
             self.options.onLoad();
-            self._initEvents();
+            //self._initEvents();
             if (self.reverse) {
                 self.toggle();
             }

@@ -29,7 +29,8 @@ defined('_JEXEC') or die;
 foreach ($list as $i => &$item)
 {
     $class = 'item-' . $item->id;
-
+    $deepItem = '';
+    
     if (($item->id == $active_id) OR ($item->type == 'alias' AND $item->params->get('aliasoptions') == $active_id))
     {
         $class .= ' current';
@@ -61,6 +62,7 @@ foreach ($list as $i => &$item)
     if ($item->deeper)
     {
         $class .= ' deeper';
+        $deepItem = '<span class="dropdown icon icon-pop"></span>';
     }
 
     if ($item->parent)
@@ -105,10 +107,7 @@ foreach ($list as $i => &$item)
             case 'heading':
 
                 require JModuleHelper::getLayoutPath('mod_menu', 'default_' . $item->type);
-                if ($item->deeper)
-                {
-                    echo '<span class="dropdown icon icon-pop"></span>';
-                }
+                echo $deepItem;
                 break;
 
             default:
@@ -140,13 +139,7 @@ foreach ($list as $i => &$item)
             <h2  class="si-icon-text">Men&uuml;</h2>
             <span class="si-icon si-icon-hamburger-cross" data-icon-name="hamburgerCross"></span>
             </a>';
-        if ($params->get('useowntrigger') != null)
-        {
-            $triggerOn = $params->get('useowntrigger');
-            echo ($triggerOn > 1)? $trigger: '';
-        } else {
-            echo $trigger;
-        }
+            echo ($triggerOn == null || $triggerOn < 1)? $trigger: '';
     ?>
 </div>
 

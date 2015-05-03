@@ -77,6 +77,16 @@
                     <option value="10">J10</option>
                 </field>
                 <field
+                    name="showAllChildren"
+                    type="radio"
+                    class="btn-group btn-group-yesno"
+                    default="1"
+                    label="MOD_WSNAVIGATOR_FIELD_ALLCHILDREN_LABEL"
+                    description="MOD_WSNAVIGATOR_FIELD_ALLCHILDREN_DESC">
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+                <field
                     name="useowntrigger"
                     type="list"
                     default="0"

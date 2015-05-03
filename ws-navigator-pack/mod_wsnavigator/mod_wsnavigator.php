@@ -23,7 +23,9 @@ $showAll	= $params->get('showAllChildren');
 $class_sfx	= htmlspecialchars($params->get('class_sfx'));
 $doc        = JFactory::getDocument();
 $app        = JFactory::getApplication();
+
 $scToTmpl = $params->get('addscriptstotemplate');
+$triggerOn = $params->get('useowntrigger');
 $scriptRoot = ($scToTmpl != null && $scToTmpl > 0)? '/templates/' . $app->getTemplate(): '/modules/mod_wsnavigator';
 
 $doc->addScript($scriptRoot . '/js/snap.svg-min.js');
