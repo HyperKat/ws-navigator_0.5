@@ -235,11 +235,12 @@
         this.trigger = trigger;
         this.morphObject = mBtn;
         this.svgIcon = svIco;
-        this.effect = trigger.getAttribute('data-effect');
+        this.effect = trigger.getAttribute('data-effect') || 'st-effect-11';
         this.options = extend(this.defaults, options);
         // support 3d transforms
         this.support = Modernizr.csstransforms3d;
-        //its not supported in Maxthon!!! if (this.support) {
+        //its not supported in Maxthon!!!
+        //if (this.support) {
             this._init();
         //}
     }
@@ -483,9 +484,11 @@
                 el.style.transform = val;
             },
             _setTriggerPos: function (translateVal) {
-                this._setTransform('translate3d(' + translateVal + 'px,0,0)', this.trigger);
-                this.trigger.style.zIndex = (translateVal == 3)? 999: 99;
-                this.trigger.style.background = (translateVal != 3)? 'rgba('+this.defaults.levelBg["1"]+')': '';
+                if(!ownTrigger) {
+                    this._setTransform('translate3d(' + translateVal + 'px,0,0)', this.trigger);
+                    this.trigger.style.zIndex = (translateVal == 3)? 999: 99;
+                    this.trigger.style.background = (translateVal != 3)? 'rgba('+this.defaults.levelBg["1"]+')': '';
+                }
             },
             _closeMorpher: function () {
                 if (!this.morphObject) return;

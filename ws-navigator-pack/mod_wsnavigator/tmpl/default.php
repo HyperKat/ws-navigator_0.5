@@ -8,6 +8,7 @@
 
 defined('_JEXEC') or die;
 
+echo '<script>var ownTrigger='. ($triggerOn == null || $triggerOn < 1)? 'true': 'false' . ';'</script>;
 // Note. It is important to remove spaces between elements.
 ?>
 <?php // The menu class is deprecated. Use nav instead. ?>
@@ -30,7 +31,7 @@ foreach ($list as $i => &$item)
 {
     $class = 'item-' . $item->id;
     $deepItem = '';
-    
+
     if (($item->id == $active_id) OR ($item->type == 'alias' AND $item->params->get('aliasoptions') == $active_id))
     {
         $class .= ' current';

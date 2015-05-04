@@ -113,8 +113,8 @@
                     } );
 
 
-
-        var ico = new svgIcon( document.querySelector( '.si-icons-easing .si-icon-hamburger-cross' ), svgIconConfig, { easing : mina.elastic, speed: 600, animStat: false } );
+        var icoClass = document.querySelector( '.si-icons-easing .si-icon-hamburger-cross' );
+        var ico = (icoClass)? new svgIcon( icoClass, svgIconConfig, { easing : mina.elastic, speed: 600, animStat: false } ): null;
         new mlPushMenu( document.getElementById( 'st-menu' ), document.getElementById( 'trigger' ), uiBtn, ico);
 
     });
