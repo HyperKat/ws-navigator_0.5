@@ -7,8 +7,8 @@
  */
 
 defined('_JEXEC') or die;
-
-echo '<script>var ownTrigger='. ($triggerOn == null || $triggerOn < 1)? 'true': 'false' . ';</script>';
+$trig = ($triggerOn == null || $triggerOn < 1)? 'true': 'false';
+echo '<script >var ownTrigger='. $trig . ';</script>';
 // Note. It is important to remove spaces between elements.
 ?>
 <?php // The menu class is deprecated. Use nav instead. ?>
