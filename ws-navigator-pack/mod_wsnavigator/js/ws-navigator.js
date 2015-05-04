@@ -166,7 +166,7 @@
         onToggle: function () {
             return false;
         },
-		animStat: false
+        animStat: false
     };
 
     svgIcon.prototype._initEvents = function () {
@@ -187,7 +187,7 @@
     };
 
     svgIcon.prototype.toggle = function (motion) {
-		// hack until i find the bubbling problem, sometimes the button close effect don't work!
+        // hack until i find the bubbling problem, sometimes the button close effect don't work!
         if(!this.options.animStat)return;
         var self = this;
         for (var i = 0, len = this.config.animation.length; i < len; ++i) {
@@ -239,9 +239,9 @@
         this.options = extend(this.defaults, options);
         // support 3d transforms
         this.support = Modernizr.csstransforms3d;
-        if (this.support) {
+        //its not supported in Maxthon!!! if (this.support) {
             this._init();
-        }
+        //}
     }
 
     mlPushMenu.prototype = {
@@ -390,9 +390,9 @@
                         this._setTransform('', this.levels[0]);
                         this._setTriggerPos(this.trigOffOpen + ((this.level - 1) * 40));
                         this._setTransform('translate3d(' + ((this.level - 1) * 40) + 'px,0,0)', this.levels[0]);
-						
-						// turn of bg transparence when open a sublevel
-						this.levels[0].style.backgroundColor = 'rgba('+this._changeRgbaTranspare(this.defaults.levelBg['1'],'1')+')';
+
+                        // turn of bg transparence when open a sublevel
+                        this.levels[0].style.backgroundColor = 'rgba('+this._changeRgbaTranspare(this.defaults.levelBg['1'],'1')+')';
                     }
                 }
                 // add class st-menu-open to main wrapper if opening the first time
@@ -505,13 +505,13 @@
                     this.morphObject.el.style.display = 'block';
                 }
             },
-			_changeRgbaTranspare: function (rgbaCode, newOpacity) {
-				if(!rgbaCode && !parseFloat(newOpacity)) 
-					return false;
-				var rgba = rgbaCode.split(',');
-				rgba[rgba.length-1] = newOpacity;
-				return rgba.join(',');
-			},
+            _changeRgbaTranspare: function (rgbaCode, newOpacity) {
+                if(!rgbaCode && !parseFloat(newOpacity))
+                    return false;
+                var rgba = rgbaCode.split(',');
+                rgba[rgba.length-1] = newOpacity;
+                return rgba.join(',');
+            },
             // removes classes mp-level-open from closing levels
             _toggleLevels: function () {
 
@@ -532,8 +532,8 @@
 
                 if (this.level < 2) {
                     this._showMorphButton();
-					this.levels[0].style.backgroundColor = 'rgba('+this._changeRgbaTranspare(this.defaults.levelBg['1'],'0.9')+')';
-				}
+                    this.levels[0].style.backgroundColor = 'rgba('+this._changeRgbaTranspare(this.defaults.levelBg['1'],'0.9')+')';
+                }
 
             }
         }
