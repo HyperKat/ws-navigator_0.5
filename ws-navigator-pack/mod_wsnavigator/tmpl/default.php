@@ -7,7 +7,7 @@
  */
 
 defined('_JEXEC') or die;
-$trig = ($triggerOn == null || $triggerOn < 1)? 'true': 'false';
+$trig = ($triggerOn == null || $triggerOn < 1)? 'false': 'true';
 echo '<script >var ownTrigger='. $trig . ';</script>';
 // Note. It is important to remove spaces between elements.
 ?>
