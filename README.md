@@ -24,7 +24,9 @@ Installation:
 BLINK:
 
   It's not necessary to add script and style tags to template head, it includes all automatic, even wehn you choose option handle in template root !!!!! ! ! !!!!!
-  when you need a login/out menu item, add a menu item named login or my login,
-  the name should contains login!!!
   
-  it's necessary to activate the mod_login modul!!!
+  Need a login/out menu item? 
+  Add a menu item, name should contains login!!!
+  examplenames(Hello login / my login / my_login / xyz.login?zyx)
+  
+  Notice, it's necessary to activate the mod_login modul!!!
