@@ -18,7 +18,7 @@ Installation:
   1. backup template / joomla
   2. unzip folder
   3. zip the mod_wsnavigator folder and install it as joomla extension
-  4. After installation, choose root of scripts and styles optionin in modul-settings:
+  4. After installation, choose root of scripts and styles option in modul-settings:
   
          No -> handle  all scripts and styles in the modul (standart)! 
          Yes -> handle the scripts/styles in template root (move the files from modul path to template path)!
