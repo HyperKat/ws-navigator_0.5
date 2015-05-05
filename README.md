@@ -12,15 +12,17 @@ Next steps
   1. add responsive design to the menu css
   2. add language to empty labels/fields
   3. building a complete template for the modules
+  4. fix all bugs that we'll find
   
 Installation:
   1. backup template / joomla
   2. unzip folder
   3. zip the mod_wsnavigator folder and install it as joomla extension
-  4. You can choose in settings of the modul after installation:
+  4. After installation, choose root of scripts and styles optionin in modul-settings:
   
          No -> handle  all scripts and styles in the modul (standart)! 
          Yes -> handle the scripts/styles in template root (move the files from modul path to template path)!
+
   5. add external styles fonts and images to your template root...
   6. build in wrapper in your template (see index.php in example folder)
   
