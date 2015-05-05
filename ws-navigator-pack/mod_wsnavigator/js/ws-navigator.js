@@ -398,7 +398,8 @@
                 }
                 // add class st-menu-open to main wrapper if opening the first time
                 else if (this.level === 1) {
-
+                    var elem = document.getElementsByClassName('st-content')[0];
+                    elem.style.zIndex ='-1';
                     classie.add(this.wrapper, this.effect);
                     this._setTriggerPos(this.trigOffOpen);
                     var wrapper = this.wrapper;
@@ -435,6 +436,8 @@
                 this._setTriggerPos(3);
                 this._setTransform('', this.levels[0]);
                 this.level = 0;
+                var elem = document.getElementsByClassName('st-content')[0];
+                elem.style.zIndex ='';
                 // remove class mp-pushed from main wrapper
                 classie.remove(this.wrapper, 'st-menu-open');
                 this._toggleLevels();
