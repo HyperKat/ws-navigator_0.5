@@ -32,7 +32,7 @@ Installation:
   
 BLINK:
 
-  It's not necessary to add script and style tags to template head, it includes all automatic, even wehn you choose option handle in template root !!!!! ! ! !!!!!
+  It's not necessary to add script and style tags to template head, it includes all automatic, on activated option -> handle in template root, too !!!!! ! ! !!!!!
   
   Need a login/out menu item? 
   Add a menu item, name should contains login!!!
