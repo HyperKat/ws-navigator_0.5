@@ -13,6 +13,8 @@ Next steps
   2. add language to empty labels/fields
   3. building a complete template for the modules
   4. fix all bugs that we'll find
+  5. add style settings for the mp-levels to modul settings (example own background-colors for each mp-level)
+  6. convert js to $
   
 Installation:
   1. backup template / joomla
@@ -21,8 +23,8 @@ Installation:
   4. After installation, choose root of scripts and styles option in modul-settings:
   
          No -> handle  all scripts and styles in the modul (standart)! 
-         Yes -> handle the scripts/styles in template root (move the files from modul path to template path)!
-
+         Yes -> handle the scripts/styles in template root (move the files from modul path to template path)! It's helpful when you want to build in your own menu trigger  or something else.
+  
   5. add external styles fonts and images to your template root...
   6. build in wrapper in your template (see index.php in example folder)
   
