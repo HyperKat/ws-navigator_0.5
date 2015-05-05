@@ -1,5 +1,7 @@
 # ws-navigator_0.5
-joomla 3 - modul - pushmenu with login/out first version
+joomla 3 - modul - pushmenu with login/out 0.5beta
+
+!!!!!!!!! - ATTENTION ONLY TESTED IN JOOMLA 3.X - !!!!!!!!!
 
 This is my first version of a push/pull menu as modul for joomla 3...
 for 3d content flip effect you need to wrapp your content, see example index.php of the protostar template.
@@ -17,7 +19,7 @@ Next steps
   6. convert js to $
   
 Installation:
-  1. backup template / joomla
+  1. backup template / joomla ( this you should do always, with/without the menu backup for hackup )
   2. unzip folder
   3. zip the mod_wsnavigator folder and install it as joomla extension
   4. After installation, choose root of scripts and styles option in modul-settings:
