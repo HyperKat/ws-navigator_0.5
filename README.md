@@ -21,8 +21,9 @@ Installation:
   5. add external styles fonts and images to your template root...
   6. build in wrapper in your template (see index.php in example folder)
   
-Using:
+BLINK:
 
+  It's not necessary to add script and style tags to template head, it includes all automatic, even wehn you choose option handle in template root !!!!! ! ! !!!!!
   when you need a login/out menu item, add a menu item named login or my login,
   the name should contains login!!!
   
