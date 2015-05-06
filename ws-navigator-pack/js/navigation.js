@@ -83,36 +83,36 @@
                 };
 
                 scrollFn();
+                var uiBtn
+               if( useLogin ) {
+                   uiBtn = new UIMorphingButton( document.getElementById( 'morph-button' ), {
+                            closeEl : '.icon-close',
+                            onBeforeOpen : function() {
+                                if( !uiBtn.expanded ) {
+                                    classie.addClass( uiBtn.el.parentElement, 'no-morph-box' );
+                                }
+                                noScroll();
+                            },
+                            onAfterOpen : function() {
+                                // can scroll again
+                                canScroll();
+                            },
+                            onBeforeClose : function() {
+                                // don't allow to scroll
+                                noScroll();
+                            },
+                            onAfterClose : function() {
+                                if( uiBtn.expanded ) {
+                                    // remove class active (after closing)
+                                    classie.removeClass( uiBtn.el.parentElement, 'no-morph-box' );
+                                }
+                                // can scroll again
+                                canScroll();
+                            },
+                            contentPos: { left : '', top : '', expLeft : '50%', expTop : '50%' }
+                        } );
 
-
-               var uiBtn = new UIMorphingButton( document.getElementById('morph-button' ), {
-                        closeEl : '.icon-close',
-                        onBeforeOpen : function() {
-                            if( !uiBtn.expanded ) {
-                                classie.addClass( uiBtn.el.parentElement, 'no-morph-box' );
-                            }
-                            noScroll();
-                        },
-                        onAfterOpen : function() {
-                            // can scroll again
-                            canScroll();
-                        },
-                        onBeforeClose : function() {
-                            // don't allow to scroll
-                            noScroll();
-                        },
-                        onAfterClose : function() {
-                            if( uiBtn.expanded ) {
-                                // remove class active (after closing)
-                                classie.removeClass( uiBtn.el.parentElement, 'no-morph-box' );
-                            }
-                            // can scroll again
-                            canScroll();
-                        },
-                        contentPos: { left : '', top : '', expLeft : '50%', expTop : '50%' }
-                    } );
-
-
+               }
         var icoClass = document.querySelector( '.si-icons-easing .si-icon-hamburger-cross' );
         var ico = (icoClass)? new svgIcon( icoClass, svgIconConfig, { easing : mina.elastic, speed: 600, animStat: false } ): null;
         new mlPushMenu( document.getElementById( 'st-menu' ), document.getElementById( 'trigger' ), uiBtn, ico);

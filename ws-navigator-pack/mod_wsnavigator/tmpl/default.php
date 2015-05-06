@@ -8,7 +8,8 @@
 
 defined('_JEXEC') or die;
 $trig = ($triggerOn == null || $triggerOn < 1)? 'false': 'true';
-echo '<script >var ownTrigger='. $trig . ';</script>';
+$login = ($loginOn == 1)? 'true': 'false';
+echo '<script >var ownTrigger='. $trig . '; var useLogin='. $login . ';</script>';
 // Note. It is important to remove spaces between elements.
 ?>
 <?php // The menu class is deprecated. Use nav instead. ?>
@@ -76,12 +77,13 @@ foreach ($list as $i => &$item)
         $class = ' class="' . trim($class) . '"';
     }
 
-    echo '<li' . $class . '>';
+
 
     if(stripos($item->title,'login') !== false || stripos($item->title,'logout') !== false)
     {
         if($loginOn == 1)
         {
+            echo '<li' . $class . '>';
             $direc = explode("/",__DIR__);
             $direc[count($direc) -2] = "mod_login";
             $direc[count($direc) -1] = "mod_login.php";
@@ -103,6 +105,7 @@ foreach ($list as $i => &$item)
     }
     else
     {
+        echo '<li' . $class . '>';
         // Render the menu item.
         switch ($item->type) :
             case 'separator':
@@ -133,7 +136,7 @@ foreach ($list as $i => &$item)
     else
     {
         // The next item is on the same level.
-        echo '</li>';
+        echo (stripos($item->title,'login') !== false || stripos($item->title,'logout') !== false)? (($loginOn == 1)? '</li>':''): '</li>';
     }
 }
     ?></div></ul>
