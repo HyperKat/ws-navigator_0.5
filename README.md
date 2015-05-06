@@ -31,8 +31,10 @@ Installation:
   6. build in wrapper in your template (see index.php in example folder)
   7. Setup Modul in administration portal
   8. Optional -> Need a Login/out Menuitem?
-     Add a menu item, name should contains login!!!
-     examplenames(Hello login / my login / my_login / xyz.login?zyx)
+  
+        Add a menu item, name should contains login!!!
+
+        examplenames(Hello login / my login / my_login / xyz.login?zyx)
   9. Have fun and tell me bugs and features for future
   
 
