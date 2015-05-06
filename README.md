@@ -43,6 +43,5 @@ Installation:
 BLINK:
 
   It's not necessary to add script and style tags to template head, it includes all automatic, 
-  
   on activated option -> handle in template root, too !!!!! ! ! !!!!!
   
