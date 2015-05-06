@@ -29,7 +29,13 @@ Installation:
   
   5. add external styles fonts and images to your template root...
   6. build in wrapper in your template (see index.php in example folder)
+  7. Setup Modul in administration portal
+  8. Optional -> Need a Login/out Menuitem?
+     Add a menu item, name should contains login!!!
+     examplenames(Hello login / my login / my_login / xyz.login?zyx)
+  9. Have fun and tell me bugs and features for future
   
+
 BLINK:
 
   It's not necessary to add script and style tags to template head, it includes all automatic, on activated option -> handle in template root, too !!!!! ! ! !!!!!
