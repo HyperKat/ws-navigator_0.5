@@ -80,23 +80,26 @@ foreach ($list as $i => &$item)
 
     if(stripos($item->title,'login') !== false || stripos($item->title,'logout') !== false)
     {
-        $direc = explode("/",__DIR__);
-        $direc[count($direc) -2] = "mod_login";
-        $direc[count($direc) -1] = "mod_login.php";
-        $newDirec = implode("/",$direc);
-        $r = (stripos($item->title,'login') !== false)? array('login', 'Login','LogIn', 'logIn'):array('logout', 'Logout','LogOut', 'logOut');
+        if($loginOn == 1)
+        {
+            $direc = explode("/",__DIR__);
+            $direc[count($direc) -2] = "mod_login";
+            $direc[count($direc) -1] = "mod_login.php";
+            $newDirec = implode("/",$direc);
+            $r = (stripos($item->title,'login') !== false)? array('LOGIN', 'login', 'Login','LogIn', 'logIn'):array('LOGOUT', 'logout', 'Logout','LogOut', 'logOut');
 
-        echo '<div id="morph-button" class="morph-button morph-button-modal morph-button-modal-2 morph-button-fixed">
-                <a id="morph-starter">' . str_replace($r, $logged, $item->title) . '</a>
-                <div class="morph-content">
-                    <div>
-                        <div class="content-style-form content-style-form-1">
-                            <span class="icon icon-close">Close the dialog</span>';
-        require_once $newDirec;
-        echo '</div>
+            echo '<div id="morph-button" class="morph-button morph-button-modal morph-button-modal-2 morph-button-fixed">
+                    <a id="morph-starter">' . str_replace($r, $logged, $item->title) . '</a>
+                    <div class="morph-content">
+                        <div>
+                            <div class="content-style-form content-style-form-1">
+                                <span class="icon icon-close">Close the dialog</span>';
+            require_once $newDirec;
+            echo '</div>
+                        </div>
                     </div>
-                </div>
-            </div><!-- morph-button -->';
+                </div><!-- morph-button -->';
+        }
     }
     else
     {

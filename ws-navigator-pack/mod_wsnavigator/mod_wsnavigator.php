@@ -27,6 +27,7 @@ $app        = JFactory::getApplication();
 $scToTmpl = $params->get('addscriptstotemplate');
 $stToTmpl = $params->get('addstylestotemplate');
 $triggerOn = $params->get('useowntrigger');
+$loginOn = $params->get('useloginextension');
 $scriptRoot = ($scToTmpl != null && $scToTmpl > 0)? '/templates/' . $app->getTemplate(): '/modules/mod_wsnavigator';
 $styleRoot = ($stToTmpl != null && $stToTmpl > 0)? '/templates/' . $app->getTemplate(): '/modules/mod_wsnavigator';
 

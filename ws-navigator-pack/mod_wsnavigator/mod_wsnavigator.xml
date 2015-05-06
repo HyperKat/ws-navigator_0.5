@@ -96,6 +96,15 @@
                     <option value="1">JYES</option>
                 </field>
                 <field
+                    name="useloginextension"
+                    type="list"
+                    default="0"
+                    label="MOD_WSNAVIGATOR_FIELD_USELOGINEXTENSION_LABEL"
+                    description="MOD_WSNAVIGATOR_FIELD_USELOGINEXTENSION_DESC">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+                <field
                     name="addscriptstotemplate"
                     type="list"
                     default="0"
