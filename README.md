@@ -38,7 +38,8 @@ Installation:
         Add a menu item, name should contains login!!!
         examplenames(Hello login / my login / my_login / xyz.login?zyx)
         
-        Notice, it's necessary to activate the mod_login modul and tell it a position in template!!!
+        Notice, it's necessary to activate the mod_login modul, it don't need a position,
+        the ws-navigator load the mod_login modul by it self!!!
 
   9. Have fun and tell me bugs and features for future
   
