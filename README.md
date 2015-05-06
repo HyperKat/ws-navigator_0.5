@@ -34,6 +34,7 @@ Installation:
   7. Setup Modul in administration portal
   8. Optional -> Need a Login/out Menuitem?
   
+        Activate the option use login/out trigger!!!
         Add a menu item, name should contains login!!!
         examplenames(Hello login / my login / my_login / xyz.login?zyx)
         
