@@ -25,7 +25,9 @@ Installation:
   4. After installation, choose root of scripts and styles option in modul-settings:
   
          No -> handle  all scripts and styles in the modul (standart)! 
-         Yes -> handle the scripts/styles in template root (move the files from modul path to template path)! It's helpful when you want to build in your own menu trigger  or something else.
+         Yes -> handle the scripts/styles in template root 
+                (move the files from modul path to template path)! 
+                It's helpful when you want to build in your own menu trigger or something else.
   
   5. add external styles fonts and images to your template root...
   6. build in wrapper in your template (see index.php in example folder)
