@@ -9,6 +9,7 @@
 
 defined('_JEXEC') or die;
 
+
 /**
  * Helper for mod_menu
  *
@@ -18,6 +19,7 @@ defined('_JEXEC') or die;
  */
 class ModMenuHelper
 {
+    private static $mplc = '';
     /**
      * Get a list of the menu items.
      *
@@ -44,7 +46,64 @@ class ModMenuHelper
 
         return base64_encode('index.php?' . JUri::buildQuery($vars));
     }
+    public static function getMplc(){ return $mplc; }
+    public static function setBevelColors($ps)
+    {
+        $bevelcolors = array();
+        if(!assiociateArray(explode(';',$ps->mplevel_color),$bevelcolor))
+        {
+            fillMPLColorTable($bevelcolors);
+        }
+        $mplc json_encode($bevelcolors);
+    }
+    public static function fillMPLColorTable(&$mpColorTbl)
+    {
 
+        if(is_array($$mpColorTbl) && count($mpColorTbl) < 1 )
+        {
+            $rgba = 22;
+            $mpColorTbl = array( '1'->'rgba(' . $rgba . ',' . $rgba . ',' . $rgba . ',1)';
+            $ic = $submenuItemsTotal();
+            for($i = 1; $i <= $ic; $i++)
+            {
+                if($i > 1)
+                {
+                    $rgba += $i+5;
+                    $mpColorTbl[$i] = 'rgba(' . $rgba . ',' . $rgba . ',' . $rgba . ',1)';
+                }
+            }
+        }
+    }
+    public static function countBevels()
+    {
+        $app = JFactory::getApplication();
+        $menu = JFactory::getApplication()->getMenu();
+        $items   = $menu->getItems('menutype', $params->get('menutype'));
+        $submenuItemsTotals = 1;
+        foreach ($items as $i => &$item)
+        {
+           if ($item->level > $submenuItemsTotals)
+           {
+                $submenuItemsTotal++;
+           }
+        }
+        return $submenuItemsTotal;
+    }
+    public static function assiociateArray($list, &$new_array) {
+        if(!is_array($new_array) || !is_array($list) || count($list) < 1 )
+        {
+            return false;
+        }
+        for($i = 0; $i < count($bevelcolors); $i++)
+        {
+            $new_array[+$i] = $list[$i];
+        }
+        return true;
+    }
+    public static function walk($val, $key, $delim, &$new_array) {
+        $nums = explode($delim,$val);
+        $new_array[$nums[0]] = $nums[1];
+    }
     /**
      * Returns the current users type
      *

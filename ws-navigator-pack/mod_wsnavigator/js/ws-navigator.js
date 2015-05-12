@@ -8,6 +8,7 @@
  * Copyright 2013, Codrops
  * http://www.codrops.com
  */
+
 (function (window) {
 
     'use strict';
@@ -255,13 +256,21 @@
                 // classname for the element (if any) that when clicked closes the current level
                 backClass: 'mp-back',
 
-                levelBg: {
-                    '1': '22, 22, 22, 0.90',
-                    '2': '18, 38, 58, 1',
-                    '3': '42, 84, 126, 1',
-                    '4': '109, 124, 140, 1'
-                }
+                levelBg: {}
 
+            },
+            _loadColors: function(){
+                var xmlhttp = new XMLHttpRequest();
+                var url = "http://www.w3schools.com/website/Customers_MYSQL.php";
+
+                xmlhttp.onreadystatechange=function() {
+                    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                            this.default.levelBg = JSON.parse(xmlhttp.responseText);
+                        }
+                    }
+                }
+                xmlhttp.open("GET", url, true);
+                xmlhttp.send();
             },
             _init: function () {
                 // if menu is open or not
@@ -279,6 +288,8 @@
                     el.style.backgroundColor = 'rgba('+self.defaults.levelBg[depth]+')';
                     el.setAttribute('data-level', depth);
                 });
+
+                this._loadColors();
                 // the menu items
                 this.menuItems = Array.prototype.slice.call(this.el.querySelectorAll('li'));
                 // if type == "cover" these will serve as hooks to move back to the previous level
