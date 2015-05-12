@@ -137,11 +137,6 @@
 
             <fieldset
                 name="advanced">
-                <field
-                    name="tag_id"
-                    type="text"
-                    label="MOD_WSNAVIGATOR_FIELD_TAG_ID_LABEL"
-                    description="MOD_MENU_FIELD_TAG_ID_DESC" />
 
                 <field
                     name="class_sfx"
@@ -150,10 +145,10 @@
                     description="MOD_WSNAVIGATOR_FIELD_CLASS_DESC" />
 
                 <field
-                    name="window_open"
+                    name="mplevel_color"
                     type="text"
-                    label="MOD_MENU_FIELD_TARGET_LABEL"
-                    description="MOD_MENU_FIELD_TARGET_DESC" />
+                    label="MOD_MENU_FIELD_MPLEVELCOLOR_LABEL"
+                    description="MOD_MENU_FIELD_MPLEVELCOLOR_DESC" />
 
                 <field
                     name="layout"

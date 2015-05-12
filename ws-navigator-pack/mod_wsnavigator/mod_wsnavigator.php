@@ -24,6 +24,7 @@ $class_sfx	= htmlspecialchars($params->get('class_sfx'));
 $doc        = JFactory::getDocument();
 $app        = JFactory::getApplication();
 
+setBevelColors($params);
 $scToTmpl = $params->get('addscriptstotemplate');
 $stToTmpl = $params->get('addstylestotemplate');
 $triggerOn = $params->get('useowntrigger');

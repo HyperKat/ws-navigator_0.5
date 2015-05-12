@@ -9,7 +9,10 @@
 defined('_JEXEC') or die;
 $trig = ($triggerOn == null || $triggerOn < 1)? 'false': 'true';
 $login = ($loginOn == 1)? 'true': 'false';
-echo '<script >var ownTrigger='. $trig . '; var useLogin='. $login . ';</script>';
+echo '<script >
+        var ownTrigger='. $trig . ';
+        var useLogin='. $login . ';
+    </script>';
 // Note. It is important to remove spaces between elements.
 ?>
 <?php // The menu class is deprecated. Use nav instead. ?>
