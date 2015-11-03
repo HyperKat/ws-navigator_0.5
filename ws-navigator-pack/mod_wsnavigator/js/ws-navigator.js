@@ -18,7 +18,8 @@
     /* **************************** ***************************** ************************** */
 
     function extend(a, b) {
-        for (var key in b) {
+        var key;
+        for (key in b) {
             if (b.hasOwnProperty(key)) {
                 a[key] = b[key];
             }
@@ -27,21 +28,21 @@
     }
 
     function hasParentClass(e, classname) {
-            if (e === document) return false;
-            if (classie.has(e, classname)) {
-                return true;
-            }
-            return e.parentNode && hasParentClass(e.parentNode, classname);
+        if (e === document) return false;
+        if (classie.has(e, classname)) {
+            return true;
         }
+        return e.parentNode && hasParentClass(e.parentNode, classname);
+    }
         // taken from https://github.com/inuyaksa/jquery.nicescroll/blob/master/jquery.nicescroll.js
     function hasParent(e, id) {
-            if (!e) return false;
-            var el = e.target || e.srcElement || e || false;
-            while (el && el.id != id) {
-                el = el.parentNode || false;
-            }
-            return (el !== false);
+        if (!e) return false;
+        var el = e.target || e.srcElement || e || false;
+        while (el && el.id != id) {
+            el = el.parentNode || false;
         }
+        return (el !== false);
+    }
         // returns the depth of the element "e" relative to element with id=id
         // for this calculation only parents with classname = waypoint are considered
     function getLevelDepth(e, id, waypoint, cnt) {
@@ -155,7 +156,7 @@
 
     svgIcon.prototype.options = {
         speed: 200,
-        easing: mina.linear,
+        easing: 'linear',
         evtoggle: 'click', // click || mouseover
         size: {
             w: 64,
@@ -259,19 +260,6 @@
                 levelBg: {}
 
             },
-            _loadColors: function(){
-                var xmlhttp = new XMLHttpRequest();
-                var url = "http://www.w3schools.com/website/Customers_MYSQL.php";
-
-                xmlhttp.onreadystatechange=function() {
-                    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                            this.default.levelBg = JSON.parse(xmlhttp.responseText);
-                        }
-                    }
-                }
-                xmlhttp.open("GET", url, true);
-                xmlhttp.send();
-            },
             _init: function () {
                 // if menu is open or not
                 this.open = false;
@@ -289,7 +277,6 @@
                     el.setAttribute('data-level', depth);
                 });
 
-                this._loadColors();
                 // the menu items
                 this.menuItems = Array.prototype.slice.call(this.el.querySelectorAll('li'));
                 // if type == "cover" these will serve as hooks to move back to the previous level
@@ -403,8 +390,6 @@
                         this._setTriggerPos(this.trigOffOpen + ((this.level - 1) * 40));
                         this._setTransform('translate3d(' + ((this.level - 1) * 40) + 'px,0,0)', this.levels[0]);
 
-                        // turn of bg transparence when open a sublevel
-                        this.levels[0].style.backgroundColor = 'rgba('+this._changeRgbaTranspare(this.defaults.levelBg['1'],'1')+')';
                     }
                 }
                 // add class st-menu-open to main wrapper if opening the first time
@@ -525,6 +510,7 @@
             _changeRgbaTranspare: function (rgbaCode, newOpacity) {
                 if(!rgbaCode && !parseFloat(newOpacity))
                     return false;
+
                 var rgba = rgbaCode.split(',');
                 rgba[rgba.length-1] = newOpacity;
                 return rgba.join(',');
@@ -549,7 +535,6 @@
 
                 if (this.level < 2) {
                     this._showMorphButton();
-                    this.levels[0].style.backgroundColor = 'rgba('+this._changeRgbaTranspare(this.defaults.levelBg['1'],'0.9')+')';
                 }
 
             }

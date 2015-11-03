@@ -19,7 +19,6 @@ defined('_JEXEC') or die;
  */
 class ModMenuHelper
 {
-    private static $mplc = '';
     /**
      * Get a list of the menu items.
      *
@@ -46,57 +45,51 @@ class ModMenuHelper
 
         return base64_encode('index.php?' . JUri::buildQuery($vars));
     }
-    public static function getMplc(){ return $mplc; }
-    public static function setBevelColors($ps)
+    public static function getBevelColors($ps)
     {
-        $bevelcolors = array();
-        if(!assiociateArray(explode(';',$ps->mplevel_color),$bevelcolor))
-        {
-            fillMPLColorTable($bevelcolors);
-        }
-        $mplc json_encode($bevelcolors);
-    }
-    public static function fillMPLColorTable(&$mpColorTbl)
-    {
+        $tmp = $ps->get('mplevel_color');
 
-        if(is_array($$mpColorTbl) && count($mpColorTbl) < 1 )
+        if(is_null($tmp) || strlen($tmp) < 1 || !is_array(explode(';',$tmp)))
         {
             $rgba = 22;
-            $mpColorTbl = array( '1'->'rgba(' . $rgba . ',' . $rgba . ',' . $rgba . ',1)';
-            $ic = $submenuItemsTotal();
-            for($i = 1; $i <= $ic; $i++)
+            $mpColorTbl = array();
+            $len = self::countBevels();
+
+            for($i = 0; $i < $subMenLen; $i++)
             {
-                if($i > 1)
-                {
-                    $rgba += $i+5;
-                    $mpColorTbl[$i] = 'rgba(' . $rgba . ',' . $rgba . ',' . $rgba . ',1)';
-                }
+                $mpColorTbl[$i] = 'rgba(' . $rgba . ',' . $rgba . ',' . $rgba . ',1)';
+                $rgba += $i+5;
+            }
+            return $mpColorTbl;
+        }
+
+        $bevelcolors = explode(';',$tmp);
+        $t = $len - count($bevelcolors);
+        if( $t >= 1 )
+        {
+            $i = 0;
+            while( $t > 0 )
+            {
+                $bevelcolors[count($bevelcolors)] = $bevelcolors[$i];
+                $i++;
             }
         }
+        return $bevelcolors;
     }
     public static function countBevels()
     {
-        $app = JFactory::getApplication();
-        $menu = JFactory::getApplication()->getMenu();
-        $items   = $menu->getItems('menutype', $params->get('menutype'));
-        $submenuItemsTotals = 1;
-        foreach ($items as $i => &$item)
-        {
-           if ($item->level > $submenuItemsTotals)
-           {
-                $submenuItemsTotal++;
-           }
-        }
-        return $submenuItemsTotal;
+        $len = JFactory::getUser()->getAuthorisedViewLevels();
+        echo '<div>' . implode(',', $len) . '</div>';
+        return count($len);
     }
     public static function assiociateArray($list, &$new_array) {
-        if(!is_array($new_array) || !is_array($list) || count($list) < 1 )
+        if(!is_array($list) || count($list) < 1 )
         {
             return false;
         }
-        for($i = 0; $i < count($bevelcolors); $i++)
+        for($i = 0; $i < count($list); $i++)
         {
-            $new_array[+$i] = $list[$i];
+            $new_array[$i] = $list[$i];
         }
         return true;
     }

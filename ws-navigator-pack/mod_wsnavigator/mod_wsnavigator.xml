@@ -123,6 +123,12 @@
                     <option value="1">JYES</option>
                 </field>
                 <field
+                    name="mplevel_color"
+                    type="text"
+                    label="MOD_MENU_FIELD_MPLEVELCOLOR_LABEL"
+                    description="MOD_MENU_FIELD_MPLEVELCOLOR_DESC" />
+
+                <field
                     name="usetext"
                     type="list"
                     default="0"
@@ -143,12 +149,6 @@
                     type="text"
                     label="MOD_WSNAVIGATOR_FIELD_CLASS_LABEL"
                     description="MOD_WSNAVIGATOR_FIELD_CLASS_DESC" />
-
-                <field
-                    name="mplevel_color"
-                    type="text"
-                    label="MOD_MENU_FIELD_MPLEVELCOLOR_LABEL"
-                    description="MOD_MENU_FIELD_MPLEVELCOLOR_DESC" />
 
                 <field
                     name="layout"

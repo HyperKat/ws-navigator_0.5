@@ -18,31 +18,32 @@ $active_id 	= $active->id;
 $path		= $base->tree;
 $logged     = ModMenuHelper::getType();
 $config     = JFactory::getConfig();
-$client = JFactory::getApplication()->client;
+$client     = JFactory::getApplication()->client;
 $titel      = $config->get('sitename');
 $showAll	= $params->get('showAllChildren');
 $class_sfx	= htmlspecialchars($params->get('class_sfx'));
 $doc        = JFactory::getDocument();
 $app        = JFactory::getApplication();
 
-setBevelColors($params);
-$scToTmpl = $params->get('addscriptstotemplate');
-$stToTmpl = $params->get('addstylestotemplate');
-$triggerOn = $params->get('useowntrigger');
-$loginOn = $params->get('useloginextension');
+$colors     = ModMenuHelper::getBevelColors($params);
+$scToTmpl   = $params->get('addscriptstotemplate');
+$stToTmpl   = $params->get('addstylestotemplate');
+$triggerOn  = $params->get('useowntrigger');
+$loginOn    = $params->get('useloginextension');
 $scriptRoot = ($scToTmpl != null && $scToTmpl > 0)? '/templates/' . $app->getTemplate(): '/modules/mod_wsnavigator';
-$styleRoot = ($stToTmpl != null && $stToTmpl > 0)? '/templates/' . $app->getTemplate(): '/modules/mod_wsnavigator';
+$styleRoot  = ($stToTmpl != null && $stToTmpl > 0)? '/templates/' . $app->getTemplate(): '/modules/mod_wsnavigator';
 
+$doc->addScript($scriptRoot . '/js/modernizr.custom.js');
 $doc->addScript($scriptRoot . '/js/snap.svg-min.js');
 $doc->addScript($scriptRoot . '/js/ws-navigator.js');
 // Add Stylesheets
 $doc->addStyleSheet($styleRoot . '/css/navigation.css');
 if($client->browser == JApplicationWebClient::IE)
 {
-	$doc->addStyleSheet($styleRoot . '/css/ie.css');
+    $doc->addStyleSheet($styleRoot . '/css/ie.css');
 }
 //always in template
-//$doc->addScript('/templates/' . $app->getTemplate() . '/js/navigation.js');
+$doc->addScript('/templates/' . $app->getTemplate() . '/js/navigation.js');
 
 
 if (count($list))
