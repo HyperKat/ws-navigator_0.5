@@ -9,6 +9,7 @@
 defined('_JEXEC') or die;
 $trig = ($triggerOn == null || $triggerOn < 1)? 'false': 'true';
 $login = ($loginOn == 1)? 'true': 'false';
+
 echo '<script >
         var ownTrigger='. $trig . ';
         var useLogin='. $login . ';
@@ -18,7 +19,7 @@ echo '<script >
 <?php // The menu class is deprecated. Use nav instead. ?>
 <div class="nav-wrapper">
 <nav id="st-menu" class="st-menu st-effect-11" role="navigation">
-<div class="mp-level" style="background-color: <?php echo $colors[$i]; ?>;">
+<div class="mp-level" style="background-color: <?php echo $colors[0]; ?>;">
     <h2 class="icon"><?php echo $titel; ?></h2><a class="mp-back" href="#">back <span class="icon-mpback"></span></a>
 <ul class="nav menu<?php echo $class_sfx;?>"<?php
     $tag = '';
@@ -128,16 +129,21 @@ foreach ($list as $i => &$item)
     // The next item is deeper.
     if ($item->deeper)
     {
-        echo '<div class="mp-level"><h2 class="icon item-' . $item->id . '">' . $item->title . '</h2><a class="mp-back tip" data-original-title="Tooltip" href="#">back <span class="icon-mpback"></span></a><ul class="nav-child unstyled">';
+
+        echo '<div class="mp-level" data-level="' . $item->level . '" style="background-color: ' . $colors[$item->level] . '"><h2 class="icon item-' . $item->id . '">' . $item->title . '</h2><a class="mp-back tip" data-original-title="Tooltip" href="#">back <span class="icon-mpback"></span></a><ul class="nav-child unstyled">';
+
     }
     elseif ($item->shallower)
     {
+
         // The next item is shallower.
         echo '</li>';
         echo str_repeat('</ul></div></li>', $item->level_diff);
+
     }
     else
     {
+
         // The next item is on the same level.
         echo (stripos($item->title,'login') !== false || stripos($item->title,'logout') !== false)? (($loginOn == 1)? '</li>':''): '</li>';
     }

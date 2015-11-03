@@ -12,6 +12,8 @@
     <files>
         <filename module="mod_wsnavigator">mod_wsnavigator.php</filename>
         <folder>tmpl</folder>
+        <folder>css</folder>
+        <folder>js</folder>
         <filename>helper.php</filename>
         <filename>mod_wsnavigator.xml</filename>
     </files>
@@ -123,12 +125,6 @@
                     <option value="1">JYES</option>
                 </field>
                 <field
-                    name="mplevel_color"
-                    type="text"
-                    label="MOD_MENU_FIELD_MPLEVELCOLOR_LABEL"
-                    description="MOD_MENU_FIELD_MPLEVELCOLOR_DESC" />
-
-                <field
                     name="usetext"
                     type="list"
                     default="0"
@@ -161,6 +157,12 @@
                     type="textarea" rows="3"
                     label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
                     description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC" />
+
+                <field
+                    name="mplevel_color"
+                    type="text"
+                    label="MOD_MENU_FIELD_MPLEVELCOLOR_LABEL"
+                    description="MOD_MENU_FIELD_MPLEVELCOLOR_DESC" />
 
                 <field
                     name="cache"
