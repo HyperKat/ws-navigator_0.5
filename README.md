@@ -11,6 +11,7 @@ see an example of the menu in action on : http://newsite.kl-marketing.de
 Don't rename the wrapper classes...
 
 add style settings for the mp-levels to modul settings (example own background-colors for each mp-level) -> Done
+
 add language to empty labels/fields -> Done
 
 Next steps
