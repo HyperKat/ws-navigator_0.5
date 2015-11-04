@@ -25,6 +25,7 @@ $class_sfx	= htmlspecialchars($params->get('class_sfx'));
 $doc        = JFactory::getDocument();
 $app        = JFactory::getApplication();
 
+$navEffect  = $params->get('navigationEffect');
 $colors     = ModMenuHelper::getBevelColors($params);
 $scToTmpl   = $params->get('addscriptstotemplate');
 $stToTmpl   = $params->get('addstylestotemplate');

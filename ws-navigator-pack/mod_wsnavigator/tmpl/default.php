@@ -18,7 +18,7 @@ echo '<script >
 ?>
 <?php // The menu class is deprecated. Use nav instead. ?>
 <div class="nav-wrapper">
-<nav id="st-menu" class="st-menu st-effect-11" role="navigation">
+<nav id="st-menu" class="st-menu <?php echo $navEffect; ?>" role="navigation">
 <div class="mp-level" style="background-color: <?php echo $colors[0]; ?>;">
     <h2 class="icon"><?php echo $titel; ?></h2><a class="mp-back" href="#">back <span class="icon-mpback"></span></a>
 <ul class="nav menu<?php echo $class_sfx;?>"<?php

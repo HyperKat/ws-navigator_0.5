@@ -131,18 +131,20 @@
                     label="MOD_WSNAVIGATOR_FIELD_USETEXT_LABEL"
                     description="MOD_WSNAVIGATOR_FIELD_USETEXT_DESC">
                     <option
-                        value="0">MOD_WSNAVIGATOR_VALUE_ICONS</option>
+                        value="0">MOD_WSNAVIGATOR_VALUE_ICONS
+                    </option>
                     <option
-                        value="1">MOD_WSNAVIGATOR_VALUE_TEXT</option>
+                        value="1">MOD_WSNAVIGATOR_VALUE_TEXT
+                    </option>
                 </field>
             </fieldset>
-
+st-effect-11
             <fieldset
                 name="advanced">
 
                 <field
                     name="class_sfx"
-                    type="text"
+                    type="text" rows="5"
                     label="MOD_WSNAVIGATOR_FIELD_CLASS_LABEL"
                     description="MOD_WSNAVIGATOR_FIELD_CLASS_DESC" />
 
@@ -160,10 +162,60 @@
 
                 <field
                     name="mplevel_color"
-                    type="text"
+                    type="textarea" 
                     label="MOD_MENU_FIELD_MPLEVELCOLOR_LABEL"
                     description="MOD_MENU_FIELD_MPLEVELCOLOR_DESC" />
-
+                
+                <field
+                    name="usetext"
+                    type="list"
+                    default="0"
+                    label="MOD_WSNAVIGATOR_FIELD_DATAEFECT_LABEL"
+                    description="MOD_WSNAVIGATOR_FIELD_DATAEFECT_DESC">
+                    <option value="st-effect-1">
+                        MOD_WSNAVIGATOR_VALUE_EFFECT-01
+                    </option>
+                    <option value="st-effect-2">
+                        MOD_WSNAVIGATOR_VALUE_EFFECT-02
+                    </option>
+                    <option value="st-effect-3">
+                        MOD_WSNAVIGATOR_VALUE_EFFECT-03
+                    </option>
+                    <option value="st-effect-4">
+                        MOD_WSNAVIGATOR_VALUE_EFFECT-04
+                    </option>
+                    <option value="st-effect-5">
+                        MOD_WSNAVIGATOR_VALUE_EFFECT-05
+                    </option>
+                    <option value="st-effect-6">
+                        MOD_WSNAVIGATOR_VALUE_EFFECT-06
+                    </option>
+                    <option value="st-effect-7">
+                        MOD_WSNAVIGATOR_VALUE_EFFECT-07
+                    </option>
+                    <option value="st-effect-8">
+                        MOD_WSNAVIGATOR_VALUE_EFFECT-08
+                    </option>
+                    <option value="st-effect-9">
+                        MOD_WSNAVIGATOR_VALUE_EFFECT-09
+                    </option>
+                    <option value="st-effect-10">
+                        MOD_WSNAVIGATOR_VALUE_EFFECT-10
+                    </option>
+                    <option value="st-effect-11">
+                        MOD_WSNAVIGATOR_VALUE_EFFECT-11
+                    </option>
+                    <option value="st-effect-12">
+                        MOD_WSNAVIGATOR_VALUE_EFFECT-12
+                    </option>
+                    <option value="st-effect-13">
+                        MOD_WSNAVIGATOR_VALUE_EFFECT-13
+                    </option>
+                    <option value="st-effect-14">
+                        MOD_WSNAVIGATOR_VALUE_EFFECT-14
+                    </option>
+                </field>
+                
                 <field
                     name="cache"
                     type="list"
@@ -175,12 +227,14 @@
                     <option
                         value="0">COM_MODULES_FIELD_VALUE_NOCACHING</option>
                 </field>
+                
                 <field
                     name="cache_time"
                     type="text"
                     default="900"
                     label="COM_MODULES_FIELD_CACHE_TIME_LABEL"
                     description="COM_MODULES_FIELD_CACHE_TIME_DESC" />
+                
                 <field
                     name="cachemode"
                     type="hidden"
