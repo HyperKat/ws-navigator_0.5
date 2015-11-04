@@ -85,9 +85,7 @@ class ModMenuHelper
     }
     public static function countBevels()
     {
-        $len = JFactory::getUser()->getAuthorisedViewLevels();
-
-        return count($len);
+        return count(JFactory::getUser()->getAuthorisedViewLevels());
     }
     public static function assiociateArray($list, &$new_array) {
         if(!is_array($list) || count($list) < 1 )
