@@ -31,10 +31,9 @@ Installation:
                 (move the files from modul path to template path)!
                 It's helpful when you want to build in your own menu trigger or something else.
 
-  5. add external styles fonts and images to your template root...
-  6. build in wrapper in your template (see index.php in example folder)
-  7. Setup Modul in administration portal
-  8. Optional -> Need a Login/out Menuitem?
+  5. build in wrapper in your template (see index.php in example folder)
+  6. Setup Modul in administration portal
+  7. Optional -> Need a Login/out Menuitem?
 
         Activate the option use login/out trigger!!!
         Add a menu item, name should contains login!!!
@@ -43,12 +42,11 @@ Installation:
         Notice, it's necessary to activate the mod_login modul, it don't need a position,
         the ws-navigator load the mod_login modul by it self!!!
 
-  9. Have fun and tell me bugs and features for future
+  8. Have fun and tell me bugs and features for future
 
 
 BLINK:
 
   It's not necessary to add script and style tags to template head. Also it includes all automatic,
-  on activated option -> handle in template root, too.
-  You only need to copy the scripts in tempate root!!!!! ! ! !!!!!
+  on activated option -> handle in template root, too! ! !!!!!
 
