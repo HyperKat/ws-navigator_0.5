@@ -50,7 +50,7 @@ class ModMenuHelper
         $tmp = $ps->get('mplevel_color');
         $len = self::countBevels();
 
-        if(is_array(explode(';',$tmp)) && strlen($tmp) < 1 || is_null($tmp))
+        if(!is_array(explode(';',$tmp)) && ( strlen($tmp) < 1 || is_null($tmp) ) )
         {
             $rgba = 22;
             $mpColorTbl = array();
@@ -70,15 +70,15 @@ class ModMenuHelper
         {
             $me = $bevelcolors;
             $bevelcolors = array();
-            $bevelcolors[0] = $me;
+            $bevelcolors[1] = $me;
         }
         $t = $len - count($bevelcolors);
 
-        $i = 0;
+        $i = 1;
         while( $t > 0 )
         {
-            $bevelcolors[count($bevelcolors)] = $bevelcolors[$i];
             $i++;
+            $bevelcolors[count($bevelcolors)] = $bevelcolors[$i];
             $t--;
         }
         return $bevelcolors;
