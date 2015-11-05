@@ -47,7 +47,7 @@ class ModMenuHelper
     }
     public static function getBevelColors($ps)
     {
-        $tmp = $ps->get('mplevel_color');
+        $tmp = htmlspecialchars($ps->get('mplevel_color'));
         $len = self::countBevels();
 
         if(!is_array(explode(';',$tmp)) && ( strlen($tmp) < 1 || is_null($tmp) ) )

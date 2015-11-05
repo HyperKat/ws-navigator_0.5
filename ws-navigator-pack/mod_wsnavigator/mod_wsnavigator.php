@@ -35,17 +35,16 @@ $scriptRoot = ($scToTmpl != null && $scToTmpl > 0)? '/templates/' . $app->getTem
 $styleRoot  = ($stToTmpl != null && $stToTmpl > 0)? '/templates/' . $app->getTemplate(): '/modules/mod_wsnavigator';
 
 $doc->addScript($scriptRoot . '/js/modernizr.custom.js');
+$doc->addScript($scriptRoot . '/js/modernizr.custom.js');
 $doc->addScript($scriptRoot . '/js/snap.svg-min.js');
 $doc->addScript($scriptRoot . '/js/ws-navigator.js');
+$doc->addScript($scriptRoot . '/js/navigation.js');
 // Add Stylesheets
 $doc->addStyleSheet($styleRoot . '/css/navigation.css');
 if($client->browser == JApplicationWebClient::IE)
 {
     $doc->addStyleSheet($styleRoot . '/css/ie.css');
 }
-//always in template
-$doc->addScript('/templates/' . $app->getTemplate() . '/js/navigation.js');
-
 
 if (count($list))
 {
