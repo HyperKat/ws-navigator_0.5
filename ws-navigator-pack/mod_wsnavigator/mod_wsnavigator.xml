@@ -88,15 +88,7 @@
                     <option value="1">JYES</option>
                     <option value="0">JNO</option>
                 </field>
-                <field
-                    name="useowntrigger"
-                    type="list"
-                    default="0"
-                    label="MOD_WSNAVIGATOR_FIELD_USEOWNTRIGGER_LABEL"
-                    description="MOD_WSNAVIGATOR_FIELD_USEOWNTRIGGER_DESC">
-                    <option value="0">JNO</option>
-                    <option value="1">JYES</option>
-                </field>
+
                 <field
                     name="useloginextension"
                     type="list"
@@ -159,17 +151,23 @@ st-effect-11
                     type="textarea" rows="3"
                     label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
                     description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC" />
+                <field
+                    name="triggertext"
+                    type="text"
+                    default="Menü"
+                    label="MOD_WSNAVIGATOR_FIELD_TRIGGERTEXT_LABEL"
+                    description="MOD_WSNAVIGATOR_FIELD_TRIGGERTEXT_DESC" />
 
                 <field
                     name="mplevel_color"
-                    type="textarea" 
+                    type="textarea"
                     label="MOD_MENU_FIELD_MPLEVELCOLOR_LABEL"
                     description="MOD_MENU_FIELD_MPLEVELCOLOR_DESC" />
-                
+
                 <field
-                    name="usetext"
+                    name="useanimation"
                     type="list"
-                    default="0"
+                    default="st-effect-11"
                     label="MOD_WSNAVIGATOR_FIELD_DATAEFECT_LABEL"
                     description="MOD_WSNAVIGATOR_FIELD_DATAEFECT_DESC">
                     <option value="st-effect-1">
@@ -215,7 +213,7 @@ st-effect-11
                         MOD_WSNAVIGATOR_VALUE_EFFECT-14
                     </option>
                 </field>
-                
+
                 <field
                     name="cache"
                     type="list"
@@ -227,14 +225,14 @@ st-effect-11
                     <option
                         value="0">COM_MODULES_FIELD_VALUE_NOCACHING</option>
                 </field>
-                
+
                 <field
                     name="cache_time"
                     type="text"
                     default="900"
                     label="COM_MODULES_FIELD_CACHE_TIME_LABEL"
                     description="COM_MODULES_FIELD_CACHE_TIME_DESC" />
-                
+
                 <field
                     name="cachemode"
                     type="hidden"

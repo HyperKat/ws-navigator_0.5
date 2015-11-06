@@ -83,8 +83,8 @@
                 };
 
                 scrollFn();
-                var uiBtn
-               if( useLogin ) {
+                var uiBtn;
+               if( document.getElementById('Nav-Wrapper').getAttribute('login-button') ) {
                    uiBtn = new UIMorphingButton( document.getElementById( 'morph-button' ), {
                             closeEl : '.icon-close',
                             onBeforeOpen : function() {

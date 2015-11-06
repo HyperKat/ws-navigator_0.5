@@ -483,11 +483,11 @@
                 el.style.transform = val;
             },
             _setTriggerPos: function (translateVal) {
-                if(!ownTrigger) {
+                /*if(!ownTrigger) {
                     this._setTransform('translate3d(' + translateVal + 'px,0,0)', this.trigger);
                     this.trigger.style.zIndex = (translateVal == 3)? 999: 99;
                     this.trigger.style.background = (translateVal != 3)? 'rgba('+this.defaults.levelBg["1"]+')': '';
-                }
+                }*/
             },
             _closeMorpher: function () {
                 if (!this.morphObject) return;

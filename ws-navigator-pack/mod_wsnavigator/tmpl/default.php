@@ -7,20 +7,13 @@
  */
 
 defined('_JEXEC') or die;
-$trig = ($triggerOn == null || $triggerOn < 1)? 'false': 'true';
-$login = ($loginOn == 1)? 'true': 'false';
-
-echo '<script >
-        var ownTrigger='. $trig . ';
-        var useLogin='. $login . ';
-    </script>';
 // Note. It is important to remove spaces between elements.
 ?>
 <?php // The menu class is deprecated. Use nav instead. ?>
-<div class="nav-wrapper" <?php echo 'menu-trigger="' . $triggerOn . '" login-button="' . $loginOn . '"'; ?>>
+<div id="Nav-Wrapper" class="nav-wrapper" login-button="<?php echo $loginOn; ?>">
 <nav id="st-menu" class="st-menu <?php echo $navEffect; ?>" role="navigation">
 <div class="mp-level" style="background-color: <?php echo $colors[0]; ?>;">
-    <h2 class="icon"><?php echo $titel; ?></h2><a class="mp-back" href="#">back <span class="icon-mpback"></span></a>
+<h2 class="icon"><?php echo $titel; ?></h2><a class="mp-back" href="#">back <span class="icon-mpback"></span></a>
 <ul class="nav menu<?php echo $class_sfx . '"';
     $tag = '';
 
@@ -152,11 +145,10 @@ foreach ($list as $i => &$item)
     ?></div></ul>
     </nav>
     <?php
-        $trigger = '<a href="#" id="trigger" data-effect="' . $navEffect . '" class="si-icons si-icons-easing nav-toggler toggle-slide-left menu-trigger monoton">
-            <h2  class="si-icon-text">Men&uuml;</h2>
+        echo '<div><a href="#" id="trigger" data-effect="' . $navEffect . '" class="si-icons si-icons-easing nav-toggler toggle-slide-left menu-trigger monoton">
+            <h2  class="si-icon-text">' . $triggerTxt . '</h2>
             <span class="si-icon si-icon-hamburger-cross" data-icon-name="hamburgerCross"></span>
-            </a>';
-            echo ($triggerOn == null || $triggerOn < 1)? $trigger: '';
+            </a></div>';
     ?>
 </div>
 

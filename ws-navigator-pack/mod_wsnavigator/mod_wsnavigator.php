@@ -25,11 +25,11 @@ $class_sfx	= htmlspecialchars($params->get('class_sfx'));
 $doc        = JFactory::getDocument();
 $app        = JFactory::getApplication();
 
-$navEffect  = $params->get('navigationEffect');
+$navEffect  = $params->get('useanimation');
 $colors     = ModMenuHelper::getBevelColors($params);
 $scToTmpl   = $params->get('addscriptstotemplate');
 $stToTmpl   = $params->get('addstylestotemplate');
-$triggerOn  = $params->get('useowntrigger');
+$triggerTxt = htmlspecialchars($params->get('triggertext'));
 $loginOn    = $params->get('useloginextension');
 $scriptRoot = ($scToTmpl != null && $scToTmpl > 0)? '/templates/' . $app->getTemplate(): '/modules/mod_wsnavigator';
 $styleRoot  = ($stToTmpl != null && $stToTmpl > 0)? '/templates/' . $app->getTemplate(): '/modules/mod_wsnavigator';
