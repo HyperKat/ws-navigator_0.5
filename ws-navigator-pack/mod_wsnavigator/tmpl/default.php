@@ -21,7 +21,7 @@ echo '<script >
 <nav id="st-menu" class="st-menu <?php echo $navEffect; ?>" role="navigation">
 <div class="mp-level" style="background-color: <?php echo $colors[0]; ?>;">
     <h2 class="icon"><?php echo $titel; ?></h2><a class="mp-back" href="#">back <span class="icon-mpback"></span></a>
-<ul class="nav menu<?php echo $class_sfx;?>"<?php
+<ul class="nav menu<?php echo $class_sfx . '"';
     $tag = '';
 
     if ($params->get('tag_id') != null)
@@ -29,7 +29,8 @@ echo '<script >
         $tag = $params->get('tag_id') . '';
         echo ' id="' . $tag . '"';
     }
-?>>
+?>
+>
 
 <?php
 foreach ($list as $i => &$item)

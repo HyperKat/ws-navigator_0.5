@@ -72,13 +72,21 @@ class ModMenuHelper
             $bevelcolors = array();
             $bevelcolors[1] = $me;
         }
-        $t = $len - count($bevelcolors);
-
-        $i = 1;
+        $fl = count($bevelcolors);
+        $t = $len - $fl;
+        $bevelcolors2 = $bevelcolors;
+        $i = 0;
         while( $t > 0 )
         {
-            $i++;
-            $bevelcolors[count($bevelcolors)] = $bevelcolors[$i];
+            if($i<$fl-1)
+            {
+                $i++;
+            }
+            else
+            {
+                $i=0;
+            }
+            $bevelcolors[count($bevelcolors)] = $bevelcolors2[$i];
             $t--;
         }
         return $bevelcolors;
