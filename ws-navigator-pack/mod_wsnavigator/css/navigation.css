@@ -5,7 +5,7 @@
     box-sizing: border-box;
 }
 .si-icon-text { z-index:-1; position: relative; float: left; padding: 0.1em 0 0 0.22em; left: 0; top: 0; font-size: 2.2em; line-height: 15px; }
-
+.nav-wrapper { position: fixed; }
 #trigger { 
     position: relative;  
     margin: 35px; 
@@ -99,7 +99,7 @@ body,
 }
 
 .st-menu {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     z-index: 100;
