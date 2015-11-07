@@ -387,7 +387,6 @@
                             }
                         }
                         this._setTransform('', this.levels[0]);
-                        this._setTriggerPos(this.trigOffOpen + ((this.level - 1) * 40));
                         this._setTransform('translate3d(' + ((this.level - 1) * 40) + 'px,0,0)', this.levels[0]);
 
                     }
@@ -397,13 +396,14 @@
                     var elem = document.getElementsByClassName('st-content')[0];
                     elem.style.zIndex ='-1';
                     classie.add(this.wrapper, this.effect);
-                    this._setTriggerPos(this.trigOffOpen);
+                    
                     var wrapper = this.wrapper;
                     setTimeout(function () {
                         classie.add(wrapper, 'st-menu-open');
                     }, 25);
                     this.open = true;
                 }
+                this._setTriggerPos(0);
                 // add class mp-level-open to the opening level element
                 classie.add(subLevel || this.levels[0], 'mp-level-open');
                 this._closeMorpher();
@@ -465,15 +465,13 @@
             },
             // close sub menus
             _closeMenu: function () {
-                var translateVal = this.options.type === 'overlap' ? (this.el.offsetWidth-110) + (this.level - 1) * this.options.levelSpacing : this.el.offsetWidth + 3;
-                //this._setTransform( 'translate3d(0,0,0)' );
                 this._toggleLevels();
                 var l = this.level - 1;
                 if (this.level === 1) {
                     this._setTransform('translate3d(0,0,0)', this.levels[0]);
                 } else
                     this._setTransform('translate3d(' + (l * 40) + 'px,0,0)', this.levels[0]);
-                this._setTriggerPos(translateVal);
+                this._setTriggerPos(0);
             },
             // translate the el
             _setTransform: function (val, el) {
@@ -483,11 +481,15 @@
                 el.style.transform = val;
             },
             _setTriggerPos: function (translateVal) {
-                /*if(!ownTrigger) {
-                    this._setTransform('translate3d(' + translateVal + 'px,0,0)', this.trigger);
-                    this.trigger.style.zIndex = (translateVal == 3)? 999: 99;
-                    this.trigger.style.background = (translateVal != 3)? 'rgba('+this.defaults.levelBg["1"]+')': '';
-                }*/
+                var px = 290;
+                var z = 99;
+                if(translateVal == 3) {
+                    px = 0;
+                    z = 999;
+                }
+                this._setTransform('translate3d(-' +  px + 'px,0,0)', this.trigger);
+                this.trigger.style.zIndex = z;
+                
             },
             _closeMorpher: function () {
                 if (!this.morphObject) return;

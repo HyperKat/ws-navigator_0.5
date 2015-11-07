@@ -24,7 +24,16 @@ $showAll	= $params->get('showAllChildren');
 $class_sfx	= htmlspecialchars($params->get('class_sfx'));
 $doc        = JFactory::getDocument();
 $app        = JFactory::getApplication();
-
+$fontColor 	= '';
+$t 			= htmlspecialchars($params->get('menufont_color'));
+if( strlen($t) > 0 && strpos($t,'#') == 0 )
+{
+	$fontColor = 'rgba(' . implode(',',ModMenuHelper::hex2rgb($t));
+}
+else
+{
+	$fontColor  = 'rgba(205,205,205';
+}
 $navEffect  = $params->get('useanimation');
 $colors     = ModMenuHelper::getBevelColors($params);
 $scToTmpl   = $params->get('addscriptstotemplate');

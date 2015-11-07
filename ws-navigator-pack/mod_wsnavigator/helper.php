@@ -19,6 +19,36 @@ defined('_JEXEC') or die;
  */
 class ModMenuHelper
 {
+	public static function hex2rgb($hex) 
+	{
+	   $hex = str_replace("#", "", $hex);
+
+	   if(strlen($hex) == 3) 
+	   {
+		  $r = hexdec(substr($hex,0,1).substr($hex,0,1));
+		  $g = hexdec(substr($hex,1,1).substr($hex,1,1));
+		  $b = hexdec(substr($hex,2,1).substr($hex,2,1));
+	   } 
+	   else 
+	   {
+		  $r = hexdec(substr($hex,0,2));
+		  $g = hexdec(substr($hex,2,2));
+		  $b = hexdec(substr($hex,4,2));
+		}
+		$rgb = array($r, $g, $b);
+		//return implode(",", $rgb); // returns the rgb values separated by commas
+		return $rgb; // returns an array with the rgb values
+	}
+	public static function rgb2hex($rgb) 
+	{
+	    $hex = "#";
+	    $hex .= str_pad(dechex($rgb[0]), 2, "0", STR_PAD_LEFT);
+	    $hex .= str_pad(dechex($rgb[1]), 2, "0", STR_PAD_LEFT);
+	    $hex .= str_pad(dechex($rgb[2]), 2, "0", STR_PAD_LEFT);
+
+	    return $hex; // returns the hex value including the number sign (#)
+	}
+
     /**
      * Get a list of the menu items.
      *
@@ -74,20 +104,13 @@ class ModMenuHelper
         }
         $fl = count($bevelcolors);
         $t = $len - $fl;
-        $bevelcolors2 = $bevelcolors;
         $i = 0;
         while( $t > 0 )
         {
-            if($i<$fl-1)
-            {
-                $i++;
-            }
-            else
-            {
-                $i=0;
-            }
-            $bevelcolors[count($bevelcolors)] = $bevelcolors2[$i];
+            
+            $bevelcolors[count($bevelcolors)] = $bevelcolors[$i];
             $t--;
+            $i++;
         }
         return $bevelcolors;
     }
@@ -95,17 +118,7 @@ class ModMenuHelper
     {
         return count(JFactory::getUser()->getAuthorisedViewLevels());
     }
-    public static function assiociateArray($list, &$new_array) {
-        if(!is_array($list) || count($list) < 1 )
-        {
-            return false;
-        }
-        for($i = 0; $i < count($list); $i++)
-        {
-            $new_array[$i] = $list[$i];
-        }
-        return true;
-    }
+
     public static function walk($val, $key, $delim, &$new_array) {
         $nums = explode($delim,$val);
         $new_array[$nums[0]] = $nums[1];

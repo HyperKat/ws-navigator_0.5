@@ -8,8 +8,31 @@
 
 defined('_JEXEC') or die;
 // Note. It is important to remove spaces between elements.
+
 ?>
 <?php // The menu class is deprecated. Use nav instead. ?>
+<style>
+#morph-starter, .mp-level h2, .mp-level ul li a { 
+	color:<?php echo $fontColor;?>,0.6); 
+    text-shadow: 0 0 1px <?php echo $fontColor;?>,0.1);
+} 
+.st-menu ul li > a:hover,
+.mp-level > ul > li:first-child > a:hover {
+    color:<?php echo $fontColor;?>,0.75);
+    text-shadow: 0 0 8px <?php echo $fontColor;?>,0.9);
+}
+.st-menu ul li.current.active > a, .st-menu ul li.deeper.active > a {
+    color:<?php echo $fontColor;?>,1);
+    text-shadow: 0 0 10px <?php echo $fontColor;?>,0.6);
+}
+.st-menu h2 {
+    text-shadow: 1px 1px 4px <?php echo $fontColor;?>,0.45);
+}
+.st-menu h2:hover {
+    text-shadow: 1px 1px 8px <?php echo $fontColor;?>,0.79);
+}
+</style>
+
 <div id="Nav-Wrapper" class="nav-wrapper" login-button="<?php echo $loginOn; ?>">
 <nav id="st-menu" class="st-menu <?php echo $navEffect; ?>" role="navigation">
 <div class="mp-level" style="background-color: <?php echo $colors[0]; ?>;">
@@ -22,8 +45,7 @@ defined('_JEXEC') or die;
         $tag = $params->get('tag_id') . '';
         echo ' id="' . $tag . '"';
     }
-?>
->
+?>>
 
 <?php
 foreach ($list as $i => &$item)
@@ -89,7 +111,7 @@ foreach ($list as $i => &$item)
             $r = (stripos($item->title,'login') !== false)? array('LOGIN', 'login', 'Login','LogIn', 'logIn'):array('LOGOUT', 'logout', 'Logout','LogOut', 'logOut');
 
             echo '<div id="morph-button" class="morph-button morph-button-modal morph-button-modal-2 morph-button-fixed">
-                    <a id="morph-starter">' . str_replace($r, $logged, $item->title) . '</a>
+                    <a id="morph-starter" >' . str_replace($r, $logged, $item->title) . '</a>
                     <div class="morph-content">
                         <div>
                             <div class="content-style-form content-style-form-1">
@@ -111,12 +133,12 @@ foreach ($list as $i => &$item)
             case 'component':
             case 'heading':
 
-                require JModuleHelper::getLayoutPath('mod_menu', 'default_' . $item->type);
+                require JModuleHelper::getLayoutPath('mod_wsnavigator', 'default_' . $item->type);
                 echo $deepItem;
                 break;
 
             default:
-                require JModuleHelper::getLayoutPath('mod_menu', 'default_url');
+                require JModuleHelper::getLayoutPath('mod_wsnavigator', 'default_url');
                 break;
         endswitch;
     }

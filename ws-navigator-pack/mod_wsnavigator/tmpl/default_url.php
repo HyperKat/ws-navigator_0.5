@@ -29,7 +29,7 @@ $flink = JFilterOutput::ampReplace(htmlspecialchars($flink));
 switch ($item->browserNav) :
     default:
     case 0:
-?><a rel="tooltip" titel="<?php echo $item->title; ?>" <?php echo $class; ?>href="<?php echo $flink; ?>" ><?php echo $linktype; ?></a><?php
+?><a rel="tooltip" titel="<?php echo $item->title; ?>" <?php echo $class; ?>href="<?php echo $flink; ?>"><?php echo $linktype; ?></a><?php
         break;
     case 1:
         // _blank

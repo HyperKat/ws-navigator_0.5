@@ -160,10 +160,17 @@ st-effect-11
 
                 <field
                     name="mplevel_color"
-                    type="textarea"
+                    type="text" rows="4"
                     label="MOD_MENU_FIELD_MPLEVELCOLOR_LABEL"
                     description="MOD_MENU_FIELD_MPLEVELCOLOR_DESC" />
 
+				<field
+                    name="menufont_color"
+                    type="text"
+					default="#fff"
+                    label="MOD_MENU_FIELD_FONTCOLOR_LABEL"
+                    description="MOD_MENU_FIELD_FONTCOLOR_DESC" />
+					
                 <field
                     name="useanimation"
                     type="list"

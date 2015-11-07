@@ -1,56 +1,50 @@
 <?php
-
-defined('_JEXEC') or die;
-
-// Include the syndicate functions only once
-require_once __DIR__ . '/helper.php';
-
-?>
+echo '<script>
+alert("' . __DIR__ . '");
 (function($) {
-    
     var svgIconConfig = {
 
         hamburger : {
-        url : '../img/hamburger.svg',
+        url : \'../images/menu/hamburger.svg\',
         animation : [
             {
-                el : 'path:nth-child(1)',
+                el : \'path:nth-child(1)\',
                 animProperties : {
-                    from : { val : '{"path" : "m 5.0916789,20.818994 53.8166421,0"}' },
-                    to : { val : '{"path" : "m 5.091679,9.771104 53.816642,0"}' }
+                    from : { val : \'{\'path\' : \'m 5.0916789,20.818994 53.8166421,0\'}\' },
+                    to : { val : \'{\'path\' : \'m 5.091679,9.771104 53.816642,0\'}\' }
                 }
             },
             {
-                el : 'path:nth-child(3)',
+                el : \'path:nth-child(3)\',
                 animProperties : {
-                    from : { val : '{"path" : "m 5.0916788,42.95698 53.8166422,0"}' },
-                    to : { val : '{"path" : "m 5.0916789,54.00487 53.8166421,0"}' }
+                    from : { val : \'{\'path\' : \'m 5.0916788,42.95698 53.8166422,0\'}\' },
+                    to : { val : \'{\'path\' : \'m 5.0916789,54.00487 53.8166421,0\'}\' }
                 }
             }
         ]
     },
     hamburgerCross : {
-        url : '../img/hamburger.svg',
+        url : \'/images/menu/hamburger.svg\',
         animation : [
             {
-                el : 'path:nth-child(1)',
+                el : \'path:nth-child(1)\',
                 animProperties : {
-                    from : { val : '{"path" : "m 5.0916789,20.818994 53.8166421,0"}' },
-                    to : { val : '{"path" : "M 12.972944,50.936147 51.027056,12.882035"}' }
+                    from : { val : \'{\'path\' : \'m 5.0916789,20.818994 53.8166421,0\'}\' },
+                    to : { val : \'{\'path\' : \'M 12.972944,50.936147 51.027056,12.882035\'}\' }
                 }
             },
             {
-                el : 'path:nth-child(2)',
+                el : \'path:nth-child(2)\',
                 animProperties : {
-                    from : { val : '{"transform" : "s1 1", "opacity" : 1}', before : '{"transform" : "s0 0"}' },
-                    to : { val : '{"opacity" : 0}' }
+                    from : { val : \'{\'transform\' : \'s1 1\', \'opacity\' : 1}\', before : \'{\'transform\' : \'s0 0\'}\' },
+                    to : { val : \'{\'opacity\' : 0}\' }
                 }
             },
             {
-                el : 'path:nth-child(3)',
+                el : \'path:nth-child(3)\',
                 animProperties : {
-                    from : { val : '{"path" : "m 5.0916788,42.95698 53.8166422,0"}' },
-                    to : { val : '{"path" : "M 12.972944,12.882035 51.027056,50.936147"}' }
+                    from : { val : \'{\'path\' : \'m 5.0916788,42.95698 53.8166422,0\'}\' },
+                    to : { val : \'{\'path\' : \'M 12.972944,12.882035 51.027056,50.936147\'}\' }
                 }
             }
         ]
@@ -66,16 +60,16 @@ require_once __DIR__ . '/helper.php';
                 }
 
                 function noScroll() {
-                    window.removeEventListener( 'scroll', scrollHandler );
-                    window.addEventListener( 'scroll', noScrollFn );
+                    window.removeEventListener( \'scroll\', scrollHandler );
+                    window.addEventListener( \'scroll\', noScrollFn );
                 }
 
                 function scrollFn() {
-                    window.addEventListener( 'scroll', scrollHandler );
+                    window.addEventListener( \'scroll\', scrollHandler );
                 }
 
                 function canScroll() {
-                    window.removeEventListener( 'scroll', noScrollFn );
+                    window.removeEventListener( \'scroll\', noScrollFn );
                     scrollFn();
                 }
 
@@ -93,12 +87,12 @@ require_once __DIR__ . '/helper.php';
 
                 scrollFn();
                 var uiBtn;
-                if( document.getElementById('Nav-Wrapper').getAttribute('login-button') ) {
-                   uiBtn = new UIMorphingButton( document.getElementById( 'morph-button' ), {
-                            closeEl : '.icon-close',
+               if( document.getElementById(\'Nav-Wrapper\').getAttribute(\'login-button\') ) {
+                   uiBtn = new UIMorphingButton( document.getElementById( \'morph-button\' ), {
+                            closeEl : \'.icon-close\',
                             onBeforeOpen : function() {
                                 if( !uiBtn.expanded ) {
-                                    classie.addClass( uiBtn.el.parentElement, 'no-morph-box' );
+                                    classie.addClass( uiBtn.el.parentElement, \'no-morph-box\' );
                                 }
                                 noScroll();
                             },
@@ -107,25 +101,26 @@ require_once __DIR__ . '/helper.php';
                                 canScroll();
                             },
                             onBeforeClose : function() {
-                                // don't allow to scroll
+                                // don\'t allow to scroll
                                 noScroll();
                             },
                             onAfterClose : function() {
                                 if( uiBtn.expanded ) {
                                     // remove class active (after closing)
-                                    classie.removeClass( uiBtn.el.parentElement, 'no-morph-box' );
+                                    classie.removeClass( uiBtn.el.parentElement, \'no-morph-box\' );
                                 }
                                 // can scroll again
                                 canScroll();
                             },
-                            contentPos: { left : '', top : '', expLeft : '50%', expTop : '50%' }
+                            contentPos: { left : \'\', top : \'\', expLeft : \'50%\', expTop : \'50%\' }
                         } );
 
                }
-        
-        //var icoClass = document.querySelector( '.si-icons-easing .si-icon-hamburger-cross' );
+        var icoClass = document.querySelector( \'.si-icons-easing .si-icon-hamburger-cross\' );
         var ico = (icoClass)? new svgIcon( icoClass, svgIconConfig, { easing : mina.elastic, speed: 600, animStat: false } ): null;
-        new mlPushMenu( document.getElementById( 'st-menu' ), document.getElementById( 'trigger' ), uiBtn, ico);
+        new mlPushMenu( document.getElementById( \'st-menu\' ), document.getElementById( \'trigger\' ), uiBtn, ico);
 
     });
 })();
+</script>';
+?>
