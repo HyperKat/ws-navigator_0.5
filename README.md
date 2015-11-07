@@ -1,7 +1,7 @@
-# ws-navigator_0.5
-joomla 3 - modul - pushmenu with login/out 0.5beta
+# ws-navigator_0.9
+joomla 3 - modul - pushmenu with login/out 0.9beta
 
-!!!!!!!!! - ATTENTION ONLY TESTED IN JOOMLA 3.X - !!!!!!!!!
+!!!!!!!!! - Menu for JOOMLA 3.X - !!!!!!!!!
 
 This is my first version of a push/pull menu as modul for joomla 3...
 for 3d content flip effect you need to wrapp your content, see example index.php of the protostar template.
@@ -13,6 +13,10 @@ Don't rename the wrapper classes...
 add style settings for the mp-levels to modul settings (example own background-colors for each mp-level) -> Done
 
 add language to empty labels/fields -> Done
+
+add menu-effect option to modul-administration -> Done
+
+add font-color field to modul-administration -> Done
 
 Next steps
   1. add responsive design to the menu css
@@ -26,10 +30,8 @@ Installation:
   3. zip the mod_wsnavigator folder and install it as joomla extension
   4. After installation, choose root of scripts and styles option in modul-settings:
 
-         No -> handle  all scripts and styles in the modul (standart)!
-         Yes -> handle the scripts/styles in template root
-                (move the files from modul path to template path)!
-                It's helpful when you want to build in your own menu trigger or something else.
+         Yes -> handle  all scripts and styles in the modul (standart)!
+         No -> handle the scripts/styles in template root
 
   5. build in wrapper in your template (see index.php in example folder)
   6. Setup Modul in administration portal
@@ -48,5 +50,5 @@ Installation:
 BLINK:
 
   It's not necessary to add script and style tags to template head. Also it includes all automatic,
-  on activated option -> handle in template root, too! ! !!!!!
+  on activated option -> handle in modul root, too! ! !!!!!
 
