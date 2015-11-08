@@ -101,7 +101,7 @@
                 <field
                     name="addscriptstotemplate"
                     type="list"
-                    default="0"
+                    default="1"
                     label="MOD_WSNAVIGATOR_FIELD_ADDSCRIPTTOTEMPLATE_LABEL"
                     description="MOD_WSNAVIGATOR_FIELD_ADDSCRIPTTOTEMPLATE_DESC">
                     <option value="0">JNO</option>
@@ -110,7 +110,7 @@
                 <field
                     name="addstylestotemplate"
                     type="list"
-                    default="0"
+                    default="1"
                     label="MOD_WSNAVIGATOR_FIELD_ADDSTYLETOTEMPLATE_LABEL"
                     description="MOD_WSNAVIGATOR_FIELD_ADDSTYLETOTEMPLATE_DESC">
                     <option value="0">JNO</option>
