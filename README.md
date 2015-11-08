@@ -19,7 +19,7 @@ add menu-effect option to modul-administration -> Done
 add font-color field to modul-administration -> Done
 
 Next steps
-  1. add responsive design to the menu css
+  1. add responsive design to the menu css -> in progress
   2. building a complete template for the modules
   3. fix all bugs that we'll find
   4. convert js to $
