@@ -31,13 +31,69 @@ defined('_JEXEC') or die;
 .st-menu h2:hover {
     text-shadow: 1px 1px 8px <?php echo $fontColor;?>,0.79);
 }
+.mp-back .icon-mpback:hover{ border-style: solid; color: rgba(236, 235, 167, 0.4); text-shadow: 1px 1px 8px rgba(252, 254, 255, 0.79);}
+.st-menu .mp-level.mp-level-overlay > .mp-back,
+.st-menu .mp-level.mp-level-overlay > .mp-back::after {
+    background: rgba(205, 205, 205, 0.3);
+    box-shadow: none;
+    color: transparent;
+}
+.mp-back .icon-mpback {
+    border-width: 1px;
+    border-style: none;
+    border-radius: 2px;
+    position: absolute;
+    padding: 0 0 0 4px;
+    height: 20px;
+    width: 20px;
+    line-height: 18px;
+    right: 8px;
+    top: 12px;
+    font-size: 0.563em;
+    color: rgba(205, 205, 205, 0.4);
+    text-shadow: 1px 1px 4px rgba(252, 254, 255, 0.45);
+    -webkit-transition: color 0.6s,text-shadow 0.6s;
+    -moz-transition: color 0.6s,text-shadow 0.6s;
+    -ms-transition: color 0.6s,text-shadow 0.6s;
+    -o-transition: color 0.6s,text-shadow 0.6s;
+    transition: color 0.6s,text-shadow 0.6s;
+}
+.mp-back {
+    background: rgba(205, 205, 205, 0.4);
+    outline: none;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-weight: 800;
+    display: block;
+    padding: 1em 1.8em 1em;
+    position: relative;
+    box-shadow: inset 0 1px rgba(0,0,0,0.1);
+    -webkit-transition: color 0.6s,background 0.3s;
+    -moz-transition: color 0.6s,background 0.3s;
+    -ms-transition: color 0.6s,background 0.3s;
+    -o-transition: color 0.6s,background 0.3s;
+    transition: color 0.6s,background 0.3s;
+    font-size: 1em;
+}
+.mp-back:hover, .mp-back:focus {
+    background: rgba(0,0,0,0.05) !important;
+    color: rgba(226,231,151,1);
+    text-decoration: none;
+}
+.mp-back::after {
+    position: absolute;
+    right: 10px;
+    font-size: 1.3em;
+    color: rgba(0,0,0,0.3);
+}
 </style>
 
 <div id="Nav-Wrapper" class="nav-wrapper" login-button="<?php echo $loginOn; ?>">
 <nav id="st-menu" class="st-menu <?php echo $navEffect; ?>" role="navigation">
 <div class="mp-level" style="background-color: <?php echo $colors[0]; ?>;">
-<h2 class="icon"><?php echo $titel; ?></h2><a class="mp-back" href="#">back <span class="icon-mpback"></span></a>
-<ul class="nav menu<?php echo $class_sfx . '"';
+<h2 class="icon ws-header"><?php echo $titel; ?></h2><a class="mp-back" href="#">back <span class="icon-mpback"></span></a>
+<ul class="ws-nav nav menu<?php echo $class_sfx . '"';
     $tag = '';
 
     if ($params->get('tag_id') != null)

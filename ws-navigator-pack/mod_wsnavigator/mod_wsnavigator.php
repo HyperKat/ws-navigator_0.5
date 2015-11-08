@@ -45,7 +45,6 @@ $styleRoot  = ($stToTmpl != null && $stToTmpl > 0)? '/templates/' . $app->getTem
 
 $doc->addScript($scriptRoot . '/js/modernizr.custom.js');
 $doc->addScript($scriptRoot . '/js/modernizr.custom.js');
-$doc->addScript($scriptRoot . '/js/snap.svg-min.js');
 $doc->addScript($scriptRoot . '/js/ws-navigator.js');
 $doc->addScript($scriptRoot . '/js/navigation.js');
 // Add Stylesheets

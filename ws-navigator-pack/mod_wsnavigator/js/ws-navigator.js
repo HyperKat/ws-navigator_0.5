@@ -16,7 +16,17 @@
     /* ************************** ********************************** ************************* */
     /* *************************** GLOBAL HELPER FOR OBJECTS Begin ************************** */
     /* **************************** ***************************** ************************** */
-
+	
+	function getCurrentStyle (element, cssPropertyName) {
+		if (window.getComputedStyle) {
+			return parseInt(window.getComputedStyle(element, '').getPropertyValue(cssPropertyName.replace(/([A-Z])/g, "-$1").toLowerCase()).replace('px',''));
+		} else if (element.currentStyle) {
+			return element.currentStyle[cssPropertyName];
+		} else {
+			return '';
+		}
+	}
+	
     function extend(a, b) {
         var key;
         for (key in b) {
@@ -119,121 +129,14 @@
     /* ***************************** **************************** ******************************* */
     /* **************************** GLOBAL HELPER FOR OBJECTS ENDS ***************************** */
     /* *************************** ******************************** *************************** */
-    /* ************************** ********************************** ************************* */
-    /* *************************** SV ICON + SVG + Animation Begin ************************** */
-    /* **************************** ***************************** ************************** */
 
-    function svgIcon(el, config, options) {
-        this.el = el;
-        this.options = extend({}, this.options);
-        extend(this.options, options);
-        this.svg = Snap(this.options.size.w, this.options.size.h);
-        this.svg.attr('viewBox', '0 0 64 64');
-        this.el.appendChild(this.svg.node);
-        // state
-        this.toggled = false;
-        // click event (if mobile use touchstart)
-        this.clickevent = mobilecheck() ? 'touchstart' : 'click';
-        // icons configuration
-        this.config = config[this.el.getAttribute('data-icon-name')];
-        // reverse?
-        if (classie.hasClass(this.el, 'si-icon-reverse')) {
-            this.reverse = true;
-        }
-        if (!this.config) return;
-        var self = this;
-        // load external svg
-        Snap.load(this.config.url, function (f) {
-            var g = f.select('g');
-            self.svg.append(g);
-            self.options.onLoad();
-            //self._initEvents();
-            if (self.reverse) {
-                self.toggle();
-            }
-        });
-    }
-
-    svgIcon.prototype.options = {
-        speed: 200,
-        easing: 'linear',
-        evtoggle: 'click', // click || mouseover
-        size: {
-            w: 64,
-            h: 44
-        },
-        onLoad: function () {
-            return false;
-        },
-        onToggle: function () {
-            return false;
-        },
-        animStat: false
-    };
-
-    svgIcon.prototype._initEvents = function () {
-        var self = this,
-            toggleFn = function (ev) {
-                if (((ev.type.toLowerCase() === 'mouseover' || ev.type.toLowerCase() === 'mouseout') && isMouseLeaveOrEnter(ev, this)) || ev.type.toLowerCase() === self.clickevent) {
-                    self.toggle(true);
-                    self.options.onToggle();
-                }
-            };
-
-        if (this.options.evtoggle === 'mouseover') {
-            this.el.addEventListener('mouseover', toggleFn);
-            this.el.addEventListener('mouseout', toggleFn);
-        } else {
-            this.el.parentElement.addEventListener(this.clickevent, toggleFn);
-        }
-    };
-
-    svgIcon.prototype.toggle = function (motion) {
-        // hack until i find the bubbling problem, sometimes the button close effect don't work!
-        if(!this.options.animStat)return;
-        var self = this;
-        for (var i = 0, len = this.config.animation.length; i < len; ++i) {
-            var a = this.config.animation[i],
-                el = this.svg.select(a.el),
-                animProp = this.toggled ? a.animProperties.from : a.animProperties.to,
-                val = animProp.val,
-                timeout = motion && animProp.delayFactor ? animProp.delayFactor : 0;
-
-            if (animProp.before) {
-                el.attr(JSON.parse(animProp.before));
-            }
-
-            if (motion) {
-                setTimeout(function (el, val, animProp) {
-                    return function () {
-                        el.animate(JSON.parse(val), self.options.speed, self.options.easing, function () {
-                            if (animProp.after) {
-                                this.attr(JSON.parse(animProp.after));
-                            }
-                            if (animProp.animAfter) {
-                                this.animate(JSON.parse(animProp.animAfter), self.options.speed, self.options.easing);
-                            }
-                        });
-                    };
-                }(el, val, animProp), timeout * self.options.speed);
-            } else {
-                el.attr(JSON.parse(val));
-            }
-
-        }
-        this.toggled = !this.toggled;
-    };
-
-
-    /* ***************************** **************************** ******************************* */
-    /* **************************** SV ICON + SVG + Animation ENDS ***************************** */
-    /* *************************** ******************************** *************************** */
     /* ************************** ********************************** ************************* */
     /* *************************** ST PUSH-MENU 3D Animation Begin ************************** */
     /* **************************** ***************************** ************************** */
 
     function mlPushMenu(el, trigger, mBtn, svIco, options) {
         this.el = el;
+		this._retroHeight = null;
         this.trigger = trigger;
         this.morphObject = mBtn;
         this.svgIcon = svIco;
@@ -365,6 +268,7 @@
             },
             _openMenu: function (subLevel) {
                 // increment level depth
+				
                 ++this.level;
 
                 if (this.level > 1) {
@@ -403,6 +307,15 @@
                     }, 25);
                     this.open = true;
                 }
+				if(!this._retroHeight || this._retroHeight == '0px')
+				{
+					this._retroHeight = getCurrentStyle(document.getElementsByClassName('ws-header')[0],'marginTop')  
+									  + getCurrentStyle(document.getElementsByClassName('ws-header')[0],'marginBottom') 
+									  + document.getElementsByClassName('ws-header')[0].offsetHeight
+									  + document.getElementsByClassName('mp-back')[0].offsetHeight
+									  + getCurrentStyle(document.getElementsByClassName('mp-back')[0],'marginTop')  
+									  + getCurrentStyle(document.getElementsByClassName('mp-back')[0],'marginBottom');
+				}
                 this._setTriggerPos(0);
                 // add class mp-level-open to the opening level element
                 classie.add(subLevel || this.levels[0], 'mp-level-open');
@@ -462,6 +375,11 @@
 
                     }
                 }
+				var eg = elems[elems.length - 1].querySelector('ul').offsetHeight + this._retroHeight;
+				if(eg > window.innerHeight)
+					return true;
+				else
+					return false;
             },
             // close sub menus
             _closeMenu: function () {
@@ -683,8 +601,6 @@
     window.UIMorphingButton = UIMorphingButton;
     // add to global namespace
     window.mlPushMenu = mlPushMenu;
-    // add to global namespace
-    window.svgIcon = svgIcon;
     /* ***************************** *************************** ******************************* */
     /* **************************** INITIALIZING + PROCESS + ENDS ***************************** */
     /* *************************** ******************************** *************************** */
