@@ -21,4 +21,4 @@ else
     $linktype = $item->title;
 }
 ?>
-<span class="nav-header <?php echo $item->anchor_css; ?>" <?php echo $title; ?>><?php echo $linktype; ?></span>
+<span class="nav-header <?php echo $item->anchor_css; ?> menu-item" <?php echo $title; ?>><?php echo $linktype; ?></span>

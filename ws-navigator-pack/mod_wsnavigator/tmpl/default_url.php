@@ -9,7 +9,7 @@
 defined('_JEXEC') or die;
 
 // Note. It is important to remove spaces between elements.
-$class = $item->anchor_css ? 'class="' . $item->anchor_css . '" ' : '';
+$class = 'class="' . ($item->anchor_css ? $item->anchor_css . ' menu-item"' : 'menu-item') . '"';
 $title = $item->anchor_title ? 'title="' . $item->anchor_title . '" ' : '';
 
 if ($item->menu_image)

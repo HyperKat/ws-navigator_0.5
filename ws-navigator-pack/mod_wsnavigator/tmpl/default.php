@@ -12,16 +12,16 @@ defined('_JEXEC') or die;
 ?>
 <?php // The menu class is deprecated. Use nav instead. ?>
 <style>
-#morph-starter, .mp-level h2, .mp-level ul li a { 
+#morph-starter, .mp-level h2, .mp-level ul li a.menu-item { 
 	color:<?php echo $fontColor;?>,0.6); 
     text-shadow: 0 0 1px <?php echo $fontColor;?>,0.1);
 } 
-.st-menu ul li > a:hover,
-.mp-level > ul > li:first-child > a:hover {
+.st-menu ul li > a.menu-item:hover,
+.mp-level > ul > li:first-child > a.menu-item:hover {
     color:<?php echo $fontColor;?>,0.75);
     text-shadow: 0 0 8px <?php echo $fontColor;?>,0.9);
 }
-.st-menu ul li.current.active > a, .st-menu ul li.deeper.active > a {
+.st-menu ul li.current.active > a.menu-item, .st-menu ul li.deeper.active > a.menu-item {
     color:<?php echo $fontColor;?>,1);
     text-shadow: 0 0 10px <?php echo $fontColor;?>,0.6);
 }
