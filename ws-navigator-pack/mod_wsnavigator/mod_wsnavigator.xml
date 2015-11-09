@@ -165,11 +165,52 @@ st-effect-11
                     description="MOD_MENU_FIELD_MPLEVELCOLOR_DESC" />
 
 				<field
-                    name="menufont_color"
+                    name="mplevel_colorfilter"
+                    type="list"
+                    default="1"
+                    label="MOD_WSNAVIGATOR_VALUE_MPLEVELCOLORFILTER_LABEL"
+                    description="MOD_WSNAVIGATOR_VALUE_MPLEVELCOLORFILTER_DESC">
+                    <option value="1">
+                        MOD_WSNAVIGATOR_VALUE_COLORFILTER-UP
+                    </option>
+                    <option value="2">
+                        MOD_WSNAVIGATOR_VALUE_COLORFILTER-DOWN
+                    </option>
+                </field>
+				
+				<field
+                    name="menu_fontcolor"
                     type="text"
 					default="#fff"
                     label="MOD_MENU_FIELD_FONTCOLOR_LABEL"
                     description="MOD_MENU_FIELD_FONTCOLOR_DESC" />
+				
+				<field
+                    name="mpback_color"
+                    type="text"
+                    label="MOD_MENU_FIELD_MPBACKCOLOR_LABEL"
+                    description="MOD_MENU_FIELD_MPBACKCOLOR_DESC" />
+					
+				<field
+                    name="mpback_colorfilter"
+                    type="list"
+                    default="1"
+                    label="MOD_WSNAVIGATOR_VALUE_MPBACKCOLORFILTER_LABEL"
+                    description="MOD_WSNAVIGATOR_VALUE_MPBACKCOLORFILTER_DESC">
+                    <option value="1">
+                        MOD_WSNAVIGATOR_VALUE_COLORFILTER-UP
+                    </option>
+                    <option value="2">
+                        MOD_WSNAVIGATOR_VALUE_COLORFILTER-DOWN
+                    </option>
+                </field>
+				
+				<field
+                    name="mpback_fontcolor"
+                    type="text"
+					default="#fff"
+                    label="MOD_MENU_MPBACK_FONTCOLOR_LABEL"
+                    description="MOD_MENU_MPBACK_FONTCOLOR_DESC" />
 					
                 <field
                     name="useanimation"

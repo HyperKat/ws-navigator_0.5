@@ -24,18 +24,15 @@ $showAll	= $params->get('showAllChildren');
 $class_sfx	= htmlspecialchars($params->get('class_sfx'));
 $doc        = JFactory::getDocument();
 $app        = JFactory::getApplication();
-$fontColor 	= '';
-$t 			= htmlspecialchars($params->get('menufont_color'));
-if( strlen($t) > 0 && strpos($t,'#') == 0 )
-{
-	$fontColor = 'rgba(' . implode(',',ModMenuHelper::hex2rgb($t));
-}
-else
-{
-	$fontColor  = 'rgba(205,205,205';
-}
+
+$levelColors     = ModMenuHelper::getBevelColors(htmlspecialchars($params->get('mplevel_color')));
+$levelFontColor  = ModMenuHelper::convertColor(htmlspecialchars($params->get('menu_fontcolor')), 'rgba(205,205,205');
+$levelFontFilter = $params->get('mplevel_colorfilter');
+$backColors      = ModMenuHelper::convertColor(htmlspecialchars($params->get('mpback_color')), 'rgba(205, 205, 205, 0.4)');
+$backFontColor   = ModMenuHelper::convertColor(htmlspecialchars($params->get('mpback_fontcolor')), 'rgba(236, 235, 167');
+$backFontFilter  = $params->get('mpback_colorfilter');
+
 $navEffect  = $params->get('useanimation');
-$colors     = ModMenuHelper::getBevelColors($params);
 $scToTmpl   = $params->get('addscriptstotemplate');
 $stToTmpl   = $params->get('addstylestotemplate');
 $triggerTxt = htmlspecialchars($params->get('triggertext'));

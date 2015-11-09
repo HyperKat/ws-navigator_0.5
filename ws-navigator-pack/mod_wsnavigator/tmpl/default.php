@@ -13,25 +13,29 @@ defined('_JEXEC') or die;
 <?php // The menu class is deprecated. Use nav instead. ?>
 <style>
 #morph-starter, .mp-level h2, .mp-level ul li a.menu-item { 
-	color:<?php echo $fontColor;?>,0.6); 
-    text-shadow: 0 0 1px <?php echo $fontColor;?>,0.1);
+	color:<?php echo $levelFontColor;?>,0.6); 
+    text-shadow: 0 0 1px <?php echo $levelFontColor;?>,0.1);
 } 
 .st-menu ul li > a.menu-item:hover,
 .mp-level > ul > li:first-child > a.menu-item:hover {
-    color:<?php echo $fontColor;?>,0.75);
-    text-shadow: 0 0 8px <?php echo $fontColor;?>,0.9);
+    color:<?php echo $levelFontColor; ',' . ($levelFontFilter == 1)? '1' : '0.75';?>);
+    text-shadow: 0 0 8px <?php echo $levelFontColor;?>,0.9);
 }
 .st-menu ul li.current.active > a.menu-item, .st-menu ul li.deeper.active > a.menu-item {
-    color:<?php echo $fontColor;?>,1);
-    text-shadow: 0 0 10px <?php echo $fontColor;?>,0.6);
+    color:<?php echo $levelFontColor . ',' . ($levelFontFilter > 1)? '1' : '0.75';?>);
+    text-shadow: 0 0 10px <?php echo $levelFontColor;?>,0.6);
 }
 .st-menu h2 {
-    text-shadow: 1px 1px 4px <?php echo $fontColor;?>,0.45);
+    text-shadow: 1px 1px 4px <?php echo $levelFontColor;?>,0.45);
 }
 .st-menu h2:hover {
-    text-shadow: 1px 1px 8px <?php echo $fontColor;?>,0.79);
+    text-shadow: 1px 1px 8px <?php echo $levelFontColor;?>,0.79);
 }
-.mp-back .icon-mpback:hover{ border-style: solid; color: rgba(236, 235, 167, 0.4); text-shadow: 1px 1px 8px rgba(252, 254, 255, 0.79);}
+.mp-back .icon-mpback:hover { 
+	border-style: solid; 
+	color: rgba(236, 235, 167, 0.4); 
+	text-shadow: 1px 1px 8px rgba(252, 254, 255, 0.79);
+}
 .st-menu .mp-level.mp-level-overlay > .mp-back,
 .st-menu .mp-level.mp-level-overlay > .mp-back::after {
     background: rgba(205, 205, 205, 0.3);
@@ -50,7 +54,7 @@ defined('_JEXEC') or die;
     right: 8px;
     top: 12px;
     font-size: 0.563em;
-    color: rgba(205, 205, 205, 0.4);
+    color: <?php echo $backFontColor; ?>,1);
     text-shadow: 1px 1px 4px rgba(252, 254, 255, 0.45);
     -webkit-transition: color 0.6s,text-shadow 0.6s;
     -moz-transition: color 0.6s,text-shadow 0.6s;
@@ -59,9 +63,9 @@ defined('_JEXEC') or die;
     transition: color 0.6s,text-shadow 0.6s;
 }
 .mp-back {
-    background: rgba(205, 205, 205, 0.4);
+    background: <?php echo $backColor;?>,0.5);
     outline: none;
-    color: #fff;
+    color: <?php echo $backFontColor. ',' . ($backFontFilter == 1)? '1' : '0.5';?>);
     text-transform: uppercase;
     letter-spacing: 3px;
     font-weight: 800;
@@ -77,8 +81,8 @@ defined('_JEXEC') or die;
     font-size: 1em;
 }
 .mp-back:hover, .mp-back:focus {
-    background: rgba(0,0,0,0.05) !important;
-    color: rgba(226,231,151,1);
+    background: <?php echo $backColor. ',' . ($backFontFilter > 1)? '0.25' : '0.75';?>) !important;
+    color:<?php echo $backFontColor . ',' . ($backFontFilter > 1)? '1' : '0.5';?>);
     text-decoration: none;
 }
 .mp-back::after {

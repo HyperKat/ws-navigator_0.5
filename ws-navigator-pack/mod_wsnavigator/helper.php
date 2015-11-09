@@ -48,7 +48,16 @@ class ModMenuHelper
 
 	    return $hex; // returns the hex value including the number sign (#)
 	}
-
+	
+	public static function convertColor($color, $default)
+	{
+		$t = $color;
+		if( strlen($t) > 0 && strpos($t,'#') == 0 )
+		{
+			return = 'rgba(' . implode(',',self::hex2rgb($t));
+		}
+		return $fontColor = $default;
+	}
     /**
      * Get a list of the menu items.
      *
@@ -77,24 +86,23 @@ class ModMenuHelper
     }
     public static function getBevelColors($ps)
     {
-        $tmp = htmlspecialchars($ps->get('mplevel_color'));
         $len = self::countBevels();
 
-        if(!is_array(explode(';',$tmp)) && ( strlen($tmp) < 1 || is_null($tmp) ) )
+        if(!is_array(explode(';',$ps)) && ( strlen($ps) < 1 || is_null($ps) ) )
         {
             $rgba = 22;
             $mpColorTbl = array();
 
             for($i = 0; $i < $subMenLen; $i++)
             {
-                $mpColorTbl[$i] = 'rgba(' . $rgba . ',' . $rgba . ',' . $rgba . ',1)';
-                $rgba += $i+5;
+				$mpColorTbl[$i] = 'rgba(' . $rgba . ',' . $rgba . ',' . $rgba . ',1)';
+				$rgba += $i+5;
             }
             return $mpColorTbl;
         }
-        if(is_array(explode(';',$tmp)))
+        if(is_array(explode(';',$ps)))
         {
-            $bevelcolors = explode(';',$tmp);
+            $bevelcolors = explode(';',$ps);
         }
         else
         {
@@ -102,6 +110,11 @@ class ModMenuHelper
             $bevelcolors = array();
             $bevelcolors[1] = $me;
         }
+		foreach ($bevelcolors as $i => $col)
+		{
+			if(strpos(trim($col),'rgba') < 0)
+				$col = 'rgba(' . implode(',',self::hex2rgb($col)) . ')';
+		}
         $fl = count($bevelcolors);
         $t = $len - $fl;
         $i = 0;
