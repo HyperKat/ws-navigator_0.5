@@ -188,6 +188,7 @@ st-effect-11
 				<field
                     name="mpback_color"
                     type="text"
+					default="#000"
                     label="MOD_MENU_FIELD_MPBACKCOLOR_LABEL"
                     description="MOD_MENU_FIELD_MPBACKCOLOR_DESC" />
 					

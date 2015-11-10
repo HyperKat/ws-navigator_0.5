@@ -54,9 +54,9 @@ class ModMenuHelper
 		$t = $color;
 		if( strlen($t) > 0 && strpos($t,'#') == 0 )
 		{
-			return = 'rgba(' . implode(',',self::hex2rgb($t));
+			return 'rgba(' . implode(',',self::hex2rgb($t));
 		}
-		return $fontColor = $default;
+		return $default;
 	}
     /**
      * Get a list of the menu items.

@@ -18,11 +18,11 @@ defined('_JEXEC') or die;
 } 
 .st-menu ul li > a.menu-item:hover,
 .mp-level > ul > li:first-child > a.menu-item:hover {
-    color:<?php echo $levelFontColor; ',' . ($levelFontFilter == 1)? '1' : '0.75';?>);
+    color:<?php echo $levelFontColor . ',' . (($levelFontFilter == 1)? '1' : '0.75');?>);
     text-shadow: 0 0 8px <?php echo $levelFontColor;?>,0.9);
 }
 .st-menu ul li.current.active > a.menu-item, .st-menu ul li.deeper.active > a.menu-item {
-    color:<?php echo $levelFontColor . ',' . ($levelFontFilter > 1)? '1' : '0.75';?>);
+    color:<?php echo $levelFontColor . ',' . (($levelFontFilter > 1)? '1' : '0.75');?>);
     text-shadow: 0 0 10px <?php echo $levelFontColor;?>,0.6);
 }
 .st-menu h2 {
@@ -33,8 +33,8 @@ defined('_JEXEC') or die;
 }
 .mp-back .icon-mpback:hover { 
 	border-style: solid; 
-	color: rgba(236, 235, 167, 0.4); 
-	text-shadow: 1px 1px 8px rgba(252, 254, 255, 0.79);
+	color:<?php echo $backFontColor . ',' . (($backFontFilter > 1)? '1' : '0.5');?>);
+	text-shadow: 1px 1px 8px <?php echo $backFontColor . ',' . (($backFontFilter > 1)? '1' : '0.79');?>);
 }
 .st-menu .mp-level.mp-level-overlay > .mp-back,
 .st-menu .mp-level.mp-level-overlay > .mp-back::after {
@@ -55,7 +55,7 @@ defined('_JEXEC') or die;
     top: 12px;
     font-size: 0.563em;
     color: <?php echo $backFontColor; ?>,1);
-    text-shadow: 1px 1px 4px rgba(252, 254, 255, 0.45);
+    text-shadow: 1px 1px 4px <?php echo $backFontColor . ',' . (($backFontFilter > 1)? '1' : '0.45');?>);
     -webkit-transition: color 0.6s,text-shadow 0.6s;
     -moz-transition: color 0.6s,text-shadow 0.6s;
     -ms-transition: color 0.6s,text-shadow 0.6s;
@@ -65,7 +65,7 @@ defined('_JEXEC') or die;
 .mp-back {
     background: <?php echo $backColor;?>,0.5);
     outline: none;
-    color: <?php echo $backFontColor. ',' . ($backFontFilter == 1)? '1' : '0.5';?>);
+    color: <?php echo $backFontColor . ',' . (($backFontFilter == 1)? '1' : '0.5');?>);
     text-transform: uppercase;
     letter-spacing: 3px;
     font-weight: 800;
@@ -81,8 +81,8 @@ defined('_JEXEC') or die;
     font-size: 1em;
 }
 .mp-back:hover, .mp-back:focus {
-    background: <?php echo $backColor. ',' . ($backFontFilter > 1)? '0.25' : '0.75';?>) !important;
-    color:<?php echo $backFontColor . ',' . ($backFontFilter > 1)? '1' : '0.5';?>);
+    background: <?php echo $backColor . ',' . (($backFontFilter > 1)? '0.25' : '0.75');?>) !important;
+    color:<?php echo $backFontColor . ',' . (($backFontFilter > 1)? '1' : '0.5');?>);
     text-decoration: none;
 }
 .mp-back::after {
@@ -95,7 +95,7 @@ defined('_JEXEC') or die;
 
 <div id="Nav-Wrapper" class="nav-wrapper" login-button="<?php echo $loginOn; ?>">
 <nav id="st-menu" class="st-menu <?php echo $navEffect; ?>" role="navigation">
-<div class="mp-level" style="background-color: <?php echo $colors[0]; ?>;">
+<div class="mp-level" style="background-color: <?php echo $levelColors[0]; ?>;">
 <h2 class="icon ws-header"><?php echo $titel; ?></h2><a class="mp-back" href="#">back <span class="icon-mpback"></span></a>
 <ul class="ws-nav nav menu<?php echo $class_sfx . '"';
     $tag = '';
@@ -206,7 +206,7 @@ foreach ($list as $i => &$item)
     if ($item->deeper)
     {
 
-        echo '<div class="mp-level" data-level="' . $item->level . '" style="background-color: ' . $colors[$item->level] . '"><h2 class="icon item-' . $item->id . '">' . $item->title . '</h2><a class="mp-back tip" data-original-title="Tooltip" href="#">back <span class="icon-mpback"></span></a><ul class="nav-child unstyled">';
+        echo '<div class="mp-level" data-level="' . $item->level . '" style="background-color: ' . $levelColors[$item->level] . '"><h2 class="icon item-' . $item->id . '">' . $item->title . '</h2><a class="mp-back tip" data-original-title="Tooltip" href="#">back <span class="icon-mpback"></span></a><ul class="nav-child unstyled">';
 
     }
     elseif ($item->shallower)

@@ -28,7 +28,7 @@ $app        = JFactory::getApplication();
 $levelColors     = ModMenuHelper::getBevelColors(htmlspecialchars($params->get('mplevel_color')));
 $levelFontColor  = ModMenuHelper::convertColor(htmlspecialchars($params->get('menu_fontcolor')), 'rgba(205,205,205');
 $levelFontFilter = $params->get('mplevel_colorfilter');
-$backColors      = ModMenuHelper::convertColor(htmlspecialchars($params->get('mpback_color')), 'rgba(205, 205, 205, 0.4)');
+$backColor       = ModMenuHelper::convertColor(htmlspecialchars($params->get('mpback_color')), 'rgba(205, 205, 205, 0.4)');
 $backFontColor   = ModMenuHelper::convertColor(htmlspecialchars($params->get('mpback_fontcolor')), 'rgba(236, 235, 167');
 $backFontFilter  = $params->get('mpback_colorfilter');
 
