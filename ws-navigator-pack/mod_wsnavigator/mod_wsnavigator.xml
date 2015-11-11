@@ -98,24 +98,7 @@
                     <option value="0">JNO</option>
                     <option value="1">JYES</option>
                 </field>
-                <field
-                    name="addscriptstotemplate"
-                    type="list"
-                    default="1"
-                    label="MOD_WSNAVIGATOR_FIELD_ADDSCRIPTTOTEMPLATE_LABEL"
-                    description="MOD_WSNAVIGATOR_FIELD_ADDSCRIPTTOTEMPLATE_DESC">
-                    <option value="0">JNO</option>
-                    <option value="1">JYES</option>
-                </field>
-                <field
-                    name="addstylestotemplate"
-                    type="list"
-                    default="1"
-                    label="MOD_WSNAVIGATOR_FIELD_ADDSTYLETOTEMPLATE_LABEL"
-                    description="MOD_WSNAVIGATOR_FIELD_ADDSTYLETOTEMPLATE_DESC">
-                    <option value="0">JNO</option>
-                    <option value="1">JYES</option>
-                </field>
+				
                 <field
                     name="usetext"
                     type="list"
@@ -130,7 +113,7 @@
                     </option>
                 </field>
             </fieldset>
-st-effect-11
+
             <fieldset
                 name="advanced">
 
@@ -151,13 +134,43 @@ st-effect-11
                     type="textarea" rows="3"
                     label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
                     description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC" />
+                
                 <field
-                    name="triggertext"
-                    type="text"
-                    default="Menü"
-                    label="MOD_WSNAVIGATOR_FIELD_TRIGGERTEXT_LABEL"
-                    description="MOD_WSNAVIGATOR_FIELD_TRIGGERTEXT_DESC" />
+                    name="cache"
+                    type="list"
+                    default="1"
+                    label="COM_MODULES_FIELD_CACHING_LABEL"
+                    description="COM_MODULES_FIELD_CACHING_DESC">
+                    <option
+                        value="1">JGLOBAL_USE_GLOBAL</option>
+                    <option
+                        value="0">COM_MODULES_FIELD_VALUE_NOCACHING</option>
+                </field>
 
+                <field
+                    name="cache_time"
+                    type="text"
+                    default="900"
+                    label="COM_MODULES_FIELD_CACHE_TIME_LABEL"
+                    description="COM_MODULES_FIELD_CACHE_TIME_DESC" />
+
+                <field
+                    name="cachemode"
+                    type="hidden"
+                    default="itemid">
+                    <option
+                        value="itemid"></option>
+                </field>
+				</fieldset>
+				<fieldset
+                name="template">
+				<field
+                    name="menu_fontcolor"
+                    type="text"
+					default="#fff"
+                    label="MOD_MENU_FIELD_FONTCOLOR_LABEL"
+                    description="MOD_MENU_FIELD_FONTCOLOR_DESC" />
+				
                 <field
                     name="mplevel_color"
                     type="text" rows="4"
@@ -177,13 +190,6 @@ st-effect-11
                         MOD_WSNAVIGATOR_VALUE_COLORFILTER-DOWN
                     </option>
                 </field>
-				
-				<field
-                    name="menu_fontcolor"
-                    type="text"
-					default="#fff"
-                    label="MOD_MENU_FIELD_FONTCOLOR_LABEL"
-                    description="MOD_MENU_FIELD_FONTCOLOR_DESC" />
 				
 				<field
                     name="mpback_color"
@@ -262,34 +268,18 @@ st-effect-11
                         MOD_WSNAVIGATOR_VALUE_EFFECT-14
                     </option>
                 </field>
-
-                <field
-                    name="cache"
-                    type="list"
-                    default="1"
-                    label="COM_MODULES_FIELD_CACHING_LABEL"
-                    description="COM_MODULES_FIELD_CACHING_DESC">
-                    <option
-                        value="1">JGLOBAL_USE_GLOBAL</option>
-                    <option
-                        value="0">COM_MODULES_FIELD_VALUE_NOCACHING</option>
-                </field>
-
-                <field
-                    name="cache_time"
-                    type="text"
-                    default="900"
-                    label="COM_MODULES_FIELD_CACHE_TIME_LABEL"
-                    description="COM_MODULES_FIELD_CACHE_TIME_DESC" />
-
-                <field
-                    name="cachemode"
-                    type="hidden"
-                    default="itemid">
-                    <option
-                        value="itemid"></option>
-                </field>
             </fieldset>
+			<fieldset
+                name="trigger">
+				
+				<field
+                    name="triggertext"
+                    type="text"
+                    default="Menü"
+                    label="MOD_WSNAVIGATOR_FIELD_TRIGGERTEXT_LABEL"
+                    description="MOD_WSNAVIGATOR_FIELD_TRIGGERTEXT_DESC" />
+				
+			</fieldset>
         </fields>
     </config>
 </extension>

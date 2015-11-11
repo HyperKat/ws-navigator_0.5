@@ -37,15 +37,14 @@ $scToTmpl   = $params->get('addscriptstotemplate');
 $stToTmpl   = $params->get('addstylestotemplate');
 $triggerTxt = htmlspecialchars($params->get('triggertext'));
 $loginOn    = $params->get('useloginextension');
-$scriptRoot = ($scToTmpl != null && $scToTmpl > 0)? '/templates/' . $app->getTemplate(): '/modules/mod_wsnavigator';
-$styleRoot  = ($stToTmpl != null && $stToTmpl > 0)? '/templates/' . $app->getTemplate(): '/modules/mod_wsnavigator';
+$tagRoot 	= '/modules/mod_wsnavigator';
 
-$doc->addScript($scriptRoot . '/js/modernizr.custom.js');
-$doc->addScript($scriptRoot . '/js/modernizr.custom.js');
-$doc->addScript($scriptRoot . '/js/ws-navigator.js');
-$doc->addScript($scriptRoot . '/js/navigation.js');
+$doc->addScript($tagRoot . '/js/modernizr.custom.js');
+$doc->addScript($tagRoot . '/js/modernizr.custom.js');
+$doc->addScript($tagRoot . '/js/ws-navigator.js');
+$doc->addScript($tagRoot . '/js/navigation.js');
 // Add Stylesheets
-$doc->addStyleSheet($styleRoot . '/css/navigation.css');
+$doc->addStyleSheet($tagRoot . '/css/navigation.css');
 if($client->browser == JApplicationWebClient::IE)
 {
     $doc->addStyleSheet($styleRoot . '/css/ie.css');
