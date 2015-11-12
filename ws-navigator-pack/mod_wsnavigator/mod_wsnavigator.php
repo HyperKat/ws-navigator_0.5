@@ -33,8 +33,6 @@ $backFontColor   = ModMenuHelper::convertColor(htmlspecialchars($params->get('mp
 $backFontFilter  = $params->get('mpback_colorfilter');
 
 $navEffect  = $params->get('useanimation');
-$scToTmpl   = $params->get('addscriptstotemplate');
-$stToTmpl   = $params->get('addstylestotemplate');
 $triggerTxt = htmlspecialchars($params->get('triggertext'));
 $loginOn    = $params->get('useloginextension');
 $tagRoot 	= '/modules/mod_wsnavigator';

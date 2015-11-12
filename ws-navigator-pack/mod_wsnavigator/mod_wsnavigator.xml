@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension type="module" version="3.1" client="site" method="upgrade">
-    <name>WS-Navigator</name>
-    <author>Joomla! Project</author>
+    <name>MOD_WSNAVIGATOR</name>
+    <author>Wolfgang Spies</author>
     <creationDate>April 2015</creationDate>
     <copyright>Copyright (C) 2015 Wolfgang Spies.</copyright>
     <license></license>
@@ -99,17 +99,53 @@
                     <option value="1">JYES</option>
                 </field>
 				
-                <field
-                    name="usetext"
+				<field
+                    name="useanimation"
                     type="list"
-                    default="0"
-                    label="MOD_WSNAVIGATOR_FIELD_USETEXT_LABEL"
-                    description="MOD_WSNAVIGATOR_FIELD_USETEXT_DESC">
-                    <option
-                        value="0">MOD_WSNAVIGATOR_VALUE_ICONS
+                    default="st-effect-11"
+                    label="MOD_WSNAVIGATOR_FIELD_DATAEFECT_LABEL"
+                    description="MOD_WSNAVIGATOR_FIELD_DATAEFECT_DESC">
+                    <option value="st-effect-1">
+                        MOD_WSNAVIGATOR_VALUE_EFFECT-01
                     </option>
-                    <option
-                        value="1">MOD_WSNAVIGATOR_VALUE_TEXT
+                    <option value="st-effect-2">
+                        MOD_WSNAVIGATOR_VALUE_EFFECT-02
+                    </option>
+                    <option value="st-effect-3">
+                        MOD_WSNAVIGATOR_VALUE_EFFECT-03
+                    </option>
+                    <option value="st-effect-4">
+                        MOD_WSNAVIGATOR_VALUE_EFFECT-04
+                    </option>
+                    <option value="st-effect-5">
+                        MOD_WSNAVIGATOR_VALUE_EFFECT-05
+                    </option>
+                    <option value="st-effect-6">
+                        MOD_WSNAVIGATOR_VALUE_EFFECT-06
+                    </option>
+                    <option value="st-effect-7">
+                        MOD_WSNAVIGATOR_VALUE_EFFECT-07
+                    </option>
+                    <option value="st-effect-8">
+                        MOD_WSNAVIGATOR_VALUE_EFFECT-08
+                    </option>
+                    <option value="st-effect-9">
+                        MOD_WSNAVIGATOR_VALUE_EFFECT-09
+                    </option>
+                    <option value="st-effect-10">
+                        MOD_WSNAVIGATOR_VALUE_EFFECT-10
+                    </option>
+                    <option value="st-effect-11">
+                        MOD_WSNAVIGATOR_VALUE_EFFECT-11
+                    </option>
+                    <option value="st-effect-12">
+                        MOD_WSNAVIGATOR_VALUE_EFFECT-12
+                    </option>
+                    <option value="st-effect-13">
+                        MOD_WSNAVIGATOR_VALUE_EFFECT-13
+                    </option>
+                    <option value="st-effect-14">
+                        MOD_WSNAVIGATOR_VALUE_EFFECT-14
                     </option>
                 </field>
             </fieldset>
@@ -162,20 +198,26 @@
                         value="itemid"></option>
                 </field>
 				</fieldset>
-				<fieldset
+			<fieldset
                 name="template">
+				
+				<field
+					name="liner_mplevel"
+                    type="spacer" 
+					label="MOD_WSNAVIGATOR_VALUE_LINERMPLEVEL_LABEL" />
+					
 				<field
                     name="menu_fontcolor"
-                    type="text"
+                    type="color"
 					default="#fff"
-                    label="MOD_MENU_FIELD_FONTCOLOR_LABEL"
-                    description="MOD_MENU_FIELD_FONTCOLOR_DESC" />
+                    label="MOD_WSNAVIGATOR_FIELD_FONTCOLOR_LABEL"
+                    description="MOD_WSNAVIGATOR_FIELD_FONTCOLOR_DESC" />
 				
                 <field
                     name="mplevel_color"
                     type="text" rows="4"
-                    label="MOD_MENU_FIELD_MPLEVELCOLOR_LABEL"
-                    description="MOD_MENU_FIELD_MPLEVELCOLOR_DESC" />
+                    label="MOD_WSNAVIGATOR_FIELD_MPLEVELCOLOR_LABEL"
+                    description="MOD_WSNAVIGATOR_FIELD_MPLEVELCOLOR_DESC" />
 
 				<field
                     name="mplevel_colorfilter"
@@ -192,12 +234,24 @@
                 </field>
 				
 				<field
+					name="liner_mpback"
+                    type="spacer" 
+					label="MOD_WSNAVIGATOR_VALUE_LINERMPBACK_LABEL" />
+				
+				<field
+                    name="mpback_fontcolor"
+                    type="color"
+					default="#fff"
+                    label="MOD_WSNAVIGATOR_MPBACK_FONTCOLOR_LABEL"
+                    description="MOD_WSNAVIGATOR_MPBACK_FONTCOLOR_DESC" />
+						
+				<field
                     name="mpback_color"
-                    type="text"
+                    type="color"
 					default="#000"
-                    label="MOD_MENU_FIELD_MPBACKCOLOR_LABEL"
-                    description="MOD_MENU_FIELD_MPBACKCOLOR_DESC" />
-					
+                    label="MOD_WSNAVIGATOR_FIELD_MPBACKCOLOR_LABEL"
+                    description="MOD_WSNAVIGATOR_FIELD_MPBACKCOLOR_DESC" />
+				
 				<field
                     name="mpback_colorfilter"
                     type="list"
@@ -211,66 +265,15 @@
                         MOD_WSNAVIGATOR_VALUE_COLORFILTER-DOWN
                     </option>
                 </field>
-				
-				<field
-                    name="mpback_fontcolor"
-                    type="text"
-					default="#fff"
-                    label="MOD_MENU_MPBACK_FONTCOLOR_LABEL"
-                    description="MOD_MENU_MPBACK_FONTCOLOR_DESC" />
 					
-                <field
-                    name="useanimation"
-                    type="list"
-                    default="st-effect-11"
-                    label="MOD_WSNAVIGATOR_FIELD_DATAEFECT_LABEL"
-                    description="MOD_WSNAVIGATOR_FIELD_DATAEFECT_DESC">
-                    <option value="st-effect-1">
-                        MOD_WSNAVIGATOR_VALUE_EFFECT-01
-                    </option>
-                    <option value="st-effect-2">
-                        MOD_WSNAVIGATOR_VALUE_EFFECT-02
-                    </option>
-                    <option value="st-effect-3">
-                        MOD_WSNAVIGATOR_VALUE_EFFECT-03
-                    </option>
-                    <option value="st-effect-4">
-                        MOD_WSNAVIGATOR_VALUE_EFFECT-04
-                    </option>
-                    <option value="st-effect-5">
-                        MOD_WSNAVIGATOR_VALUE_EFFECT-05
-                    </option>
-                    <option value="st-effect-6">
-                        MOD_WSNAVIGATOR_VALUE_EFFECT-06
-                    </option>
-                    <option value="st-effect-7">
-                        MOD_WSNAVIGATOR_VALUE_EFFECT-07
-                    </option>
-                    <option value="st-effect-8">
-                        MOD_WSNAVIGATOR_VALUE_EFFECT-08
-                    </option>
-                    <option value="st-effect-9">
-                        MOD_WSNAVIGATOR_VALUE_EFFECT-09
-                    </option>
-                    <option value="st-effect-10">
-                        MOD_WSNAVIGATOR_VALUE_EFFECT-10
-                    </option>
-                    <option value="st-effect-11">
-                        MOD_WSNAVIGATOR_VALUE_EFFECT-11
-                    </option>
-                    <option value="st-effect-12">
-                        MOD_WSNAVIGATOR_VALUE_EFFECT-12
-                    </option>
-                    <option value="st-effect-13">
-                        MOD_WSNAVIGATOR_VALUE_EFFECT-13
-                    </option>
-                    <option value="st-effect-14">
-                        MOD_WSNAVIGATOR_VALUE_EFFECT-14
-                    </option>
-                </field>
             </fieldset>
 			<fieldset
                 name="trigger">
+				
+				<field
+					name="trigger_desc"
+                    type="spacer" 
+					label="MOD_WSNAVIGATOR_FIELD_TRIGGER_LABEL" />
 				
 				<field
                     name="triggertext"
@@ -279,6 +282,85 @@
                     label="MOD_WSNAVIGATOR_FIELD_TRIGGERTEXT_LABEL"
                     description="MOD_WSNAVIGATOR_FIELD_TRIGGERTEXT_DESC" />
 				
+				<field
+                    name="trigger_fontcolor"
+                    type="color"
+					default="#fff"
+                    label="MOD_WSNAVIGATOR_TRIGGER_FONTCOLOR_LABEL"
+                    description="MOD_WSNAVIGATOR_TRIGGER_FONTCOLOR_DESC" />
+						
+				<field
+                    name="trigger_bgcolor"
+                    type="color"
+					default="#rrggbb"
+                    label="MOD_WSNAVIGATOR_FIELD_TRIGGERBGCOLOR_LABEL"
+                    description="MOD_WSNAVIGATOR_FIELD_TRIGGERBGCOLOR_DESC" />
+				
+				<field
+                    name="trigger_colorfilter"
+                    type="list"
+                    default="1"
+                    label="MOD_WSNAVIGATOR_VALUE_TRIGGERCOLORFILTER_LABEL"
+                    description="MOD_WSNAVIGATOR_VALUE_TRIGGERCOLORFILTER_DESC"
+					disabled="1">
+                    <option value="1">
+                        MOD_WSNAVIGATOR_VALUE_COLORFILTER-UP
+                    </option>
+                    <option value="2">
+                        MOD_WSNAVIGATOR_VALUE_COLORFILTER-DOWN
+                    </option>
+                </field>
+					
+				<field
+                    name="trigger_border"
+                    type="list"
+					default="0"
+                    label="MOD_WSNAVIGATOR_FIELD_TRIGGERBORDER_LABEL"
+                    description="MOD_WSNAVIGATOR_FIELD_TRIGGERBORDER_DESC" >
+					<option value="0">JNO</option>
+                    <option value="1">JYES</option>
+				</field>
+				
+				<field
+                    name="trigger_borderwidth"
+                    type="integer"
+					default="0"
+                    label="MOD_WSNAVIGATOR_FIELD_TRIGGERBORDERWIDTH_LABEL"
+                    description="MOD_WSNAVIGATOR_FIELD_TRIGGERBORDERWIDTH_DESC" 
+					first="0" last="10" step="1" showon="trigger_border:1" />
+				
+				<field
+                    name="trigger_brcolor"
+                    type="color"
+					default="#rrggbb"
+                    label="MOD_WSNAVIGATOR_FIELD_TRIGGERBRCOLOR_LABEL"
+                    description="MOD_WSNAVIGATOR_FIELD_TRIGGERBRCOLOR_DESC" 
+					showon="trigger_border:1" />
+				
+                <field
+                    name="usetext"
+                    type="list"
+                    default="1"
+                    label="MOD_WSNAVIGATOR_FIELD_USETEXT_LABEL"
+                    description="MOD_WSNAVIGATOR_FIELD_USETEXT_DESC">
+                    <option
+                        value="0">MOD_WSNAVIGATOR_VALUE_ICONS
+                    </option>
+                    <option
+                        value="1">MOD_WSNAVIGATOR_VALUE_TEXT
+					</option>
+					<option
+                        value="2">MOD_WSNAVIGATOR_VALUE_TEXTICONS
+                    </option>
+				</field>
+				
+				<field
+                    name="triggerimage"
+                    type="media"
+                    label="MOD_WSNAVIGATOR_FIELD_TRIGGERIMAGE_LABEL"
+                    description="MOD_WSNAVIGATOR_FIELD_TRIGGERIMAGE_DESC" 
+					showon="usetext:0,2" />
+					
 			</fieldset>
         </fields>
     </config>
