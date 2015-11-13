@@ -330,7 +330,7 @@
 				</field>
 				
 				<field
-                    name="trigger_borderwidth"
+                    name="trigger_brwidth"
                     type="integer"
 					default="0"
                     label="MOD_WSNAVIGATOR_FIELD_TRIGGERBORDERWIDTH_LABEL"
@@ -354,7 +354,7 @@
 					showon="trigger_border:1" />
 				
                 <field
-                    name="usetext"
+                    name="trigger_usetext"
                     type="list"
                     default="1"
                     label="MOD_WSNAVIGATOR_FIELD_USETEXT_LABEL"
@@ -371,12 +371,24 @@
 				</field>
 				
 				<field
-                    name="triggerimage"
+                    name="trigger_image"
                     type="media"
                     label="MOD_WSNAVIGATOR_FIELD_TRIGGERIMAGE_LABEL"
                     description="MOD_WSNAVIGATOR_FIELD_TRIGGERIMAGE_DESC" 
-					showon="usetext:0,2" />
-					
+					showon="trigger_usetext:0,2" />
+				
+				<field
+                    name="trigger_imgpos"
+                    type="list"
+                    default="0"
+                    label="MOD_WSNAVIGATOR_FIELD_TRIGGERIMGPOS_LABEL"
+                    description="MOD_WSNAVIGATOR_FIELD_TRIGGERIMGPOS_DESC"
+					showon="trigger_usetext:2" >
+                    <option value="0">MOD_WSNAVIGATOR_VALUE_TOP</option>
+                    <option value="1">MOD_WSNAVIGATOR_VALUE_BOTTOM</option>
+					<option value="2">MOD_WSNAVIGATOR_VALUE_LEFT</option>
+					<option value="3">MOD_WSNAVIGATOR_VALUE_RIGHT</option>
+				</field>				
 			</fieldset>
         </fields>
     </config>

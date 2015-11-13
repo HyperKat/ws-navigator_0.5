@@ -35,9 +35,12 @@ $backFontFilter  	= $params->get('mpback_colorfilter');
 
 $navEffect  		= $params->get('useanimation');
 $navEffectStyle 	= ModMenuStyleHelper::getNavEffectStyle($navEffect);
-$triggerTxt 		= htmlspecialchars($params->get('triggertext'));
+$triggerContent		= ModMenuStyleHelper::getTriggerContentStyle($params)
 $trigClass_sfx		= htmlspecialchars($params->get('triggerclass_sfx'));
 $trigBorder			= ModMenuStyleHelper::getTriggerBorderStyle($params); 
+$trigBgCol			= ModMenuHelper::convertColor(htmlspecialchars($params->get('trigger_bgcolor')), 'rgba(205, 205, 205, 0.0)');
+$trigFontCol		= ModMenuHelper::convertColor(htmlspecialchars($params->get('trigger_fontcolor')), 'rgba(255, 252, 250, 1.0)');
+$trigColFilter		= $params->get('trigger_colorfilter');
 $loginOn    		= $params->get('useloginextension');
 
 $doc->addScript('/modules/mod_wsnavigator/js/modernizr.custom.js');

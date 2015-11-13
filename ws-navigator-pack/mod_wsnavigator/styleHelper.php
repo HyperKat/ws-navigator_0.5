@@ -19,13 +19,42 @@ defined('_JEXEC') or die;
  */
 class ModMenuStyleHelper
 {
-	puplic static getTriggerBorderStyle($p)
+	public static function getTriggerContentStyle($p)
+	{
+		$useContent = $p->get('trigger_usetext');
+		$trigContent = htmlspecialchars($params->get('triggertext'));
+		switch ( $useContent )
+		{
+			case 0:
+				return '<img  class="si-icon-text triggerImg" src="../' . $p->get('trigger_image') . '/>';
+			case 2:
+				$pos = $p->get('trigger_imgpos');
+				switch ( $pos )
+				{
+					case 1:
+						return '<h2  class="si-icon-text triggerTxt">' . $trigContent . '</h2><br /><img  class="si-icon-text triggerImg" src="../' . $p->get('trigger_image') . '/>';
+					case 2:
+						return '<img  class="si-icon-text triggerImg" src="../' . $p->get('trigger_image') . '/><h2  class="si-icon-text triggerTxt">' . $trigContent . '</h2>';
+					case 3:
+						return '<h2  class="si-icon-text triggerTxt">' . $trigContent . '</h2><img  class="si-icon-text triggerImg" src="../' . $p->get('trigger_image') . '/>';
+					case 0:
+					default:
+						return '<img  class="si-icon-text triggerImg" src="../' . $p->get('trigger_image') . '/><br /><h2  class="si-icon-text triggerTxt">' . $trigContent . '</h2>';
+				}
+			case 1:
+			default:
+				return '<h2  class="si-icon-text triggerTxt">' . $trigContent . '</h2>';
+		}
+	}
+	
+	public static function getTriggerBorderStyle($p)
 	{
 		if($p->get('trigger_border') < 1 )
 			return '';
-		return 'border: ' . $p->get('trigger_borderwidth') . 'px solid ' . htmlspecialchars($p->get('trigger_brcolor')) . ';
+		return 'border: ' . $p->get('trigger_brwidth') . 'px solid ' . htmlspecialchars($p->get('trigger_brcolor')) . ';
 				border-radius: ' . $p->get('trigger_brradius') . 'px;';
 	}
+	
 	public static function getNavEffectStyle($effect)
 	{
 		switch ($effect) 

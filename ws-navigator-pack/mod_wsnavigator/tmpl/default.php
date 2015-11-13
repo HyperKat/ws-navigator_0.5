@@ -93,7 +93,8 @@ defined('_JEXEC') or die;
 }
 
 #trigger { 
-	<?php echo $trigBorder	; ?>
+	<?php echo $trigBorder; ?>
+	background: <?php echo $trigBgCol;?>,0.7);
 	padding: 15px;
     position: relative;  
     margin: 35px; 
@@ -107,8 +108,7 @@ defined('_JEXEC') or die;
 }
 #trigger > h2 {
     border: none;
-    background: transparent;
-    color: rgba(255, 255, 255, 0.95);
+    color: <?php echo $trigFontCol;?>,0.7);
     letter-spacing: 1px;
     text-transform: uppercase;
     cursor: pointer;
@@ -129,7 +129,8 @@ defined('_JEXEC') or die;
 }
 
 #trigger > h2:hover {
-    font-weight: 600;
+	color: <?php echo $trigFontCol . ',' . (($trigColFilter > 1)? '1' : '0.4');?>);
+	background: <?php echo $trigBgCol . ',' . (($trigColFilter > 1)? '1' : '0.4');?>);
     text-shadow: 1px 1px 3px rgba(3, 1, 0, 0.80);
 }
 
@@ -269,11 +270,8 @@ foreach ($list as $i => &$item)
 }
     ?></div></ul>
     </nav>
-    <?php
-        echo '<div><a href="#" id="trigger" data-effect="' . $navEffect . '" class="si-icons si-icons-easing nav-toggler toggle-slide-left menu-trigger monoton ' .$class_sfx . '">
-            <h2  class="si-icon-text">' . $triggerTxt . '</h2>
-            <span class=""></span>
-            </a></div>';
-    ?>
+    <div <?php echo ( strlen($trigClass_sfx) > 0 )? 'class="' . $trigClass_sfx . '"' : ''; ?>>
+		<a href="#" id="trigger" data-effect="<?php echo $navEffect; ?>" class="nav-toggler toggle-slide-left menu-trigger monoton <?php echo $class_sfx . $trigClass_sfx; ?>"><?php echo $triggerContent; ?></a>
+	</div>
 </div>
 
