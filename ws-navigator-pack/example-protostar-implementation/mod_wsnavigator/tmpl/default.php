@@ -91,49 +91,6 @@ defined('_JEXEC') or die;
     font-size: 1.3em;
     color: rgba(0,0,0,0.3);
 }
-
-#trigger { 
-	<?php echo $trigBorder	; ?>
-	padding: 15px;
-    position: relative;  
-    margin: 35px; 
-    float: left; 
-	z-index: 999; 
-    transition: transform 0.4s ease 0.7s;
-    -moz-transition: -moz-transform 0.4s ease 0.7s;
-    -webkit-transition: -webkit-transform 0.4s ease 0.7s;
-    -o-transition: -o-transform 0.4s ease 0.8s;
-    -ms-transition: -ms-transform 0.4s ease 0.7s;
-}
-#trigger > h2 {
-    border: none;
-    background: transparent;
-    color: rgba(255, 255, 255, 0.95);
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    cursor: pointer;
-    display: inline-block;
-    font-size: 3.9em;
-    font-weight: 200;
-    border-radius: 0 2px 2px 0;
-    position: relative;
-    float: left;
-    margin: 6px 4px;
-    text-decoration: none;
-    transition: font-weight 0.6s linear 0.1s,text-shadow 0.6s ease-in-out,color 0.6s ease-in-out 0.1s,background 0.6s ease-in-out 0.4s;
-    -moz-transition: font-weight 0.6s linear 0.1s,text-shadow 0.6s ease-in-out,color 0.6s ease-in-out 0.1s,background 0.6s ease-in-out 0.4s;
-    -webkit-transition: font-weight 0.6s linear 0.1s,text-shadow 0.6s ease-in-out,color 0.6s ease-in-out 0.1s,background 0.6s ease-in-out 0.4s;
-    -o-transition: font-weight 0.6s linear 0.1s,text-shadow 0.6s ease-in-out,color 0.6s ease-in-out 0.1s,background 0.6s ease-in-out 0.4s;
-    -ms-transition: font-weight 0.6s linear 0.1s,text-shadow 0.6s ease-in-out,color 0.6s ease-in-out 0.1s,background 0.6s ease-in-out 0.4s;
-    text-shadow: 1px 1px 3px rgba(3, 1, 0, 0.65);
-}
-
-#trigger > h2:hover {
-    font-weight: 600;
-    text-shadow: 1px 1px 3px rgba(3, 1, 0, 0.80);
-}
-
-<?php echo $navEffectStyle; ?>
 </style>
 
 <div id="Nav-Wrapper" class="nav-wrapper" login-button="<?php echo $loginOn; ?>">
@@ -270,9 +227,9 @@ foreach ($list as $i => &$item)
     ?></div></ul>
     </nav>
     <?php
-        echo '<div><a href="#" id="trigger" data-effect="' . $navEffect . '" class="si-icons si-icons-easing nav-toggler toggle-slide-left menu-trigger monoton ' .$class_sfx . '">
+        echo '<div><a href="#" id="trigger" data-effect="' . $navEffect . '" class="si-icons si-icons-easing nav-toggler toggle-slide-left menu-trigger monoton">
             <h2  class="si-icon-text">' . $triggerTxt . '</h2>
-            <span class=""></span>
+            <span class="si-icon si-icon-hamburger-cross" data-icon-name="hamburgerCross"></span>
             </a></div>';
     ?>
 </div>

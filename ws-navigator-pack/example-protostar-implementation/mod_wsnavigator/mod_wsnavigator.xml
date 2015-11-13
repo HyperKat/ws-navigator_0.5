@@ -15,7 +15,6 @@
         <folder>css</folder>
         <folder>js</folder>
         <filename>helper.php</filename>
-		<filename>styleHelper.php</filename>
         <filename>mod_wsnavigator.xml</filename>
     </files>
     <languages>
@@ -33,7 +32,6 @@
                     type="menu"
                     label="MOD_WSNAVIGATOR_FIELD_MENUTYPE_LABEL"
                     description="MOD_WSNAVIGATOR_FIELD_MENUTYPE_DESC" />
-					
                 <field
                     name="base"
                     type="menuitem"
@@ -336,14 +334,6 @@
                     label="MOD_WSNAVIGATOR_FIELD_TRIGGERBORDERWIDTH_LABEL"
                     description="MOD_WSNAVIGATOR_FIELD_TRIGGERBORDERWIDTH_DESC" 
 					first="0" last="10" step="1" showon="trigger_border:1" />
-					
-				<field
-                    name="trigger_brradius"
-                    type="integer"
-					default="0"
-                    label="MOD_WSNAVIGATOR_FIELD_TRIGGERBORDERRAD_LABEL"
-                    description="MOD_WSNAVIGATOR_FIELD_TRIGGERBORDERRAD_DESC" 
-					first="0" last="100" step="1" showon="trigger_border:1" />
 				
 				<field
                     name="trigger_brcolor"

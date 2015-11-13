@@ -10,42 +10,45 @@ defined('_JEXEC') or die;
 
 // Include the syndicate functions only once
 require_once __DIR__ . '/helper.php';
+require_once __DIR__ . '/styleHelper.php';
 
-$list		= ModMenuHelper::getList($params);
-$base		= ModMenuHelper::getBase($params);
-$active		= ModMenuHelper::getActive($params);
-$active_id 	= $active->id;
-$path		= $base->tree;
-$logged     = ModMenuHelper::getType();
-$config     = JFactory::getConfig();
-$client     = JFactory::getApplication()->client;
-$titel      = $config->get('sitename');
-$showAll	= $params->get('showAllChildren');
-$class_sfx	= htmlspecialchars($params->get('class_sfx'));
-$doc        = JFactory::getDocument();
-$app        = JFactory::getApplication();
+$list				= ModMenuHelper::getList($params);
+$base				= ModMenuHelper::getBase($params);
+$active				= ModMenuHelper::getActive($params);
+$active_id 			= $active->id;
+$path				= $base->tree;
+$logged     		= ModMenuHelper::getType();
+$config     		= JFactory::getConfig();
+$client     		= JFactory::getApplication()->client;
+$titel      		= $config->get('sitename');
+$showAll			= $params->get('showAllChildren');
+$class_sfx			= htmlspecialchars($params->get('class_sfx'));
+$doc        		= JFactory::getDocument();
+$app        		= JFactory::getApplication();
 
-$levelColors     = ModMenuHelper::getBevelColors(htmlspecialchars($params->get('mplevel_color')));
-$levelFontColor  = ModMenuHelper::convertColor(htmlspecialchars($params->get('menu_fontcolor')), 'rgba(205,205,205');
-$levelFontFilter = $params->get('mplevel_colorfilter');
-$backColor       = ModMenuHelper::convertColor(htmlspecialchars($params->get('mpback_color')), 'rgba(205, 205, 205, 0.4)');
-$backFontColor   = ModMenuHelper::convertColor(htmlspecialchars($params->get('mpback_fontcolor')), 'rgba(236, 235, 167');
-$backFontFilter  = $params->get('mpback_colorfilter');
+$levelColors     	= ModMenuHelper::getBevelColors(htmlspecialchars($params->get('mplevel_color')));
+$levelFontColor  	= ModMenuHelper::convertColor(htmlspecialchars($params->get('menu_fontcolor')), 'rgba(205,205,205');
+$levelFontFilter 	= $params->get('mplevel_colorfilter');
+$backColor       	= ModMenuHelper::convertColor(htmlspecialchars($params->get('mpback_color')), 'rgba(205, 205, 205, 0.4)');
+$backFontColor   	= ModMenuHelper::convertColor(htmlspecialchars($params->get('mpback_fontcolor')), 'rgba(236, 235, 167');
+$backFontFilter  	= $params->get('mpback_colorfilter');
 
-$navEffect  = $params->get('useanimation');
-$triggerTxt = htmlspecialchars($params->get('triggertext'));
-$loginOn    = $params->get('useloginextension');
-$tagRoot 	= '/modules/mod_wsnavigator';
+$navEffect  		= $params->get('useanimation');
+$navEffectStyle 	= ModMenuStyleHelper::getNavEffectStyle($navEffect);
+$triggerTxt 		= htmlspecialchars($params->get('triggertext'));
+$trigClass_sfx		= htmlspecialchars($params->get('triggerclass_sfx'));
+$trigBorder			= ModMenuStyleHelper::getTriggerBorderStyle($params); 
+$loginOn    		= $params->get('useloginextension');
 
-$doc->addScript($tagRoot . '/js/modernizr.custom.js');
-$doc->addScript($tagRoot . '/js/modernizr.custom.js');
-$doc->addScript($tagRoot . '/js/ws-navigator.js');
-$doc->addScript($tagRoot . '/js/navigation.js');
+$doc->addScript('/modules/mod_wsnavigator/js/modernizr.custom.js');
+$doc->addScript('/modules/mod_wsnavigator/js/modernizr.custom.js');
+$doc->addScript('/modules/mod_wsnavigator/js/ws-navigator.js');
+$doc->addScript('/modules/mod_wsnavigator/js/navigation.js');
 // Add Stylesheets
-$doc->addStyleSheet($tagRoot . '/css/navigation.css');
+$doc->addStyleSheet('/modules/mod_wsnavigator/css/navigation.css');
 if($client->browser == JApplicationWebClient::IE)
 {
-    $doc->addStyleSheet($styleRoot . '/css/ie.css');
+    $doc->addStyleSheet('/modules/mod_wsnavigator/css/ie.css');
 }
 
 if (count($list))

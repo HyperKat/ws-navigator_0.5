@@ -11,11 +11,11 @@ defined('_JEXEC') or die;
 
 
 /**
- * Helper for mod_wsnavigator
+ * Helper for mod_menu
  *
  * @package     Joomla.Site
- * @subpackage  mod_wsnavigator
- * @since       3.1
+ * @subpackage  mod_menu
+ * @since       1.5
  */
 class ModMenuHelper
 {
@@ -36,6 +36,7 @@ class ModMenuHelper
 		  $b = hexdec(substr($hex,4,2));
 		}
 		$rgb = array($r, $g, $b);
+		//return implode(",", $rgb); // returns the rgb values separated by commas
 		return $rgb; // returns an array with the rgb values
 	}
 	public static function rgb2hex($rgb) 
