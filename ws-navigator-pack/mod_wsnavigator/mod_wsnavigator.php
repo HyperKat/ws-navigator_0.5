@@ -35,7 +35,7 @@ $backFontFilter  	= $params->get('mpback_colorfilter');
 
 $navEffect  		= $params->get('useanimation');
 $navEffectStyle 	= ModMenuStyleHelper::getNavEffectStyle($navEffect);
-$triggerContent		= ModMenuStyleHelper::getTriggerContentStyle($params)
+$triggerContent		= ModMenuStyleHelper::getTriggerContentStyle($params);
 $trigClass_sfx		= htmlspecialchars($params->get('triggerclass_sfx'));
 $trigBorder			= ModMenuStyleHelper::getTriggerBorderStyle($params); 
 $trigBgCol			= ModMenuHelper::convertColor(htmlspecialchars($params->get('trigger_bgcolor')), 'rgba(205, 205, 205, 0.0)');

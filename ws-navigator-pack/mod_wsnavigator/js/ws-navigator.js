@@ -399,7 +399,7 @@
                 el.style.transform = val;
             },
             _setTriggerPos: function (translateVal) {
-                var px = 290;
+                var px = 390;
                 var z = 99;
                 if(translateVal == 3) {
                     px = 0;

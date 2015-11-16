@@ -206,27 +206,27 @@
 				<field
 					name="liner_mplevel"
                     type="spacer" 
-					label="MOD_WSNAVIGATOR_VALUE_LINERMPLEVEL_LABEL" />
+					label="MOD_WSNAVIGATOR_FIELD_LINERMPLEVEL_LABEL" />
 					
 				<field
                     name="menu_fontcolor"
                     type="color"
 					default="#fff"
-                    label="MOD_WSNAVIGATOR_FIELD_FONTCOLOR_LABEL"
-                    description="MOD_WSNAVIGATOR_FIELD_FONTCOLOR_DESC" />
+                    label="MOD_WSNAVIGATOR_FIELD_MPLEVELFONTCOLOR_LABEL"
+                    description="MOD_WSNAVIGATOR_FIELD_MPLEVELFONTCOLOR_DESC" />
 				
                 <field
                     name="mplevel_color"
                     type="text" rows="4"
-                    label="MOD_WSNAVIGATOR_FIELD_MPLEVELCOLOR_LABEL"
-                    description="MOD_WSNAVIGATOR_FIELD_MPLEVELCOLOR_DESC" />
+                    label="MOD_WSNAVIGATOR_FIELD_MPLEVELBGCOLOR_LABEL"
+                    description="MOD_WSNAVIGATOR_FIELD_MPLEVELBGCOLOR_DESC" />
 
 				<field
                     name="mplevel_colorfilter"
                     type="list"
                     default="1"
-                    label="MOD_WSNAVIGATOR_VALUE_MPLEVELCOLORFILTER_LABEL"
-                    description="MOD_WSNAVIGATOR_VALUE_MPLEVELCOLORFILTER_DESC">
+                    label="MOD_WSNAVIGATOR_FIELD_MPLEVELCOLORFILTER_LABEL"
+                    description="MOD_WSNAVIGATOR_FIELD_MPLEVELCOLORFILTER_DESC">
                     <option value="1">
                         MOD_WSNAVIGATOR_VALUE_COLORFILTER-UP
                     </option>
@@ -238,14 +238,14 @@
 				<field
 					name="liner_mpback"
                     type="spacer" 
-					label="MOD_WSNAVIGATOR_VALUE_LINERMPBACK_LABEL" />
+					label="MOD_WSNAVIGATOR_FIELD_LINERMPBACK_LABEL" />
 				
 				<field
                     name="mpback_fontcolor"
                     type="color"
 					default="#fff"
-                    label="MOD_WSNAVIGATOR_MPBACK_FONTCOLOR_LABEL"
-                    description="MOD_WSNAVIGATOR_MPBACK_FONTCOLOR_DESC" />
+                    label="MOD_WSNAVIGATOR_FIELD_MPBACKFONTCOLOR_LABEL"
+                    description="MOD_WSNAVIGATOR_FIELD_MPBACKFONTCOLOR_DESC" />
 						
 				<field
                     name="mpback_color"
@@ -258,8 +258,8 @@
                     name="mpback_colorfilter"
                     type="list"
                     default="1"
-                    label="MOD_WSNAVIGATOR_VALUE_MPBACKCOLORFILTER_LABEL"
-                    description="MOD_WSNAVIGATOR_VALUE_MPBACKCOLORFILTER_DESC">
+                    label="MOD_WSNAVIGATOR_FIELD_MPBACKCOLORFILTER_LABEL"
+                    description="MOD_WSNAVIGATOR_FIELD_MPBACKCOLORFILTER_DESC">
                     <option value="1">
                         MOD_WSNAVIGATOR_VALUE_COLORFILTER-UP
                     </option>
@@ -282,6 +282,11 @@
                     type="text" rows="5"
                     label="MOD_WSNAVIGATOR_FIELD_TRIGGERCLASS_LABEL"
                     description="MOD_WSNAVIGATOR_FIELD_TRIGGERCLASS_DESC" />
+				
+				<field
+					name="trigger"
+                    type="spacer" 
+					label="" />
 					
 				<field
                     name="triggertext"
@@ -294,8 +299,8 @@
                     name="trigger_fontcolor"
                     type="color"
 					default="#fff"
-                    label="MOD_WSNAVIGATOR_TRIGGER_FONTCOLOR_LABEL"
-                    description="MOD_WSNAVIGATOR_TRIGGER_FONTCOLOR_DESC" />
+                    label="MOD_WSNAVIGATOR_FIELD_TRIGGERFONTCOLOR_LABEL"
+                    description="MOD_WSNAVIGATOR_FIELD_TRIGGERFONTCOLOR_DESC" />
 						
 				<field
                     name="trigger_bgcolor"
@@ -318,6 +323,11 @@
                         MOD_WSNAVIGATOR_VALUE_COLORFILTER-DOWN
                     </option>
                 </field>
+				
+				<field
+					name="trigger_placeholder"
+                    type="spacer" 
+					label="" />
 					
 				<field
                     name="trigger_border"
@@ -353,12 +363,17 @@
                     description="MOD_WSNAVIGATOR_FIELD_TRIGGERBRCOLOR_DESC" 
 					showon="trigger_border:1" />
 				
+				<field
+					name="trigger_placeholder1"
+                    type="spacer" 
+					label="" />
+					
                 <field
                     name="trigger_usetext"
                     type="list"
                     default="1"
-                    label="MOD_WSNAVIGATOR_FIELD_USETEXT_LABEL"
-                    description="MOD_WSNAVIGATOR_FIELD_USETEXT_DESC">
+                    label="MOD_WSNAVIGATOR_FIELD_TRIGGERUSETEXT_LABEL"
+                    description="MOD_WSNAVIGATOR_TRIGGERFIELD_USETEXT_DESC">
                     <option
                         value="0">MOD_WSNAVIGATOR_VALUE_ICONS
                     </option>
@@ -388,6 +403,7 @@
                     <option value="1">MOD_WSNAVIGATOR_VALUE_BOTTOM</option>
 					<option value="2">MOD_WSNAVIGATOR_VALUE_LEFT</option>
 					<option value="3">MOD_WSNAVIGATOR_VALUE_RIGHT</option>
+					<option value="4">MOD_WSNAVIGATOR_VALUE_BG</option>
 				</field>				
 			</fieldset>
         </fields>

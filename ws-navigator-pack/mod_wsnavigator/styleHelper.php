@@ -22,7 +22,7 @@ class ModMenuStyleHelper
 	public static function getTriggerContentStyle($p)
 	{
 		$useContent = $p->get('trigger_usetext');
-		$trigContent = htmlspecialchars($params->get('triggertext'));
+		$trigContent = htmlspecialchars($p->get('triggertext'));
 		switch ( $useContent )
 		{
 			case 0:
@@ -32,14 +32,16 @@ class ModMenuStyleHelper
 				switch ( $pos )
 				{
 					case 1:
-						return '<h2  class="si-icon-text triggerTxt">' . $trigContent . '</h2><br /><img  class="si-icon-text triggerImg" src="../' . $p->get('trigger_image') . '/>';
+						return '<div><h2  class="si-icon-text triggerTxt">' . $trigContent . '</h2><br /><img  class="si-icon-text triggerImg" src="../' . $p->get('trigger_image') . '"/></div>';
 					case 2:
-						return '<img  class="si-icon-text triggerImg" src="../' . $p->get('trigger_image') . '/><h2  class="si-icon-text triggerTxt">' . $trigContent . '</h2>';
+						return '<div><img  class="si-icon-text triggerImg" src="../' . $p->get('trigger_image') . '"/><h2  class="si-icon-text triggerTxt">' . $trigContent . '</h2></div>';
 					case 3:
-						return '<h2  class="si-icon-text triggerTxt">' . $trigContent . '</h2><img  class="si-icon-text triggerImg" src="../' . $p->get('trigger_image') . '/>';
+						return '<div><h2  class="si-icon-text triggerTxt">' . $trigContent . '</h2><img  class="si-icon-text triggerImg" src="../' . $p->get('trigger_image') . '"/></div>';
+					case 4:
+						return '<div style="background: url("../' . $p->get('trigger_image') . '") center center / cover no-repeat; padding: 20px; text-align: center;"/><h2 class="si-icon-text triggerTxt">' . $trigContent . '</h2></div>';
 					case 0:
 					default:
-						return '<img  class="si-icon-text triggerImg" src="../' . $p->get('trigger_image') . '/><br /><h2  class="si-icon-text triggerTxt">' . $trigContent . '</h2>';
+						return '<div><img  class="si-icon-text triggerImg" src="../' . $p->get('trigger_image') . '"/><br /><h2  class="si-icon-text triggerTxt">' . $trigContent . '</h2></div>';
 				}
 			case 1:
 			default:

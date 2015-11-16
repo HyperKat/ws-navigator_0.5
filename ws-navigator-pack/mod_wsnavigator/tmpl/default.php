@@ -91,22 +91,20 @@ defined('_JEXEC') or die;
     font-size: 1.3em;
     color: rgba(0,0,0,0.3);
 }
-
 #trigger { 
 	<?php echo $trigBorder; ?>
 	background: <?php echo $trigBgCol;?>,0.7);
-	padding: 15px;
     position: relative;  
     margin: 35px; 
     float: left; 
 	z-index: 999; 
-    transition: transform 0.4s ease 0.7s;
-    -moz-transition: -moz-transform 0.4s ease 0.7s;
-    -webkit-transition: -webkit-transform 0.4s ease 0.7s;
-    -o-transition: -o-transform 0.4s ease 0.8s;
-    -ms-transition: -ms-transform 0.4s ease 0.7s;
+    transition: transform 0.4s ease 0.7s, background 0.4s ease 0.7s;
+    -moz-transition: -moz-transform 0.4s ease 0.7s, background 0.4s ease 0.7s;
+    -webkit-transition: -webkit-transform 0.4s ease 0.7s, background 0.4s ease 0.7s;
+    -o-transition: -o-transform 0.4s ease 0.8s, background 0.4s ease 0.7s;
+    -ms-transition: -ms-transform 0.4s ease 0.7s, background 0.4s ease 0.7s;
 }
-#trigger > h2 {
+#trigger > div > h2 {
     border: none;
     color: <?php echo $trigFontCol;?>,0.7);
     letter-spacing: 1px;
@@ -117,8 +115,7 @@ defined('_JEXEC') or die;
     font-weight: 200;
     border-radius: 0 2px 2px 0;
     position: relative;
-    float: left;
-    margin: 6px 4px;
+    margin: 6px 0;
     text-decoration: none;
     transition: font-weight 0.6s linear 0.1s,text-shadow 0.6s ease-in-out,color 0.6s ease-in-out 0.1s,background 0.6s ease-in-out 0.4s;
     -moz-transition: font-weight 0.6s linear 0.1s,text-shadow 0.6s ease-in-out,color 0.6s ease-in-out 0.1s,background 0.6s ease-in-out 0.4s;
@@ -128,12 +125,13 @@ defined('_JEXEC') or die;
     text-shadow: 1px 1px 3px rgba(3, 1, 0, 0.65);
 }
 
-#trigger > h2:hover {
+#trigger > div > h2:hover {
 	color: <?php echo $trigFontCol . ',' . (($trigColFilter > 1)? '1' : '0.4');?>);
-	background: <?php echo $trigBgCol . ',' . (($trigColFilter > 1)? '1' : '0.4');?>);
     text-shadow: 1px 1px 3px rgba(3, 1, 0, 0.80);
 }
-
+#trigger:hover {
+	background: <?php echo $trigBgCol . ',' . (($trigColFilter > 1)? '1' : '0.4');?>);
+}
 <?php echo $navEffectStyle; ?>
 </style>
 
