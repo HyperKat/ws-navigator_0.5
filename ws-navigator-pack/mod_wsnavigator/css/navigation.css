@@ -209,13 +209,6 @@ a.nobox2, a.nobox2:hover {
     transform: translateX(-100%);
 }
 
-.st-menu.mp-cover h2 {
-    text-transform: uppercase;
-    font-weight: 700;
-    letter-spacing: 1px;
-    font-size: 1em;
-}
-
 .mp-overlap .mp-level.mp-level-overlay > h2::before {
     opacity: 1;
     -webkit-transition: -webkit-transform 0.3s, opacity 0.3s;
@@ -268,23 +261,7 @@ a.nobox2, a.nobox2:hover {
     list-style: none;
 }
 .nobox > span.icon-pop { display:none !important; }
-span.icon-pop { float: right; margin: 7px 0; font-size: 0.563em; color: rgba(255,255,255,0.6); }
-.st-menu ul li > a, #morph-starter {
-    display: inline-block;
-    outline: none;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-weight: 800;
-    -webkit-transition: color 0.6s linear 0.6s,text-shadow 0.6s ease-in-out,opacity 0.6s ease-in-out 0.1s;
-    -moz-transition: color 0.6s linear 0.6s,text-shadow 0.6s ease-in-out,opacity 0.6s ease-in-out 0.1s;
-    -ms-transition: color 0.6s linear 0.6s,text-shadow 0.6s ease-in-out,opacity 0.6s ease-in-out 0.1s;
-    -o-transition: color 0.6s linear 0.6s,text-shadow 0.6s ease-in-out,opacity 0.6s ease-in-out 0.1s;
-    transition: color 0.6s linear 0.6s,text-shadow 0.6s ease-in-out,opacity 0.6s ease-in-out 0.1s;
-    text-align: center;
-    font-size: 0.9em;
-    padding: 0.4em;
 
-}
 #morph-starter { cursor: pointer; }
 
 /* Fallback example for browsers that don't support 3D transforms (and no JS fallback) */

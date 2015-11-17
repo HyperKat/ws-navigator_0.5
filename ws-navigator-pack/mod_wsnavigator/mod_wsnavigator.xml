@@ -31,23 +31,24 @@
                 <field
                     name="menutype"
                     type="menu"
-                    label="MOD_WSNAVIGATOR_FIELD_MENUTYPE_LABEL"
-                    description="MOD_WSNAVIGATOR_FIELD_MENUTYPE_DESC" />
-					
-                <field
-                    name="base"
-                    type="menuitem"
-                    label="MOD_WSNAVIGATOR_FIELD_ACTIVE_LABEL"
-                    description="MOD_WSNAVIGATOR_FIELD_ACTIVE_DESC"
-                    >
-                    <option value="">JCURRENT</option>
-                </field>
+                    label="MOD_WSNAVIGATOR_FIELD_MODMENUTYPE_LABEL"
+                    description="MOD_WSNAVIGATOR_FIELD_MODMENUTYPE_DESC" />
+				
+				<field
+					name="base"
+					type="menuitem"
+					label="MOD_WSNAVIGATOR_FIELD_ACTIVE_LABEL"
+					description="MOD_WSNAVIGATOR_FIELD_ACTIVE_DESC" 
+				>
+					<option value="">JCURRENT</option>
+				</field>
+				
                 <field
                     name="startLevel"
                     type="list"
                     default="1"
-                    label="MOD_WSNAVIGATOR_FIELD_STARTLEVEL_LABEL"
-                    description="MOD_WSNAVIGATOR_FIELD_STARTLEVEL_DESC"
+                    label="MOD_WSNAVIGATOR_FIELD_MODSTARTLEVEL_LABEL"
+                    description="MOD_WSNAVIGATOR_FIELD_MODSTARTLEVEL_DESC"
                 >
                     <option value="1">J1</option>
                     <option value="2">J2</option>
@@ -65,8 +66,8 @@
                     name="endLevel"
                     type="list"
                     default="0"
-                    label="MOD_WSNAVIGATOR_FIELD_ENDLEVEL_LABEL"
-                    description="MOD_WSNAVIGATOR_FIELD_ENDLEVEL_DESC"
+                    label="MOD_WSNAVIGATOR_FIELD_MODENDLEVEL_LABEL"
+                    description="MOD_WSNAVIGATOR_FIELD_MODENDLEVEL_DESC"
                     >
                     <option value="0">JALL</option>
                     <option value="1">J1</option>
@@ -85,28 +86,59 @@
                     type="radio"
                     class="btn-group btn-group-yesno"
                     default="1"
-                    label="MOD_WSNAVIGATOR_FIELD_ALLCHILDREN_LABEL"
-                    description="MOD_WSNAVIGATOR_FIELD_ALLCHILDREN_DESC">
+                    label="MOD_WSNAVIGATOR_FIELD_MODALLCHILDREN_LABEL"
+                    description="MOD_WSNAVIGATOR_FIELD_MODALLCHILDREN_DESC">
                     <option value="1">JYES</option>
                     <option value="0">JNO</option>
                 </field>
 
                 <field
                     name="useloginextension"
-                    type="list"
+                    type="radio"
+                    class="btn-group btn-group-yesno"
                     default="0"
-                    label="MOD_WSNAVIGATOR_FIELD_USELOGINEXTENSION_LABEL"
-                    description="MOD_WSNAVIGATOR_FIELD_USELOGINEXTENSION_DESC">
-                    <option value="0">JNO</option>
+                    label="MOD_WSNAVIGATOR_FIELD_MODUSELOGINEXTENSION_LABEL"
+                    description="MOD_WSNAVIGATOR_FIELD_MODUSELOGINEXTENSION_DESC">
                     <option value="1">JYES</option>
+					<option value="0">JNO</option>
                 </field>
 				
+				<field
+                    name="useGoogleFont"
+                    type="radio"
+                    class="btn-group btn-group-yesno"
+                    default="0"
+                    label="MOD_WSNAVIGATOR_FIELD_USEGOOGLEFONT_LABEL"
+                    description="MOD_WSNAVIGATOR_FIELD_USEGOOGLEFONT_DESC">
+                    <option value="1">JYES</option>
+					<option value="0">JNO</option>
+                </field>
+				
+				<field
+                    name="googleFontType"
+                    type="text"
+					default=""
+                    label="MOD_WSNAVIGATOR_FIELD_GOOGLEFONTTYPE_LABEL"
+                    description="MOD_WSNAVIGATOR_FIELD_GOOGLEFONTTYPE_DESC" 
+					showon="useGoogleFont:1" />
+				
+				<field
+                    name="texttransform"
+                    type="list"
+                    default="none"
+                    label="MOD_WSNAVIGATOR_FIELD_MODTEXTTRANSFORM_LABEL"
+                    description="MOD_WSNAVIGATOR_FIELD_MODTEXTTRANSFORM_DESC">
+					<option value="none">MOD_WSNAVIGATOR_VALUE_NONE</option>
+                    <option value="lowercase">MOD_WSNAVIGATOR_VALUE_LOWERCASE</option>
+                    <option value="uppercase">MOD_WSNAVIGATOR_VALUE_UPPERCASE</option>
+                    <option value="capitalize">MOD_WSNAVIGATOR_VALUE_CAPITALIZE</option>
+                </field>
 				<field
                     name="useanimation"
                     type="list"
                     default="st-effect-11"
-                    label="MOD_WSNAVIGATOR_FIELD_DATAEFECT_LABEL"
-                    description="MOD_WSNAVIGATOR_FIELD_DATAEFECT_DESC">
+                    label="MOD_WSNAVIGATOR_FIELD_MODDATAEFECT_LABEL"
+                    description="MOD_WSNAVIGATOR_FIELD_MODDATAEFECT_DESC">
                     <option value="st-effect-1">
                         MOD_WSNAVIGATOR_VALUE_EFFECT-01
                     </option>
@@ -209,7 +241,7 @@
 					label="MOD_WSNAVIGATOR_FIELD_LINERMPLEVEL_LABEL" />
 					
 				<field
-                    name="menu_fontcolor"
+                    name="mplevel_fontcolor"
                     type="color"
 					default="#fff"
                     label="MOD_WSNAVIGATOR_FIELD_MPLEVELFONTCOLOR_LABEL"
@@ -248,7 +280,7 @@
                     description="MOD_WSNAVIGATOR_FIELD_MPBACKFONTCOLOR_DESC" />
 						
 				<field
-                    name="mpback_color"
+                    name="mpback_bgcolor"
                     type="color"
 					default="#000"
                     label="MOD_WSNAVIGATOR_FIELD_MPBACKCOLOR_LABEL"
@@ -331,12 +363,13 @@
 					
 				<field
                     name="trigger_border"
-                    type="list"
-					default="0"
+                    type="radio"
+                    class="btn-group btn-group-yesno"
+                    default="0"
                     label="MOD_WSNAVIGATOR_FIELD_TRIGGERBORDER_LABEL"
                     description="MOD_WSNAVIGATOR_FIELD_TRIGGERBORDER_DESC" >
-					<option value="0">JNO</option>
                     <option value="1">JYES</option>
+					<option value="0">JNO</option>
 				</field>
 				
 				<field

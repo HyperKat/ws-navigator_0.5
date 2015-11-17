@@ -17,8 +17,136 @@ defined('_JEXEC') or die;
  * @subpackage  mod_wsnavigator
  * @since       3.1
  */
+require_once __DIR__ . '/helper.php';
+ 
 class ModMenuStyleHelper
 {
+	private static function hex2rgb($hex) 
+	{
+	   $hex = str_replace("#", "", $hex);
+
+	   if(strlen($hex) == 3) 
+	   {
+		  $r = hexdec(substr($hex,0,1).substr($hex,0,1));
+		  $g = hexdec(substr($hex,1,1).substr($hex,1,1));
+		  $b = hexdec(substr($hex,2,1).substr($hex,2,1));
+	   } 
+	   else 
+	   {
+		  $r = hexdec(substr($hex,0,2));
+		  $g = hexdec(substr($hex,2,2));
+		  $b = hexdec(substr($hex,4,2));
+		}
+		$rgb = array($r, $g, $b);
+		return $rgb; // returns an array with the rgb values
+	}
+	
+	private static function rgb2hex($rgb) 
+	{
+	    $hex = "#";
+	    $hex .= str_pad(dechex($rgb[0]), 2, "0", STR_PAD_LEFT);
+	    $hex .= str_pad(dechex($rgb[1]), 2, "0", STR_PAD_LEFT);
+	    $hex .= str_pad(dechex($rgb[2]), 2, "0", STR_PAD_LEFT);
+
+	    return $hex; // returns the hex value including the number sign (#)
+	}
+	
+	public static function getColorArray($params, $type)
+	{
+		$colors = array();
+		if(strpos($type, 'trigger') > -1 || strpos($type, 'mpback') > -1)
+		{
+			$font 	= self::convertColor($params, $type . '_fontcolor', 'rgba(255, 252, 250');
+			$bg 	= (strlen($params->get($type)) < 1 || strtolower($params->get($type . '_bgcolor')) == '#rrggbb')? 
+						((strpos($type, 'trigger') > -1)? 'transparent' : 'rgba(205, 205, 205') : self::convertColor($params, $type . '_bgcolor');
+			$filter = $params->get($type . '_colorfilter');
+			$colors['font'] = $font . ',0.7)';
+			$colors['bg'] = $bg . (($bg == 'transparent')? '' : ',0.7)');
+			if($filter > 1)
+			{
+				$colors['fonthover'] 	= $font . ',1)';
+				$colors['bghover'] 		= $bg . (($bg == 'transparent')? '' : ',1)');
+			}
+			else
+			{
+				$colors['fonthover'] 	= $font . ',0.4)';
+				$colors['bghover'] 		= $bg . (($bg == 'transparent')? '' : ',0.4)');
+			}
+		}
+		elseif(strpos($type, 'mplevel') > -1)
+		{
+			$font 					= self::convertColor($params, $type . '_fontcolor', 'rgba(205,205,205'); 
+			$filter					= $params->get($type . '_colorfilter');
+			$colors['font'] 		= $font . ',0.7)';
+			$colors['shadow'] 		= $font . ',0.2)';
+			if($filter > 1)
+			{
+				$colors['fonthover'] 	= $font . ',1)';
+				$colors['shadowhover']	= $font . ',1)';
+			}
+			else
+			{
+				$colors['fonthover'] 	= $font . ',0.4)';
+				$colors['shadowhover'] 	= $font . ',0.4)';
+			}
+		}
+		return $colors;
+	}
+	
+	public static function convertColor($params, $type, $default = 'transparent')
+	{
+		$t = htmlspecialchars($params->get($type));
+		if( strlen($t) > 0 && strpos($t,'#') == 0 )
+		{
+			return 'rgba(' . implode(',',self::hex2rgb($t));
+		}
+		return $default;
+	}
+	
+	public static function getBevelColors($ps)
+    {
+        $len = ModMenuHelper::countBevels();
+
+        if(!is_array(explode(';',$ps)) && ( strlen($ps) < 1 || is_null($ps) ) )
+        {
+            $rgba = 22;
+            $mpColorTbl = array();
+
+            for($i = 0; $i < $subMenLen; $i++)
+            {
+				$mpColorTbl[$i] = 'rgba(' . $rgba . ',' . $rgba . ',' . $rgba . ',1)';
+				$rgba += $i+5;
+            }
+            return $mpColorTbl;
+        }
+        if(is_array(explode(';',$ps)))
+        {
+            $bevelcolors = explode(';',$ps);
+        }
+        else
+        {
+            $me = $bevelcolors;
+            $bevelcolors = array();
+            $bevelcolors[1] = $me;
+        }
+		foreach ($bevelcolors as $i => $col)
+		{
+			if(strpos(trim($col),'rgba') < 0)
+				$col = 'rgba(' . implode(',',self::hex2rgb($col)) . ')';
+		}
+        $fl = count($bevelcolors);
+        $t = $len - $fl;
+        $i = 0;
+        while( $t > 0 )
+        {
+            
+            $bevelcolors[count($bevelcolors)] = $bevelcolors[$i];
+            $t--;
+            $i++;
+        }
+        return $bevelcolors;
+    }
+	
 	public static function getTriggerContentStyle($p)
 	{
 		$useContent = $p->get('trigger_usetext');

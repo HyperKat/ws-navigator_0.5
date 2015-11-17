@@ -19,44 +19,6 @@ defined('_JEXEC') or die;
  */
 class ModMenuHelper
 {
-	public static function hex2rgb($hex) 
-	{
-	   $hex = str_replace("#", "", $hex);
-
-	   if(strlen($hex) == 3) 
-	   {
-		  $r = hexdec(substr($hex,0,1).substr($hex,0,1));
-		  $g = hexdec(substr($hex,1,1).substr($hex,1,1));
-		  $b = hexdec(substr($hex,2,1).substr($hex,2,1));
-	   } 
-	   else 
-	   {
-		  $r = hexdec(substr($hex,0,2));
-		  $g = hexdec(substr($hex,2,2));
-		  $b = hexdec(substr($hex,4,2));
-		}
-		$rgb = array($r, $g, $b);
-		return $rgb; // returns an array with the rgb values
-	}
-	public static function rgb2hex($rgb) 
-	{
-	    $hex = "#";
-	    $hex .= str_pad(dechex($rgb[0]), 2, "0", STR_PAD_LEFT);
-	    $hex .= str_pad(dechex($rgb[1]), 2, "0", STR_PAD_LEFT);
-	    $hex .= str_pad(dechex($rgb[2]), 2, "0", STR_PAD_LEFT);
-
-	    return $hex; // returns the hex value including the number sign (#)
-	}
-	
-	public static function convertColor($color, $default)
-	{
-		$t = $color;
-		if( strlen($t) > 0 && strpos($t,'#') == 0 )
-		{
-			return 'rgba(' . implode(',',self::hex2rgb($t));
-		}
-		return $default;
-	}
     /**
      * Get a list of the menu items.
      *
@@ -83,49 +45,7 @@ class ModMenuHelper
 
         return base64_encode('index.php?' . JUri::buildQuery($vars));
     }
-    public static function getBevelColors($ps)
-    {
-        $len = self::countBevels();
-
-        if(!is_array(explode(';',$ps)) && ( strlen($ps) < 1 || is_null($ps) ) )
-        {
-            $rgba = 22;
-            $mpColorTbl = array();
-
-            for($i = 0; $i < $subMenLen; $i++)
-            {
-				$mpColorTbl[$i] = 'rgba(' . $rgba . ',' . $rgba . ',' . $rgba . ',1)';
-				$rgba += $i+5;
-            }
-            return $mpColorTbl;
-        }
-        if(is_array(explode(';',$ps)))
-        {
-            $bevelcolors = explode(';',$ps);
-        }
-        else
-        {
-            $me = $bevelcolors;
-            $bevelcolors = array();
-            $bevelcolors[1] = $me;
-        }
-		foreach ($bevelcolors as $i => $col)
-		{
-			if(strpos(trim($col),'rgba') < 0)
-				$col = 'rgba(' . implode(',',self::hex2rgb($col)) . ')';
-		}
-        $fl = count($bevelcolors);
-        $t = $len - $fl;
-        $i = 0;
-        while( $t > 0 )
-        {
-            
-            $bevelcolors[count($bevelcolors)] = $bevelcolors[$i];
-            $t--;
-            $i++;
-        }
-        return $bevelcolors;
-    }
+	
     public static function countBevels()
     {
         return count(JFactory::getUser()->getAuthorisedViewLevels());
@@ -170,7 +90,7 @@ class ModMenuHelper
         $levels = $user->getAuthorisedViewLevels();
         asort($levels);
         $key = 'menu_items' . $params . implode(',', $levels) . '.' . $base->id;
-        $cache = JFactory::getCache('mod_menu', '');
+        $cache = JFactory::getCache('mod_wsnavigator', '');
 
         if (!($items = $cache->get($key)))
         {

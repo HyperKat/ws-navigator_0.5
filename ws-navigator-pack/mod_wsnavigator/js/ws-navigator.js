@@ -158,10 +158,7 @@
                 // space between each overlaped level
                 levelSpacing: 40,
                 // classname for the element (if any) that when clicked closes the current level
-                backClass: 'mp-back',
-
-                levelBg: {}
-
+                backClass: 'mp-back'
             },
             _init: function () {
                 // if menu is open or not
@@ -176,7 +173,6 @@
                 var self = this;
                 this.levels.forEach(function (el, i) {
                     var depth = getLevelDepth(el, self.el.id, 'mp-level');
-                    el.style.backgroundColor = 'rgba('+self.defaults.levelBg[depth]+')';
                     el.setAttribute('data-level', depth);
                 });
 

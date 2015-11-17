@@ -26,22 +26,22 @@ $class_sfx			= htmlspecialchars($params->get('class_sfx'));
 $doc        		= JFactory::getDocument();
 $app        		= JFactory::getApplication();
 
-$levelColors     	= ModMenuHelper::getBevelColors(htmlspecialchars($params->get('mplevel_color')));
-$levelFontColor  	= ModMenuHelper::convertColor(htmlspecialchars($params->get('menu_fontcolor')), 'rgba(205,205,205');
-$levelFontFilter 	= $params->get('mplevel_colorfilter');
-$backColor       	= ModMenuHelper::convertColor(htmlspecialchars($params->get('mpback_color')), 'rgba(205, 205, 205, 0.4)');
-$backFontColor   	= ModMenuHelper::convertColor(htmlspecialchars($params->get('mpback_fontcolor')), 'rgba(236, 235, 167');
-$backFontFilter  	= $params->get('mpback_colorfilter');
-
+$loginOn    		= $params->get('useloginextension');
 $navEffect  		= $params->get('useanimation');
+$txtTransform		= $params->get('texttransform');
 $navEffectStyle 	= ModMenuStyleHelper::getNavEffectStyle($navEffect);
+
+
+$levelColors     	= ModMenuStyleHelper::getBevelColors(htmlspecialchars($params->get('mplevel_color')));
+$levelFontColors  	= ModMenuStyleHelper::getColorArray($params, 'mplevel');
+
+$mpBackColors      	= ModMenuStyleHelper::getColorArray($params, 'mpback');
+$backTitel 			= (JFactory::getLanguage()->getTag() == 'de-DE')? 'zurück' : 'back';
+
 $triggerContent		= ModMenuStyleHelper::getTriggerContentStyle($params);
 $trigClass_sfx		= htmlspecialchars($params->get('triggerclass_sfx'));
 $trigBorder			= ModMenuStyleHelper::getTriggerBorderStyle($params); 
-$trigBgCol			= ModMenuHelper::convertColor(htmlspecialchars($params->get('trigger_bgcolor')), 'rgba(205, 205, 205, 0.0)');
-$trigFontCol		= ModMenuHelper::convertColor(htmlspecialchars($params->get('trigger_fontcolor')), 'rgba(255, 252, 250, 1.0)');
-$trigColFilter		= $params->get('trigger_colorfilter');
-$loginOn    		= $params->get('useloginextension');
+$triggerColors		= ModMenuStyleHelper::getColorArray($params, 'trigger');
 
 $doc->addScript('/modules/mod_wsnavigator/js/modernizr.custom.js');
 $doc->addScript('/modules/mod_wsnavigator/js/modernizr.custom.js');
