@@ -12,6 +12,7 @@ defined('_JEXEC') or die;
 require_once __DIR__ . '/helper.php';
 require_once __DIR__ . '/styleHelper.php';
 
+$dir 				= __DIR__;
 $list				= ModMenuHelper::getList($params);
 $base				= ModMenuHelper::getBase($params);
 $active				= ModMenuHelper::getActive($params);
