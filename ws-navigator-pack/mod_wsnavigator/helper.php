@@ -95,7 +95,7 @@ class ModMenuHelper
         if (!($items = $cache->get($key)))
         {
             $path    = $base->tree;
-            $start   = (int) $params->get('startLevel');
+            $start   = 1;
             $end     = (int) $params->get('endLevel');
             $showAll = $params->get('showAllChildren');
             $items   = $menu->getItems('menutype', $params->get('menutype'));

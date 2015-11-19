@@ -32,9 +32,11 @@
 .st-menu ul li:hover > a.menu-item,
 .mp-level > ul > li:first-child:hover > a.menu-item,
 .st-menu ul li:hover > span.icon-pop,
-.mp-level > ul > li:first-child:hover > span.icon-pop,
-.st-menu h2:hover {
+.mp-level > ul > li:first-child:hover > span.icon-pop {
     color:<?php echo $levelFontColors['fonthover'];?>;
+    text-shadow: 0 0 8px <?php echo $levelFontColors['shadowhover'];?>;
+}
+.st-menu h2:hover {
     text-shadow: 0 0 8px <?php echo $levelFontColors['shadowhover'];?>;
 }
 span.icon-pop { cursor: help; float: right; margin: 7px 0; font-size: 10px; color: <?php echo $levelFontColors['font']; ?>; text-shadow: 0 0 1px <?php echo $levelFontColors['shadow'];?>; }
@@ -105,17 +107,27 @@ span.icon-pop { cursor: help; float: right; margin: 7px 0; font-size: 10px; colo
     color: rgba(0,0,0,0.3);
 }
 #trigger { 
-	<?php echo $trigBorder; ?>
-	background: <?php echo $triggerColors['bg'];?>;
+	background: transparent;
     position: relative;  
     margin: 35px; 
     float: left; 
 	z-index: 999; 
-    transition: transform 0.4s ease 0.7s, background 0.4s ease 0.7s;
-    -moz-transition: -moz-transform 0.4s ease 0.7s, background 0.4s ease 0.7s;
-    -webkit-transition: -webkit-transform 0.4s ease 0.7s, background 0.4s ease 0.7s;
-    -o-transition: -o-transform 0.4s ease 0.8s, background 0.4s ease 0.7s;
-    -ms-transition: -ms-transform 0.4s ease 0.7s, background 0.4s ease 0.7s;
+    
+}
+#trigger div {
+	<?php echo $trigBorder; ?>
+	background-image: <?php echo ($trigUseImg == 2)?'url("../' . $trigImg . '")' : 'none'; ?>;
+	background-position: center center;
+	background-repeat: no-repeat; 
+	background-size: cover;
+	background-color: <?php echo $triggerColors['bg'];?>;
+	padding: 20px; 
+	text-align: center;
+	transition: transform 0.4s ease 0s, background 0.4s ease 0s;
+    -moz-transition: -moz-transform 0.4s ease 0s, background 0.4s ease 0s;
+    -webkit-transition: -webkit-transform 0.4s ease 0s, background 0.4s ease 0s;
+    -o-transition: -o-transform 0.4s ease 0s, background 0.4s ease 0s;
+    -ms-transition: -ms-transform 0.4s ease 0s, background 0.4s ease 0s;
 }
 #trigger > div > h2 {
     border: none;
@@ -130,20 +142,20 @@ span.icon-pop { cursor: help; float: right; margin: 7px 0; font-size: 10px; colo
     position: relative;
     margin: 6px 0;
     text-decoration: none;
-    transition: font-weight 0.6s linear 0.1s,text-shadow 0.6s ease-in-out,color 0.6s ease-in-out 0.1s,background 0.6s ease-in-out 0.4s;
-    -moz-transition: font-weight 0.6s linear 0.1s,text-shadow 0.6s ease-in-out,color 0.6s ease-in-out 0.1s,background 0.6s ease-in-out 0.4s;
-    -webkit-transition: font-weight 0.6s linear 0.1s,text-shadow 0.6s ease-in-out,color 0.6s ease-in-out 0.1s,background 0.6s ease-in-out 0.4s;
-    -o-transition: font-weight 0.6s linear 0.1s,text-shadow 0.6s ease-in-out,color 0.6s ease-in-out 0.1s,background 0.6s ease-in-out 0.4s;
-    -ms-transition: font-weight 0.6s linear 0.1s,text-shadow 0.6s ease-in-out,color 0.6s ease-in-out 0.1s,background 0.6s ease-in-out 0.4s;
-    text-shadow: 1px 1px 3px rgba(3, 1, 0, 0.65);
+    transition: font-weight 0.6s linear 0.1s,text-shadow 0.6s ease-in-out 0s, color 0.6s ease-in-out 0s;
+    -moz-transition: font-weight 0.6s linear 0.1s,text-shadow 0.6s ease-in-out 0s, color 0.6s ease-in-out 0s;
+    -webkit-transition: font-weight 0.6s linear 0.1s,text-shadow 0.6s ease-in-out 0s, color 0.6s ease-in-out 0s;
+    -o-transition: font-weight 0.6s linear 0.1s,text-shadow 0.6s ease-in-out 0s, color 0.6s ease-in-out 0s;
+    -ms-transition: font-weight 0.6s linear 0.1s,text-shadow 0.6s ease-in-out 0s, color 0.6s ease-in-out 0s;
+    text-shadow: 1px 1px 3px <?php echo $triggerColors['font'];?>;
 }
 
 #trigger > div > h2:hover {
 	color: <?php echo $triggerColors['fonthover'];?>;
-    text-shadow: 1px 1px 3px rgba(3, 1, 0, 0.80);
+    text-shadow: 1px 1px 3px <?php echo $triggerColors['fonthover'];?>;
 }
-#trigger:hover {
-	background: <?php echo $triggerColors['bghover'];?>;;
+#trigger div:hover {
+	background-color: <?php echo $triggerColors['bghover'];?>;
 }
 <?php echo $navEffectStyle; ?>
 </style>

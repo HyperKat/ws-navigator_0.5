@@ -57,7 +57,7 @@ class ModMenuStyleHelper
 		if(strpos($type, 'trigger') > -1 || strpos($type, 'mpback') > -1)
 		{
 			$font 	= self::convertColor($params, $type . '_fontcolor', 'rgba(255, 252, 250');
-			$bg 	= (strlen($params->get($type)) < 1 || strtolower($params->get($type . '_bgcolor')) == '#rrggbb')? 
+			$bg 	= (strlen(htmlspecialchars($params->get($type . '_bgcolor'))) < 1 || strtolower(htmlspecialchars($params->get($type . '_bgcolor'))) == '#rrggbb')? 
 						((strpos($type, 'trigger') > -1)? 'transparent' : 'rgba(205, 205, 205') : self::convertColor($params, $type . '_bgcolor');
 			$filter = $params->get($type . '_colorfilter');
 			$colors['font'] = $font . ',0.7)';
@@ -154,35 +154,32 @@ class ModMenuStyleHelper
 		switch ( $useContent )
 		{
 			case 0:
-				return '<img  class="si-icon-text triggerImg" src="../' . $p->get('trigger_image') . '/>';
+				return '<div><img  class="si-icon-text triggerImg" src="../' . $p->get('trigger_image') . '></div>';
 			case 2:
 				$pos = $p->get('trigger_imgpos');
 				switch ( $pos )
 				{
 					case 1:
-						return '<div><h2  class="si-icon-text triggerTxt">' . $trigContent . '</h2><br /><img  class="si-icon-text triggerImg" src="../' . $p->get('trigger_image') . '"/></div>';
+						return '<div><h2  class="si-icon-text triggerTxt">' . $trigContent . '</h2><br /><img  class="si-icon-text triggerImg" src="../' . $trigImg . '"/></div>';
 					case 2:
-						return '<div><img  class="si-icon-text triggerImg" src="../' . $p->get('trigger_image') . '"/><h2  class="si-icon-text triggerTxt">' . $trigContent . '</h2></div>';
+						return '<div><img  class="si-icon-text triggerImg" src="../' . $trigImg . '"><h2  class="si-icon-text triggerTxt">' . $trigContent . '</h2></div>';
 					case 3:
-						return '<div><h2  class="si-icon-text triggerTxt">' . $trigContent . '</h2><img  class="si-icon-text triggerImg" src="../' . $p->get('trigger_image') . '"/></div>';
-					case 4:
-						return '<div style="background: url("../' . $p->get('trigger_image') . '") center center / cover no-repeat; padding: 20px; text-align: center;"/><h2 class="si-icon-text triggerTxt">' . $trigContent . '</h2></div>';
+						return '<div><h2 class="si-icon-text triggerTxt">' . $trigContent . '</h2><img  class="si-icon-text triggerImg" src="../' . $trigImg . '"/></div>';
 					case 0:
-					default:
-						return '<div><img  class="si-icon-text triggerImg" src="../' . $p->get('trigger_image') . '"/><br /><h2  class="si-icon-text triggerTxt">' . $trigContent . '</h2></div>';
+						return '<div><img class="si-icon-text triggerImg" src="../' . $trigImg . '"><br /><h2  class="si-icon-text triggerTxt">' . $trigContent . '</h2></div>';
 				}
 			case 1:
 			default:
-				return '<h2  class="si-icon-text triggerTxt">' . $trigContent . '</h2>';
+				return '<div><h2  class="si-icon-text triggerTxt">' . $trigContent . '</h2></div>';
 		}
 	}
 	
 	public static function getTriggerBorderStyle($p)
 	{
+		$brc = htmlspecialchars($p->get('trigger_brcolor'));
 		if($p->get('trigger_border') < 1 )
 			return '';
-		return 'border: ' . $p->get('trigger_brwidth') . 'px solid ' . htmlspecialchars($p->get('trigger_brcolor')) . ';
-				border-radius: ' . $p->get('trigger_brradius') . 'px;';
+		return 'border: ' . $p->get('trigger_brwidth') . 'px solid ' . ((strlen($brc) > 0 && strtolower($brc) != '#rrggbb')? $brc : 'none') . '; border-radius: ' . $p->get('trigger_brradius') . 'px;';
 	}
 	
 	public static function getNavEffectStyle($effect)

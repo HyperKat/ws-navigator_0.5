@@ -43,6 +43,8 @@ $triggerContent		= ModMenuStyleHelper::getTriggerContentStyle($params);
 $trigClass_sfx		= htmlspecialchars($params->get('triggerclass_sfx'));
 $trigBorder			= ModMenuStyleHelper::getTriggerBorderStyle($params); 
 $triggerColors		= ModMenuStyleHelper::getColorArray($params, 'trigger');
+$trigUseImg			= (int)$params->get('trigger_usetext');
+$trigImg			= $params->get('trigger_image');
 
 $doc->addScript('/modules/mod_wsnavigator/js/modernizr.custom.js');
 $doc->addScript('/modules/mod_wsnavigator/js/modernizr.custom.js');

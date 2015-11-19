@@ -11,9 +11,9 @@ defined('_JEXEC') or die;
 
 ?>
 <?php // The menu class is deprecated. Use nav instead. 
-require_once ($dir . '/css/default_styles.php');
+require_once ($dir . '/css/styles_trigger.php');
 ?>
-<div id="Nav-Wrapper" class="nav-wrapper" login-button="<?php echo $loginOn; ?>">
+<div id="Nav-Wrapper" class="nav-wrapper" login-button="<?php echo $loginOn; ?>"><?php echo ''; ?>
 <nav id="st-menu" class="st-menu <?php echo $navEffect; ?>" role="navigation">
 <div class="mp-level" style="background-color: <?php echo $levelColors[0]; ?>;">
 <h2 class="icon ws-header"><?php echo $titel; ?></h2><a class="mp-back" href="#"><?php echo $backTitel; ?><span class="icon-mpback"></span></a>

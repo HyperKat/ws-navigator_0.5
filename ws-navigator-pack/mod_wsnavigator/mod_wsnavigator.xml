@@ -33,34 +33,6 @@
                     type="menu"
                     label="MOD_WSNAVIGATOR_FIELD_MODMENUTYPE_LABEL"
                     description="MOD_WSNAVIGATOR_FIELD_MODMENUTYPE_DESC" />
-				
-				<field
-					name="base"
-					type="menuitem"
-					label="MOD_WSNAVIGATOR_FIELD_ACTIVE_LABEL"
-					description="MOD_WSNAVIGATOR_FIELD_ACTIVE_DESC" 
-				>
-					<option value="">JCURRENT</option>
-				</field>
-				
-                <field
-                    name="startLevel"
-                    type="list"
-                    default="1"
-                    label="MOD_WSNAVIGATOR_FIELD_MODSTARTLEVEL_LABEL"
-                    description="MOD_WSNAVIGATOR_FIELD_MODSTARTLEVEL_DESC"
-                >
-                    <option value="1">J1</option>
-                    <option value="2">J2</option>
-                    <option value="3">J3</option>
-                    <option value="4">J4</option>
-                    <option value="5">J5</option>
-                    <option value="6">J6</option>
-                    <option value="7">J7</option>
-                    <option value="8">J8</option>
-                    <option value="9">J9</option>
-                    <option value="10">J10</option>
-                </field>
 
                 <field
                     name="endLevel"
@@ -91,7 +63,18 @@
                     <option value="1">JYES</option>
                     <option value="0">JNO</option>
                 </field>
-
+	
+				<field
+                    name="mplevelPreview"
+                    type="radio"
+                    class="btn-group btn-group-yesno"
+                    default="0"
+                    label="MOD_WSNAVIGATOR_FIELD_MODMPLEVELPREVIEW_LABEL"
+                    description="MOD_WSNAVIGATOR_FIELD_MODMPLEVELPREVIEW_DESC">
+                    <option value="1">JYES</option>
+					<option value="0">JNO</option>
+                </field>
+				
                 <field
                     name="useloginextension"
                     type="radio"
@@ -299,7 +282,11 @@
                         MOD_WSNAVIGATOR_VALUE_COLORFILTER-DOWN
                     </option>
                 </field>
-					
+				
+				<field
+					name="star"
+                    type="spacer" 
+					label="MOD_WSNAVIGATOR_FIELD_GLOBALSTAR_LABEL" />	
             </fieldset>
 			<fieldset
                 name="trigger">
@@ -437,7 +424,12 @@
 					<option value="2">MOD_WSNAVIGATOR_VALUE_LEFT</option>
 					<option value="3">MOD_WSNAVIGATOR_VALUE_RIGHT</option>
 					<option value="4">MOD_WSNAVIGATOR_VALUE_BG</option>
-				</field>				
+				</field>
+
+				<field
+					name="star"
+                    type="spacer" 
+					label="MOD_WSNAVIGATOR_FIELD_GLOBALSTAR_LABEL" />
 			</fieldset>
         </fields>
     </config>
