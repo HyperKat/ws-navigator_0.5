@@ -30,6 +30,7 @@ $app        		= JFactory::getApplication();
 $loginOn    		= $params->get('useloginextension');
 $navEffect  		= $params->get('useanimation');
 $txtTransform		= $params->get('texttransform');
+$levelPreview		= (int)$params->get('mplevelPreview');
 $navEffectStyle 	= ModMenuStyleHelper::getNavEffectStyle($navEffect);
 
 
@@ -47,15 +48,7 @@ $trigUseImg			= (int)$params->get('trigger_usetext');
 $trigImg			= $params->get('trigger_image');
 
 $doc->addScript('/modules/mod_wsnavigator/js/modernizr.custom.js');
-$doc->addScript('/modules/mod_wsnavigator/js/modernizr.custom.js');
-$doc->addScript('/modules/mod_wsnavigator/js/ws-navigator.js');
 $doc->addScript('/modules/mod_wsnavigator/js/navigation.js');
-// Add Stylesheets
-$doc->addStyleSheet('/modules/mod_wsnavigator/css/navigation.css');
-if($client->browser == JApplicationWebClient::IE)
-{
-    $doc->addStyleSheet('/modules/mod_wsnavigator/css/ie.css');
-}
 
 if (count($list))
 {

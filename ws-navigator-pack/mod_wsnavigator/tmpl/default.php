@@ -11,9 +11,18 @@ defined('_JEXEC') or die;
 
 ?>
 <?php // The menu class is deprecated. Use nav instead. 
-require_once ($dir . '/css/styles_trigger.php');
+require_once ($dir . '/js/js_ws-navigator.php');
+require_once ($dir . '/css/styles_ws-navigator.php');
+if($client->browser == JApplicationWebClient::IE)
+{
+    require_once ($dir . '/css/styles_ie-hacks.php');
+}
+if($levelPreview > 1)
+{
+	echo '<div id="Level-Preview-Wrapper" class="not-opac"></div>';
+}
 ?>
-<div id="Nav-Wrapper" class="nav-wrapper" login-button="<?php echo $loginOn; ?>"><?php echo ''; ?>
+<div id="Nav-Wrapper" class="nav-wrapper" level-preview="<?php echo ($levelPreview > 1)? 'ON' : 'OFF'; ?>" login-button="<?php echo $loginOn; ?>"><?php echo ''; ?>
 <nav id="st-menu" class="st-menu <?php echo $navEffect; ?>" role="navigation">
 <div class="mp-level" style="background-color: <?php echo $levelColors[0]; ?>;">
 <h2 class="icon ws-header"><?php echo $titel; ?></h2><a class="mp-back" href="#"><?php echo $backTitel; ?><span class="icon-mpback"></span></a>
@@ -64,7 +73,7 @@ foreach ($list as $i => &$item)
     if ($item->deeper)
     {
         $class .= ' deeper';
-        $deepItem = '<span class="dropdown icon icon-pop"></span>';
+        $deepItem = '<span class="' . (($levelPreview > 1)? 'mp-level-preview' : '') . 'icon icon-pop"></span>';
     }
 
     if ($item->parent)

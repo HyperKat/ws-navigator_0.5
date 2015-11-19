@@ -1,3 +1,7 @@
+<?php
+
+?>
+<script>
 (function($) {
     
     jQuery(document).ready(function(){
@@ -36,38 +40,46 @@
                 };
 
                 scrollFn();
-                var uiBtn;
-               if( document.getElementById('Nav-Wrapper').getAttribute('login-button') ) {
-                   uiBtn = new UIMorphingButton( document.getElementById( 'morph-button' ), {
-                            closeEl : '.icon-close',
-                            onBeforeOpen : function() {
-                                if( !uiBtn.expanded ) {
-                                    classie.addClass( uiBtn.el.parentElement, 'no-morph-box' );
-                                }
-                                noScroll();
-                            },
-                            onAfterOpen : function() {
-                                // can scroll again
-                                canScroll();
-                            },
-                            onBeforeClose : function() {
-                                // don't allow to scroll
-                                noScroll();
-                            },
-                            onAfterClose : function() {
-                                if( uiBtn.expanded ) {
-                                    // remove class active (after closing)
-                                    classie.removeClass( uiBtn.el.parentElement, 'no-morph-box' );
-                                }
-                                // can scroll again
-                                canScroll();
-                            },
-                            contentPos: { left : '', top : '', expLeft : '50%', expTop : '50%' }
-                        } );
+				var uiBtn = null;
+				<?php 
+				if($loginOn > 0)
+				{
+					echo '
+						var uiBtn;
+						if( document.getElementById("Nav-Wrapper").getAttribute("login-button") ) {
+						   uiBtn = new UIMorphingButton( document.getElementById( "morph-button" ), {
+									closeEl : ".icon-close2,
+									onBeforeOpen : function() {
+										if( !uiBtn.expanded ) {
+											classie.addClass( uiBtn.el.parentElement, "no-morph-box" );
+										}
+										noScroll();
+									},
+									onAfterOpen : function() {
+										// can scroll again
+										canScroll();
+									},
+									onBeforeClose : function() {
+										// don\'t allow to scroll
+										noScroll();
+									},
+									onAfterClose : function() {
+										if( uiBtn.expanded ) {
+											// remove class active (after closing)
+											classie.removeClass( uiBtn.el.parentElement, "no-morph-box" );
+										}
+										// can scroll again
+										canScroll();
+									},
+									contentPos: { left : "", top : "", expLeft : "50%", expTop : "50%" }
+								} );
 
-               }
+					   }';
+				}
+				?>
         
         new mlPushMenu( document.getElementById( 'st-menu' ), document.getElementById( 'trigger' ), uiBtn, null);
 
     });
 })();
+<script>
