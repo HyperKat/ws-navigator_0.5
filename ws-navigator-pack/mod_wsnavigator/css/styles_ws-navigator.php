@@ -1455,11 +1455,10 @@ span.icon-pop { cursor: help; float: right; margin: 7px 0; font-size: 10px; colo
 }
 .level-preview-inner h2, 
 .level-preview-inner h3,
-.level-preview-inner p { text-align: center; }
-.level-preview-inner > p {
+.level-preview-inner { text-align: center; }
+.level-preview-inner > div > p {
 	color: rgb(255,255,255);
 	text-shadow: 1px 1px 3px rgba(255,252,254, 1);
-	list-style: circle inside;
 }
 .mp-level-preview-event {
 	opacity: 1;

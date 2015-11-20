@@ -315,6 +315,13 @@
                     description="MOD_WSNAVIGATOR_FIELD_TRIGGERTEXT_DESC" />
 				
 				<field
+                    name="trigger_fontSize"
+                    type="int"
+                    default="40"
+                    label="MOD_WSNAVIGATOR_FIELD_TRIGGERFONTSIZE_LABEL"
+                    description="MOD_WSNAVIGATOR_FIELD_TRIGGERFONTSIZE_DESC" />
+					
+				<field
                     name="trigger_fontcolor"
                     type="color"
 					default="#fff"
@@ -334,7 +341,7 @@
                     default="1"
                     label="MOD_WSNAVIGATOR_VALUE_TRIGGERCOLORFILTER_LABEL"
                     description="MOD_WSNAVIGATOR_VALUE_TRIGGERCOLORFILTER_DESC"
-					disabled="1">
+					disabled="0">
                     <option value="1">
                         MOD_WSNAVIGATOR_VALUE_COLORFILTER-UP
                     </option>

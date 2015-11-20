@@ -449,15 +449,17 @@
 									prev.appendChild(document.createElement("BR"));
 								}
 								if(el.tagName == "UL") {
+									var div = document.createElement("DIV");
 									for(var a = 0;a<el.childNodes.length;a++) {
 										var p = document.createElement("P");
 										var li = el.childNodes[a];
 										var rem = getChildPos(li,"A");
 										if(rem > -1) {
-											p.innerHTML = "- " + li.childNodes[rem].innerHTML + " -";
-											prev.appendChild(p);
+											p.innerHTML = "- " + li.childNodes[rem].innerHTML;
+											div.appendChild(p);
 										}
 									}
+									prev.appendChild(div);
 								}
 							}
 							var event = e || window.event;
