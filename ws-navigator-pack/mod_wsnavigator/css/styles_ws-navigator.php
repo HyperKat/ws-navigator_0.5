@@ -133,6 +133,8 @@ body,
 /* overlap */
 .mp-overlap .mp-level.mp-level-open {
     box-shadow: 1px 0 2px rgba(0,0,0,0.2);
+	-webkit-box-shadow: 1px 0 2px rgba(0,0,0,0.2);
+	-moz-box-shadow: 1px 0 2px rgba(0,0,0,0.2);
     -webkit-transform: translate3d(-40px, 0, 0);
     -moz-transform: translate3d(-40px, 0, 0);
     transform: translate3d(-40px, 0, 0);
@@ -813,10 +815,14 @@ a.nobox2, a.nobox2:hover {
     font-weight: 400;
     font-size: 1.05em;
     box-shadow: inset 0 1px rgba(0,0,0,0.1);
+	-webkit-box-shadow: inset 0 1px rgba(0,0,0,0.1);
+	-moz-box-shadow: inset 0 1px rgba(0,0,0,0.1);
 }
 
 .content-style-sidebar ul li:last-child a {
     box-shadow: inset 0 1px rgba(0,0,0,0.1), inset 0 -1px rgba(0,0,0,0.1);
+	-webkit-box-shadow: inset 0 1px rgba(0,0,0,0.1), inset 0 -1px rgba(0,0,0,0.1);
+	-moz-box-shadow: inset 0 1px rgba(0,0,0,0.1), inset 0 -1px rgba(0,0,0,0.1);
 }
 
 .content-style-sidebar ul li a:hover {
@@ -1346,6 +1352,8 @@ span.icon-pop { cursor: help; float: right; margin: 7px 0; font-size: 10px; colo
     padding: 1em 1.8em 1em;
     position: relative;
     box-shadow: inset 0 1px rgba(0,0,0,0.1);
+	-webkit-box-shadow: inset 0 1px rgba(0,0,0,0.1);
+	-moz-box-shadow: inset 0 1px rgba(0,0,0,0.1);
     -webkit-transition: color 0.6s,background 0.3s;
     -moz-transition: color 0.6s,background 0.3s;
     -ms-transition: color 0.6s,background 0.3s;
@@ -1421,5 +1429,40 @@ span.icon-pop { cursor: help; float: right; margin: 7px 0; font-size: 10px; colo
 	background-color: <?php echo $triggerColors['bghover'];?>;
 }
 <?php echo $navEffectStyle; ?>
+
+#Level-Preview-Wrapper {
+	position: fixed;
+	transition: opacity 0.6s ease-in-out 0s;
+    -moz-transition: opacity 0.6s ease-in-out 0s;
+    -webkit-transition: opacity 0.6s ease-in-out 0s;
+    -o-transition: opacity 0.6s ease-in-out 0s;
+    -ms-transition: opacity 0.6s ease-in-out 0s;
+}
+.not-opac { opacity: 0; }
+.level-preview-inner {
+	background-color: rgba(0, 0, 0, 0.7);
+	border: 1px solid rgb(255,255,255);
+	-webkit-box-shadow: 0px 0px 23px -1px rgba(235,226,235,1), inset 0px 0px 23px -1px rgba(235,226,235,1);
+	-moz-box-shadow: 0px 0px 23px -1px rgba(235,226,235,1), inset 0px 0px 23px -1px rgba(235,226,235,1);
+	box-shadow: 0px 0px 23px -1px rgba(235,226,235,1), inset 0px 0px 23px -1px rgba(235,226,235,1);
+    border-radius: 5px;
+    padding: 20px;
+}
+.level-preview-inner ul {
+	list-style: circle inside;
+	color: rgb(255,255,255);
+	margin: 0 auto;
+}
+.level-preview-inner h2, 
+.level-preview-inner h3,
+.level-preview-inner p { text-align: center; }
+.level-preview-inner > p {
+	color: rgb(255,255,255);
+	text-shadow: 1px 1px 3px rgba(255,252,254, 1);
+	list-style: circle inside;
+}
+.mp-level-preview-event {
+	opacity: 1;
+}
 </style>
 

@@ -73,7 +73,26 @@
         }
         return e.parentNode && closest(e.parentNode, classname);
     }
-
+	function closestChild(e, classname) {
+		if ( e.hasChildNodes() ) {
+			for(var i=0;i<e.childNodes.length;i++) {
+				if ( classie.has( e.childNodes[i], classname ) ) {
+					return e.childNodes[i];
+				}
+			}
+		}
+        return false;
+    }
+	function getChildPos(e, node) {
+		if ( e.hasChildNodes() ) {
+			for(var i=0;i<e.childNodes.length;i++) {
+				if ( e.childNodes[i].nodeName == node ) {
+					return i;
+				}
+			}
+		}
+        return -1;
+    }
     /*
      - Behavior: For IE8+, we detect the documentMode value provided by Microsoft.
      - Behavior: For <IE8, we inject conditional comments until we detect a match.
@@ -190,7 +209,7 @@
                 this.trigOffOpen = this.el.offsetWidth-110;
                 this.trigOffClose = this.el.offsetWidth;
                 // initialize / bind the necessary events				
-				<?php echo ($levelPreview > 1)? 'this._previewBtns = Array.prototype.slice.call(this.el.querySelectorAll("a.mp-level-preview"));' : ''; ?>
+				<?php echo ($levelPreview > 0)? 'this._previewBtns = Array.prototype.slice.call(this.el.querySelectorAll("span.mp-level-preview"));' : ''; ?>
                 this._initEvents();
             },
             _initEvents: function () {
@@ -254,16 +273,16 @@
 				<?php
 				if($levelPreview > 0)
 				{
-					echo 'this._previewBtns.forEach(function (el, i) {
-						el.addEventListener("mouseover", function (ev) {
-							ev.stopPropagation();
-							self._showLevelPreview(this);
-						});
-						el.addEventListener("mouseout", function (ev) {
-							ev.stopPropagation();
-							self._hideLevelPreview(this);
-						});
-					});';
+				echo 'this._previewBtns.forEach(function (el, i) {
+					el.addEventListener("mouseover", function (ev) {
+						ev.stopPropagation();
+						self._showLevelPreview(this, ev);
+					});
+					el.addEventListener("mouseout", function (ev) {
+						ev.stopPropagation();
+						self._hideLevelPreview();
+					});
+				});';
 				}
 				?>
                 // by clicking on a specific element
@@ -408,18 +427,52 @@
 				if($levelPreview > 0)
 				{
 					echo '
-						_showLevelPreview: function (elem) {
-							var orginal = closest(elem, "mp-level");
+						_showLevelPreview: function (elem, e) {
+							var orginal = closest(elem, "deeper");
+							orginal = closestChild(orginal, "mp-level");
 							var container = document.getElementById("Level-Preview-Wrapper");
 							container.innerHTML = "";
 							var cloned = orginal.cloneNode(true);
-							this.setTransform("",cloned);
-							container.appendChild(cloned);
-							classie.add(container, "mp-level-preview");
+							var prev = orginal.cloneNode(false); 
+							prev.setAttribute("class", "level-preview-inner");
+							prev.style.backgroundColor = "";
+							var h2 = document.createElement("H2");
+							h2.innerHTML = "Levelvorschau";
+							prev.appendChild(h2);
+							this._setTransform("",prev);
+							for(var i = 0;i<cloned.childNodes.length;i++){
+								var el = cloned.childNodes[i];
+								if(el.tagName == "H2") {
+									var h3 = document.createElement("H3");
+									h3.innerHTML = el.innerHTML;
+									prev.appendChild(h3);
+									prev.appendChild(document.createElement("BR"));
+								}
+								if(el.tagName == "UL") {
+									for(var a = 0;a<el.childNodes.length;a++) {
+										var p = document.createElement("P");
+										var li = el.childNodes[a];
+										var rem = getChildPos(li,"A");
+										if(rem > -1) {
+											p.innerHTML = "- " + li.childNodes[rem].innerHTML + " -";
+											prev.appendChild(p);
+										}
+									}
+								}
+							}
+							var event = e || window.event;
+							container.style.display = "block";
+							container.style.zIndex = "9999";
+							container.style.left = (e.clientX + 35) + "px";
+							container.style.top = (e.clientY) + "px";
+							container.appendChild(prev);
+							classie.add(container, "mp-level-preview-event");
+							classie.remove(container, "not-opac");
 						},
 						_hideLevelPreview: function () {
 							var container = document.getElementById("Level-Preview-Wrapper");
-							classie.remove(container, "mp-level-preview");
+							classie.add(container, "not-opac");
+							classie.remove(container, "mp-level-preview-event");
 							container.innerHTML = "";
 						},';
 				}

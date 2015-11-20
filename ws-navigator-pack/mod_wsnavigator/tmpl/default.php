@@ -17,7 +17,7 @@ if($client->browser == JApplicationWebClient::IE)
 {
     require_once ($dir . '/css/styles_ie-hacks.php');
 }
-if($levelPreview > 1)
+if($levelPreview > 0)
 {
 	echo '<div id="Level-Preview-Wrapper" class="not-opac"></div>';
 }
@@ -73,7 +73,7 @@ foreach ($list as $i => &$item)
     if ($item->deeper)
     {
         $class .= ' deeper';
-        $deepItem = '<span class="' . (($levelPreview > 1)? 'mp-level-preview' : '') . 'icon icon-pop"></span>';
+        $deepItem = '<span class="' . (($levelPreview > 0)? 'mp-level-preview ' : '') . 'icon icon-pop"></span>';
     }
 
     if ($item->parent)
