@@ -6,7 +6,7 @@ joomla 3 - modul - pushmenu with login/out 0.9beta
 This is my first version of a push/pull menu as modul for joomla 3...
 for 3d content flip effect you need to wrapp your content, see example index.php of the protostar template.
 
-see an example of the menu in action on : http://newsite.kl-marketing.de
+see an example of the menu in action on : http://ws-navigator.kl-marketing.de
 
 Don't rename the wrapper classes...
 
