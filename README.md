@@ -18,6 +18,8 @@ add menu-effect option to modul-administration -> Done
 
 add font-color field to modul-administration -> Done
 
+add level preview -> Done
+
 Next steps
   1. add responsive design to the menu css -> in progress
   2. building a complete template for the modules
@@ -28,14 +30,9 @@ Installation:
   1. backup template / joomla ( this you should do always, with/without the menu backup for hackup )
   2. unzip folder
   3. zip the mod_wsnavigator folder and install it as joomla extension
-  4. After installation, choose root of scripts and styles option in modul-settings:
-
-         Yes -> handle  all scripts and styles in the modul (standart)!
-         No -> handle the scripts/styles in template root
-
-  5. build in wrapper in your template (see index.php in example folder)
-  6. Setup Modul in administration portal
-  7. Optional -> Need a Login/out Menuitem?
+  4. build in wrapper in your template (see index.php in example folder)
+  5. Setup Modul in administration portal
+  6. Optional -> Need a Login/out Menuitem?
 
         Activate the option use login/out trigger!!!
         Add a menu item, name should contains login!!!
@@ -44,11 +41,5 @@ Installation:
         Notice, it's necessary to activate the mod_login modul, it don't need a position,
         the ws-navigator load the mod_login modul by it self!!!
 
-  8. Have fun and tell me bugs and features for future
-
-
-BLINK:
-
-  It's not necessary to add script and style tags to template head. Also it includes all automatic,
-  on activated option -> handle in modul root, too! ! !!!!!
+  7. Have fun and tell me bugs and features for future
 
