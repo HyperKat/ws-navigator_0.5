@@ -20,6 +20,7 @@ Next steps
   2. building a complete template for the modules - in progress
   3. fix all bugs that we'll find
   4. convert js to $
+  5. add more effects like open door etc. ...
 
 Installation:
   1. backup template / joomla ( this you should do always, with/without the menu backup for hackup )
