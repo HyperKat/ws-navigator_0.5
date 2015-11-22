@@ -26,6 +26,7 @@ $showAll			= $params->get('showAllChildren');
 $class_sfx			= htmlspecialchars($params->get('class_sfx'));
 $doc        		= JFactory::getDocument();
 $app        		= JFactory::getApplication();
+$lang	 			= JFactory::getLanguage()->getTag();
 
 $loginOn    		= $params->get('useloginextension');
 $navEffect  		= $params->get('useanimation');
@@ -39,7 +40,7 @@ $levelFontColors  	= ModMenuStyleHelper::getColorArray($params, 'mplevel');
 $levelFontSize  	= $params->get('mplevel_fontSize');
 
 $mpBackColors      	= ModMenuStyleHelper::getColorArray($params, 'mpback');
-$backTitel 			= (JFactory::getLanguage()->getTag() == 'de-DE')? 'zurück' : 'back';
+$backTitel 			= ($lang == 'de-DE')? 'zurück' : 'back';
 
 $triggerContent		= ModMenuStyleHelper::getTriggerContentStyle($params);
 $trigClass_sfx		= htmlspecialchars($params->get('triggerclass_sfx'));
@@ -47,6 +48,8 @@ $trigBorder			= ModMenuStyleHelper::getTriggerBorderStyle($params);
 $triggerColors		= ModMenuStyleHelper::getColorArray($params, 'trigger');
 $trigUseImg			= (int)$params->get('trigger_usetext');
 $trigImg			= $params->get('trigger_image');
+
+$prevHeader			= ($lang == 'de-DE')? 'Vorschau' : 'Preview';
 
 $doc->addScript('/modules/mod_wsnavigator/js/classie.js');
 $doc->addScript('/modules/mod_wsnavigator/js/modernizr.custom.js');

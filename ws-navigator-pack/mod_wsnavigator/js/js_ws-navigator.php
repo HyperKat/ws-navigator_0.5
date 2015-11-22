@@ -437,17 +437,11 @@
 							prev.setAttribute("class", "level-preview-inner");
 							prev.style.backgroundColor = "";
 							var h2 = document.createElement("H2");
-							h2.innerHTML = "Levelvorschau";
+							h2.innerHTML = "' . $prevHeader . '";
 							prev.appendChild(h2);
 							this._setTransform("",prev);
 							for(var i = 0;i<cloned.childNodes.length;i++){
 								var el = cloned.childNodes[i];
-								if(el.tagName == "H2") {
-									var h3 = document.createElement("H3");
-									h3.innerHTML = el.innerHTML;
-									prev.appendChild(h3);
-									prev.appendChild(document.createElement("BR"));
-								}
 								if(el.tagName == "UL") {
 									var div = document.createElement("DIV");
 									for(var a = 0;a<el.childNodes.length;a++) {

@@ -37,11 +37,11 @@ else
 
 // Add JavaScript Frameworks
 JHtml::_('bootstrap.framework');
-$doc->addScript($this->baseurl . '/templates/' . $this->template . '/js/modernizr.custom.js');
-$doc->addScript($this->baseurl . '/templates/' . $this->template . '/js/classie.js');
+$doc->addScript($this->baseurl . '/templates/' . $this->template . '/js/jquery.tinycircleslider.min.js');
 $doc->addScript($this->baseurl . '/templates/' . $this->template . '/js/template.js');
 
 // Add Stylesheets
+$doc->addStyleSheet($this->baseurl . '/templates/' . $this->template . '/css/tinycircleslider.css');
 $doc->addStyleSheet($this->baseurl . '/templates/' . $this->template . '/css/template.css');
 $doc->addStyleSheet($this->baseurl . '/templates/' . $this->template . '/css/iehacks.css');
 $doc->addStyleSheet($this->baseurl . '/templates/' . $this->template . '/css/wstip.css');
@@ -144,15 +144,7 @@ data-platform='Win32'>
             <!-- WS-NAVIGATOR -->
             <?php if ($this->countModules('position-1')) : ?>
                 <jdoc:include type="modules" name="position-1" style="none" />
-            <?php else : ?>
-                <div class="nav-wrapper">
-                <?php if ($this->countModules('position-2')) : ?>
-                    <nav id="st-menu" class="st-menu st-effect-11" role="navigation">
-                        <jdoc:include type="modules" name="position-2" style="none" />
-                        <!-- NAVIGATION TRIGGER -->
-                    </nav>
-                <?php endif; ?>
-            </div>
+            
             <?php endif; ?>
 
             <!-- content push wrapper -->
@@ -165,7 +157,7 @@ data-platform='Win32'>
                         <!-- JOOMLA HEADER -->
                         <header class="header" role="banner">
                             <div class="header-inner clearfix">
-                                <a class="brand pull-left" href="<?php echo $this->baseurl; ?>/">
+                                <a class="brand pull-right" href="<?php echo $this->baseurl; ?>/">
                                     <?php echo $logo; ?>
                                     <?php if ($this->params->get('sitedescription')) : ?>
                                         <?php echo '<div class="site-description">' . htmlspecialchars($this->params->get('sitedescription')) . '</div>'; ?>
