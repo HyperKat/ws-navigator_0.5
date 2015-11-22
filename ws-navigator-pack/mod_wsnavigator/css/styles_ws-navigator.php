@@ -1292,6 +1292,7 @@ a.nobox2, a.nobox2:hover {
 #morph-starter, .mp-level h2, .mp-level ul li a.menu-item , .st-menu h2 { 
 	color:<?php echo $levelFontColors['font'];?>; 
     text-shadow: 0 0 1px <?php echo $levelFontColors['shadow'];?>;
+	text-transform: <?php echo $txtTransform; ?>;
 } 
 .st-menu ul li:hover > a.menu-item,
 .mp-level > ul > li:first-child:hover > a.menu-item,
@@ -1432,33 +1433,31 @@ span.icon-pop { cursor: help; float: right; margin: 7px 0; font-size: 10px; colo
 
 #Level-Preview-Wrapper {
 	position: fixed;
+	padding: 10px;
 	transition: opacity 0.6s ease-in-out 0s;
     -moz-transition: opacity 0.6s ease-in-out 0s;
     -webkit-transition: opacity 0.6s ease-in-out 0s;
     -o-transition: opacity 0.6s ease-in-out 0s;
     -ms-transition: opacity 0.6s ease-in-out 0s;
 }
-.not-opac { opacity: 0; }
+.not-opac { opacity: 0 !important; }
 .level-preview-inner {
-	background-color: rgba(0, 0, 0, 0.7);
+	text-transform: <?php echo $txtTransform; ?>;
+	background-color: rgba(0, 0, 0, 0.99);
 	border: 1px solid rgb(255,255,255);
 	-webkit-box-shadow: 0px 0px 23px -1px rgba(235,226,235,1), inset 0px 0px 23px -1px rgba(235,226,235,1);
 	-moz-box-shadow: 0px 0px 23px -1px rgba(235,226,235,1), inset 0px 0px 23px -1px rgba(235,226,235,1);
 	box-shadow: 0px 0px 23px -1px rgba(235,226,235,1), inset 0px 0px 23px -1px rgba(235,226,235,1);
     border-radius: 5px;
-    padding: 20px;
+    padding: 30px;
 }
-.level-preview-inner ul {
-	list-style: circle inside;
-	color: rgb(255,255,255);
-	margin: 0 auto;
-}
-.level-preview-inner h2, 
+.level-preview-inner h2 { text-shadow: 1px 1px 3px rgba(255,252,254, 1); color: rgba(0,0,0,0.9); } 
 .level-preview-inner h3,
 .level-preview-inner { text-align: center; }
 .level-preview-inner > div > p {
-	color: rgb(255,255,255);
-	text-shadow: 1px 1px 3px rgba(255,252,254, 1);
+	font-size: 18px;
+	color: rgba(0,0,0,0.9);
+	text-shadow: 1px 1px 2px rgba(255,252,254, 1);
 }
 .mp-level-preview-event {
 	opacity: 1;

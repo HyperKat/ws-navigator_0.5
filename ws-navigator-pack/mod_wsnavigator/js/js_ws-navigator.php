@@ -468,8 +468,6 @@
 						_hideLevelPreview: function () {
 							var container = document.getElementById("Level-Preview-Wrapper");
 							classie.add(container, "not-opac");
-							classie.remove(container, "mp-level-preview-event");
-							container.innerHTML = "";
 						},';
 				}
 			?>
