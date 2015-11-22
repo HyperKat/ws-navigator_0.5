@@ -26,8 +26,8 @@ Installation:
   1. backup template / joomla ( this you should do always, with/without the menu backup for hackup )
   2. unzip folder
   3. zip the mod_wsnavigator folder and install it as joomla extension
-  4. build in wrapper in your template (see index.php in example folder)
-     Don't rename the wrapper classes...
+  4. build in wrapper in your template (see index.php in example folder).
+     Don't rename the wrapper classes... !!!!!!!!
   5. Setup Modul in administration portal
   6. Optional -> Need a Login/out Menuitem?
 
