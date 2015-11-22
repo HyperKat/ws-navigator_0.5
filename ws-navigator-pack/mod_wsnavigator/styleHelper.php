@@ -79,6 +79,8 @@ class ModMenuStyleHelper
 			$filter					= $params->get($type . '_colorfilter');
 			$colors['font'] 		= $font . ',0.7)';
 			$colors['shadow'] 		= $font . ',0.2)';
+			$colors['activeBorder']	= self::convertColor($params, $type . '_activeLine', '251, 255, 225') . ',0.95)';
+			
 			if($filter > 1)
 			{
 				$colors['fonthover'] 	= $font . ',1)';

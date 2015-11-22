@@ -14,6 +14,7 @@
         <folder>tmpl</folder>
         <folder>css</folder>
         <folder>js</folder>
+		<folder>fonts</folder>
         <filename>helper.php</filename>
 		<filename>styleHelper.php</filename>
         <filename>mod_wsnavigator.xml</filename>
@@ -229,6 +230,20 @@
 					default="#fff"
                     label="MOD_WSNAVIGATOR_FIELD_MPLEVELFONTCOLOR_LABEL"
                     description="MOD_WSNAVIGATOR_FIELD_MPLEVELFONTCOLOR_DESC" />
+				
+				<field
+                    name="mplevel_fontSize"
+                    type="int"
+					default="40"
+                    label="MOD_WSNAVIGATOR_FIELD_MPLEVELFONTSIZE_LABEL"
+                    description="MOD_WSNAVIGATOR_FIELD_MPLEVELFONTSIZE_DESC" />
+				
+				<field
+                    name="mplevel_activeLine"
+                    type="color"
+					default="#cc0033"
+                    label="MOD_WSNAVIGATOR_FIELD_MPLEVELACTIVELINE_LABEL"
+                    description="MOD_WSNAVIGATOR_FIELD_MPLEVELACTIVELINE_DESC" />
 				
                 <field
                     name="mplevel_color"

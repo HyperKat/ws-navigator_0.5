@@ -36,6 +36,7 @@ $navEffectStyle 	= ModMenuStyleHelper::getNavEffectStyle($navEffect);
 
 $levelColors     	= ModMenuStyleHelper::getBevelColors(htmlspecialchars($params->get('mplevel_color')));
 $levelFontColors  	= ModMenuStyleHelper::getColorArray($params, 'mplevel');
+$levelFontSize  	= $params->get('mplevel_fontSize');
 
 $mpBackColors      	= ModMenuStyleHelper::getColorArray($params, 'mpback');
 $backTitel 			= (JFactory::getLanguage()->getTag() == 'de-DE')? 'zurück' : 'back';
@@ -47,6 +48,7 @@ $triggerColors		= ModMenuStyleHelper::getColorArray($params, 'trigger');
 $trigUseImg			= (int)$params->get('trigger_usetext');
 $trigImg			= $params->get('trigger_image');
 
+$doc->addScript('/modules/mod_wsnavigator/js/classie.js');
 $doc->addScript('/modules/mod_wsnavigator/js/modernizr.custom.js');
 $doc->addScript('/modules/mod_wsnavigator/js/navigation.js');
 

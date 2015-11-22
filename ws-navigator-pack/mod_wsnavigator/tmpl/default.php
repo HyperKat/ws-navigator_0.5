@@ -22,7 +22,7 @@ if($levelPreview > 0)
 	echo '<div id="Level-Preview-Wrapper" class="not-opac"></div>';
 }
 ?>
-<div id="Nav-Wrapper" class="nav-wrapper" level-preview="<?php echo ($levelPreview > 1)? 'ON' : 'OFF'; ?>" login-button="<?php echo $loginOn; ?>"><?php echo ''; ?>
+<div id="Nav-Wrapper" class="nav-wrapper" level-preview="<?php echo ($levelPreview > 0)? 'ON' : 'OFF'; ?>" login-button="<?php echo $loginOn; ?>"><?php echo ''; ?>
 <nav id="st-menu" class="st-menu <?php echo $navEffect; ?>" role="navigation">
 <div class="mp-level" style="background-color: <?php echo $levelColors[0]; ?>;">
 <h2 class="icon ws-header"><?php echo $titel; ?></h2><a class="mp-back" href="#"><?php echo $backTitel; ?><span class="icon-mpback"></span></a>

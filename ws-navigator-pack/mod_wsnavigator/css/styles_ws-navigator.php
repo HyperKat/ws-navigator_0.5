@@ -230,7 +230,7 @@ a.nobox2, a.nobox2:hover {
     border-bottom: 2px solid rgba(186, 186, 186, 0.2);
     margin:0 20px 0;
 }
-.st-menu ul li.current.active, .st-menu ul li.deeper.active { border-bottom-color: rgba(251,255,225,0.65); }
+.st-menu ul li.current.active, .st-menu ul li.deeper.active { border-bottom-color:<?php echo $levelFontColors['activeBorder']; ?>; }
 
 .st-menu ul li::before {
     position: absolute;
