@@ -12,28 +12,28 @@
 
 html,
 body,
-.st-container,
-.st-pusher,
-.st-content {
+.ws-container,
+.ws-pusher,
+.ws-content {
     height: 100%;
 }
 
-.st-content {
+.ws-content {
     overflow-y: scroll;
     background: none;
 }
 
-.st-content,
-.st-content-inner {
+.ws-content,
+.ws-content-inner {
     position: relative;
 }
 
-.st-container {
+.ws-container {
     position: relative;
     overflow: hidden;
 }
 
-.st-pusher {
+.ws-pusher {
     position: relative;
     left: 0;
     z-index: 99;
@@ -42,7 +42,7 @@ body,
     transition: transform 1.1s ease-in-out;
 }
 
-.st-pusher::after {
+.ws-pusher::after {
     position: absolute;
     top: 0;
     right: 0;
@@ -55,7 +55,7 @@ body,
     transition: opacity 0.5s, width 0.1s 0.5s, height 0.1s 0.5s;
 }
 
-.st-menu-open .st-pusher::after {
+.st-menu-open .ws-pusher::after {
     width: 100%;
     height: 100%;
     opacity: 1;
@@ -271,8 +271,8 @@ a.nobox2, a.nobox2:hover {
 #morph-starter { cursor: pointer; }
 
 /* Fallback example for browsers that don't support 3D transforms (and no JS fallback) */
-.no-csstransforms3d .st-pusher,
-.no-js .st-pusher {
+.no-csstransforms3d .ws-pusher,
+.no-js .ws-pusher {
     padding-left: 300px;
 }
 
@@ -1462,5 +1462,10 @@ span.icon-pop { cursor: help; float: right; margin: 7px 0; font-size: 10px; colo
 .mp-level-preview-event {
 	opacity: 1;
 }
+<?php if ($useGoogleFont) : ?>
+.nav-wrapper * {
+	font-family: '<?php echo str_replace('|', ',', str_replace('+', ' ', $params->get('googleFontType'))); ?>', sans-serif;
+}
+<?php endif; ?>
 </style>
 

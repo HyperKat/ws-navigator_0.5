@@ -270,10 +270,8 @@
                         }
                     });
                 });
-				<?php
-				if($levelPreview > 0)
-				{
-				echo 'this._previewBtns.forEach(function (el, i) {
+				<?php if($levelPreview > 0) : ?>
+				this._previewBtns.forEach(function (el, i) {
 					el.addEventListener("mouseover", function (ev) {
 						ev.stopPropagation();
 						self._showLevelPreview(this, ev);
@@ -282,9 +280,8 @@
 						ev.stopPropagation();
 						self._hideLevelPreview();
 					});
-				});';
-				}
-				?>
+				});
+				<?php endif; ?>
                 // by clicking on a specific element
                 this.levelBack.forEach(function (el, i) {
                     el.addEventListener(self.eventtype, function (ev) {
@@ -423,54 +420,50 @@
                     this._setTransform('translate3d(' + (l * 40) + 'px,0,0)', this.levels[0]);
                 this._setTriggerPos(0);
             },
-			<?php 
-				if($levelPreview > 0)
-				{
-					echo '
-						_showLevelPreview: function (elem, e) {
-							var orginal = closest(elem, "deeper");
-							orginal = closestChild(orginal, "mp-level");
-							var container = document.getElementById("Level-Preview-Wrapper");
-							container.innerHTML = "";
-							var cloned = orginal.cloneNode(true);
-							var prev = orginal.cloneNode(false); 
-							prev.setAttribute("class", "level-preview-inner");
-							prev.style.backgroundColor = "";
-							var h2 = document.createElement("H2");
-							h2.innerHTML = "' . $prevHeader . '";
-							prev.appendChild(h2);
-							this._setTransform("",prev);
-							for(var i = 0;i<cloned.childNodes.length;i++){
-								var el = cloned.childNodes[i];
-								if(el.tagName == "UL") {
-									var div = document.createElement("DIV");
-									for(var a = 0;a<el.childNodes.length;a++) {
-										var p = document.createElement("P");
-										var li = el.childNodes[a];
-										var rem = getChildPos(li,"A");
-										if(rem > -1) {
-											p.innerHTML = "- " + li.childNodes[rem].innerHTML;
-											div.appendChild(p);
-										}
-									}
-									prev.appendChild(div);
-								}
+			<?php if($levelPreview > 0) : ?>
+			_showLevelPreview: function (elem, e) {
+				var orginal = closest(elem, "deeper");
+				orginal = closestChild(orginal, "mp-level");
+				var container = document.getElementById("Level-Preview-Wrapper");
+				container.innerHTML = "";
+				var cloned = orginal.cloneNode(true);
+				var prev = orginal.cloneNode(false); 
+				prev.setAttribute("class", "level-preview-inner");
+				prev.style.backgroundColor = "";
+				var h2 = document.createElement("H2");
+				h2.innerHTML = "' . $prevHeader . '";
+				prev.appendChild(h2);
+				this._setTransform("",prev);
+				for(var i = 0;i<cloned.childNodes.length;i++){
+					var el = cloned.childNodes[i];
+					if(el.tagName == "UL") {
+						var div = document.createElement("DIV");
+						for(var a = 0;a<el.childNodes.length;a++) {
+							var p = document.createElement("P");
+							var li = el.childNodes[a];
+							var rem = getChildPos(li,"A");
+							if(rem > -1) {
+								p.innerHTML = "- " + li.childNodes[rem].innerHTML;
+								div.appendChild(p);
 							}
-							var event = e || window.event;
-							container.style.display = "block";
-							container.style.zIndex = "9999";
-							container.style.left = (e.clientX + 35) + "px";
-							container.style.top = (e.clientY) + "px";
-							container.appendChild(prev);
-							classie.add(container, "mp-level-preview-event");
-							classie.remove(container, "not-opac");
-						},
-						_hideLevelPreview: function () {
-							var container = document.getElementById("Level-Preview-Wrapper");
-							classie.add(container, "not-opac");
-						},';
+						}
+						prev.appendChild(div);
+					}
 				}
-			?>
+				var event = e || window.event;
+				container.style.display = "block";
+				container.style.zIndex = "9999";
+				container.style.left = (e.clientX + 35) + "px";
+				container.style.top = (e.clientY) + "px";
+				container.appendChild(prev);
+				classie.add(container, "mp-level-preview-event");
+				classie.remove(container, "not-opac");
+			},
+			_hideLevelPreview: function () {
+				var container = document.getElementById("Level-Preview-Wrapper");
+				classie.add(container, "not-opac");
+			},
+			<?php endif; ?>
             // translate the el
             _setTransform: function (val, el) {
                 el = el || this.wrapper;
@@ -489,34 +482,33 @@
                 this.trigger.style.zIndex = z;
                 
             },
-            <?php 
-			if($loginOn > 0) 
-			{
-				echo  '_closeMorpher: function () {
-					if (!this.morphObject) return;
-					if (this.morphObject.expanded) {
-						this.morphObject.toggle();
-					}
-				},
-				_hideMorphButton: function () {
-					if (!this.morphObject) return;
-					if (this.morphObject.el.style.display == "block" || this.morphObject.button.style.display == "") {
-						this.morphObject.el.style.display = "none";
-					}
-				},
-				_showMorphButton: function () {
-					if (!this.morphObject) return;
-					if (this.morphObject.el.style.display == "none") {
-						this.morphObject.el.style.display = "block";
-					}
-				},';
-			}
-			?>
+            <?php if($loginOn > 0) : ?>
+			_closeMorpher: function () {
+				if (!this.morphObject) return;
+				if (this.morphObject.expanded) {
+					this.morphObject.toggle();
+				}
+			},
+			_hideMorphButton: function () {
+				if (!this.morphObject) return;
+				if (this.morphObject.el.style.display == "block" || this.morphObject.button.style.display == "") {
+					this.morphObject.el.style.display = "none";
+				}
+			},
+			_showMorphButton: function () {
+				if (!this.morphObject) return;
+				if (this.morphObject.el.style.display == "none") {
+					this.morphObject.el.style.display = "block";
+				}
+			},
+			<?php endif; ?>
             _changeRgbaTranspare: function (rgbaCode, newOpacity) {
                 if(!rgbaCode && !parseFloat(newOpacity))
                     return false;
 
                 var rgba = rgbaCode.split(',');
+				if(rgba.length != 4)
+					return false;
                 rgba[rgba.length-1] = newOpacity;
                 return rgba.join(',');
             },
@@ -551,145 +543,141 @@
         /* ***************************** **************************** ******************************* */
         /* **************************** ST PUSH-MENU 3D Animation ENDS ***************************** */
         /* *************************** ******************************** *************************** */
-		<?php 
-			if($loginOn > 0) 
-			{
-				echo  '
-				/* ************************** ********************************** ************************* */
-				/* *************************** MORPHING BUTTON Animation Begin ************************** */
-				/* **************************** ***************************** ************************** */
+		<?php if($loginOn > 0) : ?>
+			/* ************************** ********************************** ************************* */
+			/* *************************** MORPHING BUTTON Animation Begin ************************** */
+			/* **************************** ***************************** ************************** */
 
-			function UIMorphingButton(el, options) {
-				this.el = el;
-				this.options = extend({}, this.options);
-				extend(this.options, options);
-				this._init();
+		function UIMorphingButton(el, options) {
+			this.el = el;
+			this.options = extend({}, this.options);
+			extend(this.options, options);
+			this._init();
+		}
+
+		UIMorphingButton.prototype.options = {
+			closeEl: "",
+			onBeforeOpen: function () {
+				return false;
+			},
+			onAfterOpen: function () {
+				return false;
+			},
+			onBeforeClose: function () {
+				return false;
+			},
+			onAfterClose: function () {
+				return false;
+			},
+			contentPos: {
+				left: "",
+				top: "",
+				expLeft: "",
+				expTop: ""
+
 			}
+		}
 
-			UIMorphingButton.prototype.options = {
-				closeEl: "",
-				onBeforeOpen: function () {
-					return false;
-				},
-				onAfterOpen: function () {
-					return false;
-				},
-				onBeforeClose: function () {
-					return false;
-				},
-				onAfterClose: function () {
-					return false;
-				},
-				contentPos: {
-					left: "",
-					top: "",
-					expLeft: "",
-					expTop: ""
+		UIMorphingButton.prototype._init = function () {
+			// save element height
+			this.elH = this.el.offsetHeight;
+			// the button
+			this.button = document.getElementById("morph-starter");
+			// state
+			this.expanded = false;
+			// Set standart Content Pos if is empty!!!
+			if (!this.options.contentPos.top)
+				this.options.contentPos.top = (!IE) ? (this.el.parentElement.offsetTop + (this.button.offsetHeight / 2)) + "px" : (this.button.offsetHeight / 2) + "px";
+			if (!this.options.contentPos.expTop)
+				this.options.contentPos.expTop = this.options.contentPos.top;
+			if (!this.options.contentPos.left)
+				this.options.contentPos.left = (!IE) ? this.el.parentElement.offsetLeft + "px" : (this.button.offsetWidth / 2) + "px";
+			if (!this.options.contentPos.expLeft)
+				this.options.contentPos.expLeft = this.options.contentPos.left;
+			// content el
+			this.contentEl = this.el.querySelector(".morph-content");
+			// load the standart-position top
+			this.contentEl.style.top = this.options.contentPos.top;
+			this.contentEl.style.left = this.options.contentPos.left;
+			// init events
+			this._initEvents();
+		}
 
+		UIMorphingButton.prototype._initEvents = function () {
+			var self = this;
+			// open
+			this.button.addEventListener("click", function () {
+				self.toggle();
+			});
+			// close
+			if (this.options.closeEl !== "") {
+				var closeEl = this.el.querySelector(this.options.closeEl);
+				if (closeEl) {
+					closeEl.addEventListener("click", function () {
+						self.toggle();
+					});
 				}
 			}
-	
-			UIMorphingButton.prototype._init = function () {
-				// save element height
-				this.elH = this.el.offsetHeight;
-				// the button
-				this.button = document.getElementById("morph-starter");
-				// state
-				this.expanded = false;
-				// Set standart Content Pos if is empty!!!
-				if (!this.options.contentPos.top)
-					this.options.contentPos.top = (!IE) ? (this.el.parentElement.offsetTop + (this.button.offsetHeight / 2)) + "px" : (this.button.offsetHeight / 2) + "px";
-				if (!this.options.contentPos.expTop)
-					this.options.contentPos.expTop = this.options.contentPos.top;
-				if (!this.options.contentPos.left)
-					this.options.contentPos.left = (!IE) ? this.el.parentElement.offsetLeft + "px" : (this.button.offsetWidth / 2) + "px";
-				if (!this.options.contentPos.expLeft)
-					this.options.contentPos.expLeft = this.options.contentPos.left;
-				// content el
-				this.contentEl = this.el.querySelector(".morph-content");
-				// load the standart-position top
-				this.contentEl.style.top = this.options.contentPos.top;
-				this.contentEl.style.left = this.options.contentPos.left;
-				// init events
-				this._initEvents();
+		}
+
+		UIMorphingButton.prototype.toggle = function () {
+			if (this.isAnimating) return false;
+
+			// callback
+			if (this.expanded) {
+				this.options.onBeforeClose();
+			} else {
+				// add class active (solves z-index problem when more than one button is in the page)
+				classie.addClass(this.el, "active");
+				this.options.onBeforeOpen();
 			}
 
-			UIMorphingButton.prototype._initEvents = function () {
-				var self = this;
-				// open
-				this.button.addEventListener("click", function () {
-					self.toggle();
-				});
-				// close
-				if (this.options.closeEl !== "") {
-					var closeEl = this.el.querySelector(this.options.closeEl);
-					if (closeEl) {
-						closeEl.addEventListener("click", function () {
-							self.toggle();
-						});
-					}
-				}
-			}
+			this.isAnimating = true;
 
-			UIMorphingButton.prototype.toggle = function () {
-					if (this.isAnimating) return false;
-
-					// callback
-					if (this.expanded) {
-						this.options.onBeforeClose();
-					} else {
-						// add class active (solves z-index problem when more than one button is in the page)
-						classie.addClass(this.el, "active");
-						this.options.onBeforeOpen();
-					}
-
-					this.isAnimating = true;
-
-					var self = this,
-						onEndTransitionFn = function (ev) {
-							if (!closest(ev.target, this.getAttribute("id"))) return false;
-
-							if (support.transitions) {
-								this.removeEventListener(transEndEventName, onEndTransitionFn);
-							}
-							self.isAnimating = false;
-
-							// callback
-							if (self.expanded) {
-								// remove class active (after closing)
-								classie.removeClass(self.el, "active");
-								self.options.onAfterClose();
-							} else {
-								self.options.onAfterOpen();
-							}
-
-							self.expanded = !self.expanded;
-						};
+			var self = this,
+				onEndTransitionFn = function (ev) {
+					if (!closest(ev.target, this.getAttribute("id"))) return false;
 
 					if (support.transitions) {
-						this.el.addEventListener(transEndEventName, onEndTransitionFn);
+						this.removeEventListener(transEndEventName, onEndTransitionFn);
+					}
+					self.isAnimating = false;
+
+					// callback
+					if (self.expanded) {
+						// remove class active (after closing)
+						classie.removeClass(self.el, "active");
+						self.options.onAfterClose();
 					} else {
-						onEndTransitionFn();
+						self.options.onAfterOpen();
 					}
 
-					// add/remove class "open" to the button wraper
-					this.el.style.height = this.expanded ? this.elH + "px" : this.contentEl.offsetHeight + "px";
+					self.expanded = !self.expanded;
+				};
 
-					if (this.expanded) {
-						this.contentEl.style.top = this.options.contentPos.top;
-						this.contentEl.style.left = this.options.contentPos.left;
-						classie.removeClass(this.el, "open");
-					} else {
-						this.contentEl.style.left = this.options.contentPos.expLeft;
-						this.contentEl.style.top = this.options.contentPos.expTop;
-						classie.addClass(this.el, "open");
-					}
-				}
-			/* ***************************** **************************** ******************************* */
-			/* **************************** MORPHING BUTTON Animation ENDS ***************************** */
-			/* *************************** ******************************** *************************** */';
+			if (support.transitions) {
+				this.el.addEventListener(transEndEventName, onEndTransitionFn);
+			} else {
+				onEndTransitionFn();
+			}
+
+			// add/remove class "open" to the button wraper
+			this.el.style.height = this.expanded ? this.elH + "px" : this.contentEl.offsetHeight + "px";
+
+			if (this.expanded) {
+				this.contentEl.style.top = this.options.contentPos.top;
+				this.contentEl.style.left = this.options.contentPos.left;
+				classie.removeClass(this.el, "open");
+			} else {
+				this.contentEl.style.left = this.options.contentPos.expLeft;
+				this.contentEl.style.top = this.options.contentPos.expTop;
+				classie.addClass(this.el, "open");
+			}
 		}
-	?>
+		/* ***************************** **************************** ******************************* */
+		/* **************************** MORPHING BUTTON Animation ENDS ***************************** */
+		/* *************************** ******************************** *************************** */';
+		<?php endif; ?>
         /* ************************** ********************************** ************************* */
         /* *************************** INITIALIZING + PROCESS + BEGINS ************************** */
         /* **************************** ***************************** ************************** */

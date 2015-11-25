@@ -30,6 +30,7 @@ $lang	 			= JFactory::getLanguage()->getTag();
 
 $loginOn    		= $params->get('useloginextension');
 $navEffect  		= $params->get('useanimation');
+$useGoogleFont 		= $params->get('useGoogleFont');
 $txtTransform		= $params->get('texttransform');
 $levelPreview		= (int)$params->get('mplevelPreview');
 $navEffectStyle 	= ModMenuStyleHelper::getNavEffectStyle($navEffect);
