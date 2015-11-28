@@ -155,7 +155,6 @@ li.nobox:hover,
     box-shadow: none !important;
     background: none !important;
     transition: none;
-    -ms-transition: none;
     -o-transition: none;
     -webkit-transition: none;
     -moz-transition: none;
@@ -192,7 +191,6 @@ a.nobox2, a.nobox2:hover {
     -webkit-transition: text-shadow 0.4s;
     -moz-transition: text-shadow 0.4s;
     -o-transition: text-shadow 0.4s;
-    -ms-transition: text-shadow 0.4s;
     transition: text-shadow 0.4s;
 }
 .st-menu h2:hover {
@@ -524,7 +522,6 @@ a.nobox2, a.nobox2:hover {
     transition: color 0.5s linear 0.6s,background-color 0.7s ease-in-out 0.3s,background-position .1s linear;
     -webkit-transition: color 0.5s linear 0.3s,background-color 0.7s ease-in-out 0.3s,background-position .1s linear;
     -o-transition: color 0.5s linear 0.3s,background-color 0.7s ease-in-out 0.3s,background-position .1s linear;
-    -ms-transition: color 0.5s linear 0.3s,background-color 0.7s ease-in-out 0.3s,background-position .1s linear;
     -moz-transition: color 0.5s linear 0.3s,background-color 0.7s ease-in-out 0.3s,background-position .1s linear;
 }
 .content-style-form button:hover, .content-style-form content-style-form-1 .logout-button button.btn:hover, input.btn[type="submit"]:hover {
@@ -540,7 +537,6 @@ a.nobox2, a.nobox2:hover {
     transition: color 0.5s linear 0.6s;
     -webkit-transition: color 0.5s linear 0.3s;
     -o-transition: color 0.5s linear 0.3s;
-    -ms-transition: color 0.5s linear 0.3s;
     -moz-transition: color 0.5s linear 0.3s;
 }
 
@@ -1279,7 +1275,6 @@ a.nobox2, a.nobox2:hover {
 .st-menu ul li > a, #morph-starter {
 	-webkit-transition: color 0.6s linear 0.6s,text-shadow 0.6s ease-in-out,opacity 0.6s ease-in-out 0.1s;
     -moz-transition: color 0.6s linear 0.6s,text-shadow 0.6s ease-in-out,opacity 0.6s ease-in-out 0.1s;
-    -ms-transition: color 0.6s linear 0.6s,text-shadow 0.6s ease-in-out,opacity 0.6s ease-in-out 0.1s;
     -o-transition: color 0.6s linear 0.6s,text-shadow 0.6s ease-in-out,opacity 0.6s ease-in-out 0.1s;
     transition: color 0.6s linear 0.6s,text-shadow 0.6s ease-in-out,opacity 0.6s ease-in-out 0.1s;
 }
@@ -1338,7 +1333,6 @@ span.icon-pop { cursor: help; float: right; margin: 7px 0; font-size: 10px; colo
     text-shadow: 1px 1px 4px <?php echo $mpBackColors['font']; ?>;
     -webkit-transition: color 0.6s,text-shadow 0.6s;
     -moz-transition: color 0.6s,text-shadow 0.6s;
-    -ms-transition: color 0.6s,text-shadow 0.6s;
     -o-transition: color 0.6s,text-shadow 0.6s;
     transition: color 0.6s,text-shadow 0.6s;
 }
@@ -1357,7 +1351,6 @@ span.icon-pop { cursor: help; float: right; margin: 7px 0; font-size: 10px; colo
 	-moz-box-shadow: inset 0 1px rgba(0,0,0,0.1);
     -webkit-transition: color 0.6s,background 0.3s;
     -moz-transition: color 0.6s,background 0.3s;
-    -ms-transition: color 0.6s,background 0.3s;
     -o-transition: color 0.6s,background 0.3s;
     transition: color 0.6s,background 0.3s;
     font-size: 1em;
@@ -1383,7 +1376,6 @@ span.icon-pop { cursor: help; float: right; margin: 7px 0; font-size: 10px; colo
     -moz-transition: -moz-transform 0.4s ease 0.5s;
     -webkit-transition: -webkit-transform 0.4s ease 0.5s;
     -o-transition: -o-transform 0.4s ease 0.5s;
-    -ms-transition: -ms-transform 0.4s ease 0.5s;
     
 }
 #trigger div {
@@ -1399,7 +1391,6 @@ span.icon-pop { cursor: help; float: right; margin: 7px 0; font-size: 10px; colo
     -moz-transition: background 0.4s ease 0s;
     -webkit-transition: background 0.4s ease 0s;
     -o-transition: background 0.4s ease 0s;
-    -ms-transition: background 0.4s ease 0s;
 }
 #trigger > div > h2 {
     border: none;
@@ -1418,7 +1409,6 @@ span.icon-pop { cursor: help; float: right; margin: 7px 0; font-size: 10px; colo
     -moz-transition: font-weight 0.6s linear 0.1s,text-shadow 0.6s ease-in-out 0s, color 0.6s ease-in-out 0s;
     -webkit-transition: font-weight 0.6s linear 0.1s,text-shadow 0.6s ease-in-out 0s, color 0.6s ease-in-out 0s;
     -o-transition: font-weight 0.6s linear 0.1s,text-shadow 0.6s ease-in-out 0s, color 0.6s ease-in-out 0s;
-    -ms-transition: font-weight 0.6s linear 0.1s,text-shadow 0.6s ease-in-out 0s, color 0.6s ease-in-out 0s;
     text-shadow: 1px 1px 3px <?php echo $triggerColors['font'];?>;
 }
 
@@ -1438,7 +1428,6 @@ span.icon-pop { cursor: help; float: right; margin: 7px 0; font-size: 10px; colo
     -moz-transition: opacity 0.6s ease-in-out 0s;
     -webkit-transition: opacity 0.6s ease-in-out 0s;
     -o-transition: opacity 0.6s ease-in-out 0s;
-    -ms-transition: opacity 0.6s ease-in-out 0s;
 }
 .not-opac { opacity: 0 !important; }
 .level-preview-inner {
@@ -1465,6 +1454,10 @@ span.icon-pop { cursor: help; float: right; margin: 7px 0; font-size: 10px; colo
 <?php if ($useGoogleFont) : ?>
 .nav-wrapper * {
 	font-family: '<?php echo str_replace('|', ',', str_replace('+', ' ', $params->get('googleFontType'))); ?>', sans-serif;
+}
+
+@supports (-ms-accelerator:true) {
+  .nav-wrapper { z-index: 99999;} 
 }
 <?php endif; ?>
 </style>

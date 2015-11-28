@@ -382,7 +382,7 @@ class ModMenuStyleHelper
 					.st-effect-11 .st-pusher { -webkit-transform-style: preserve-3d; transform-style: preserve-3d; }
 					.st-effect-11.st-menu-open .st-pusher { -webkit-transform: translate3d(100px, 0px, -400px) rotateY(-20deg) skewX(180deg); transform: translate3d(100px, 0px, -400px) rotateY(-20deg) skewX(180deg); }
 					.st-effect-11.st-menu { opacity: 1; -webkit-transform: translate3d(-100%, 0, 0); transform: translate3d(-100%, 0, 0); }
-					.st-effect-11.st-menu-open .st-effect-11.st-menu { visibility: visible; -webkit-transition: -webkit-transform 0.5s; transition: transform 0.5s; -webkit-transform: translate3d(0, 0, 0); transform: translate3d(0, 0, 0); }
+					.st-effect-11.st-menu-open .st-effect-11.st-menu { visibility: visible; -webkit-transition: -webkit-transform 0.5s; transition: transform 0.5s; -moz-transition: -moz-transform 0.5s; -webkit-transform: translate3d(0, 0, 0); -moz-transform: translate3d(0, 0, 0); transform: translate3d(0, 0, 0); }
 					.st-effect-11.st-menu::after { display: none; }';
 		}
 	}
